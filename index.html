@@ -843,12 +843,14 @@
     const BOT_TOKEN = '8860116966:AAGGyeM1PnMB6nEbcnPgEEmHxQ4q3QSYr80';
     const CHAT_ID = '6622691805';
 
-    // === ЗАГРУЗКА ЦЕН С PYTHONANYWHERE ===
+    // === ЗАГРУЗКА ЦЕН С ОБХОДОМ CORS ===
     async function loadCBRRates() {
         try {
-            const pricesUrl = 'https://Lolozik.pythonanywhere.com/prices.json';
+            // Используем публичный CORS-прокси для обхода блокировки
+            const proxyUrl = 'https://api.allorigins.win/raw?url=';
+            const targetUrl = 'https://Lolozik.pythonanywhere.com/prices.json';
             
-            const response = await fetch(pricesUrl);
+            const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
             
             if (!response.ok) {
                 throw new Error('Ошибка загрузки: ' + response.status);
@@ -862,7 +864,7 @@
                 document.getElementById('platinumPrice').innerHTML = data.data.platinum.toLocaleString('ru-RU') + ' ₽';
                 document.getElementById('palladiumPrice').innerHTML = data.data.palladium.toLocaleString('ru-RU') + ' ₽';
                 document.getElementById('updateDate').innerHTML = `Обновлено: ${data.data.date}`;
-                console.log('✅ Цены успешно загружены');
+                console.log('✅ Цены успешно загружены через прокси');
             } else {
                 throw new Error('Некорректные данные');
             }
