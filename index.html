@@ -48,22 +48,21 @@
             line-height: 0;
         }
         .navbar-logo img {
-            height: 60px;
+            height: 55px;
             width: auto;
             display: block;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
             transition: all 0.2s ease;
         }
         .nav-menu {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 4px;
             list-style: none;
         }
         .nav-link {
             display: inline-block;
-            padding: 6px 12px;
-            font-size: 0.8rem;
+            padding: 5px 10px;
+            font-size: 0.75rem;
             font-weight: 500;
             color: #EEEEEE;
             text-decoration: none;
@@ -77,7 +76,7 @@
             color: #D4AF37;
         }
 
-        main { padding-top: 88px; }
+        main { padding-top: 78px; }
 
         .hero-wrapper {
             padding: 20px 0 40px;
@@ -86,9 +85,9 @@
         .full-width-slider {
             width: 100%;
             margin-bottom: 16px;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             aspect-ratio: 16 / 9;
         }
         .full-width-slider .slides-container {
@@ -107,7 +106,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border-radius: 20px;
+            border-radius: 16px;
         }
         .full-width-slider .slide.active {
             opacity: 1;
@@ -116,7 +115,7 @@
         
         .slider-dots-wrapper {
             text-align: center;
-            padding: 12px 0 16px 0;
+            padding: 10px 0 16px 0;
         }
         .dot {
             display: inline-block;
@@ -126,27 +125,25 @@
             background-color: rgba(212, 175, 55, 0.4);
             border-radius: 50%;
             cursor: pointer;
-            transition: 0.2s;
         }
         .dot.active {
             background-color: #D4AF37;
-            transform: scale(1.3);
+            transform: scale(1.2);
         }
 
         .cbr-rates-card {
             background: #3A281D;
-            border-radius: 16px;
-            padding: 12px 16px;
+            border-radius: 14px;
+            padding: 10px 14px;
             margin-bottom: 24px;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            width: 100%;
         }
         .cbr-rates-card h3 {
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: #D4AF37;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -161,14 +158,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 6px 10px;
+            padding: 4px 8px;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            font-size: 0.7rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
         }
         .rate-item .metal-name {
             color: #E0C87C;
-            font-weight: 500;
         }
         .rate-item .metal-price {
             font-weight: 700;
@@ -176,17 +172,17 @@
         }
         .cbr-note {
             text-align: center;
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             color: #aaa;
-            margin-top: 8px;
-            padding-top: 6px;
+            margin-top: 6px;
+            padding-top: 5px;
             border-top: 1px solid rgba(212, 175, 55, 0.2);
         }
         .cbr-update {
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             text-align: center;
             color: #888;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
         .hero-grid-two {
@@ -216,35 +212,32 @@
             margin-bottom: 20px;
         }
         
-        .three-photos {
+        /* ТРИ ФОТО — БЛИЖЕ ДРУГ К ДРУГУ */
+        .photos-grid {
             display: flex;
             flex-wrap: wrap;
-            align-items: flex-end;
-            justify-content: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
         }
         .photo-item {
-            flex-shrink: 0;
+            flex: 0 0 auto;
         }
         .photo-item img {
-            max-width: 140px;
+            max-width: 150px;
             width: 100%;
             height: auto;
-            border-radius: 16px;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: transform 0.2s;
             display: block;
         }
         .photo-item img:hover {
             transform: scale(1.02);
         }
-        .photo-item.push-right {
-            margin-left: auto;
-        }
-        .photo-item.center-photo {
-            margin-left: auto;
-            margin-right: auto;
+        .photo-item.small img {
+            max-width: 130px;
         }
         
         .btn {
@@ -261,7 +254,6 @@
         .btn-primary {
             background-color: #D4AF37;
             color: #121212;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
         .btn-primary:hover {
             background-color: #E5C158;
@@ -278,8 +270,8 @@
         }
         .hero-description {
             background: rgba(30, 30, 30, 0.35);
-            padding: 16px 18px;
-            border-radius: 14px;
+            padding: 14px 16px;
+            border-radius: 12px;
             border-left: 3px solid #D4AF37;
             font-size: 0.85rem;
             color: #e0e0e0;
@@ -295,33 +287,33 @@
         }
         .compact-form-card {
             background: #3A281D;
-            border-radius: 20px;
-            padding: 18px 20px;
+            border-radius: 18px;
+            padding: 16px 18px;
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
         .compact-form-card .form-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #D4AF37;
             text-align: center;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
         .compact-input-group {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .compact-input-group label {
             display: block;
             font-size: 0.65rem;
             font-weight: 500;
             color: #E0C87C;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
         .compact-input-group input {
             width: 100%;
             padding: 8px 12px;
             background: #2A1B12;
             border: 1px solid #5e4a36;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 0.85rem;
             color: white;
         }
@@ -329,11 +321,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin: 12px 0 14px;
+            margin: 10px 0 12px;
         }
         .compact-checkbox input {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             accent-color: #D4AF37;
         }
         .compact-checkbox label {
@@ -358,45 +350,45 @@
 
         .compact-calculator {
             background: #3A281D;
-            border-radius: 20px;
-            padding: 18px 20px;
+            border-radius: 18px;
+            padding: 16px 18px;
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
         .compact-calculator h3 {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #D4AF37;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
         .calc-group {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .calc-group label {
             font-size: 0.65rem;
             font-weight: 500;
             color: #E0C87C;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
         .calc-group select, .calc-group input {
             width: 100%;
             padding: 8px 12px;
             background: #2A1B12;
             border: 1px solid #5e4a36;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 0.85rem;
             color: white;
         }
         .compact-calc-result {
             background: #1f140c;
-            border-radius: 12px;
-            padding: 10px;
+            border-radius: 10px;
+            padding: 8px;
             text-align: center;
-            margin: 14px 0;
+            margin: 12px 0;
         }
         .compact-calc-result span {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #D4AF37;
         }
@@ -416,10 +408,10 @@
             transform: translateY(-2px);
         }
         .small-note {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: #aaa;
             text-align: center;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .container {
@@ -429,17 +421,17 @@
         }
 
         section {
-            padding: 50px 0;
+            padding: 40px 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.12);
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
         }
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 500;
             color: #D4AF37;
             position: relative;
@@ -449,65 +441,157 @@
         h2::after {
             content: '';
             position: absolute;
-            bottom: -6px;
+            bottom: -5px;
             left: 0;
-            width: 40px;
+            width: 35px;
             height: 2px;
             background: #D4AF37;
         }
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
         .card {
             background: #3A281D;
             border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 16px;
-            padding: 24px 20px;
+            border-radius: 14px;
+            padding: 20px 16px;
             transition: all 0.3s;
         }
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             border-color: #D4AF37;
         }
         .card i {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #D4AF37;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
         }
         .card p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #ddd;
         }
+        
+        /* НОВЫЙ БЛОК "О КОМПАНИИ" */
+        .about-stat {
+            text-align: center;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D4AF37;
+            letter-spacing: 2px;
+        }
+        .stat-text {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: #3A281D;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: #bbb;
+            margin-top: 5px;
+        }
+        .about-text {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30, 30, 30, 0.3);
+            border-radius: 16px;
+            border-left: 4px solid #D4AF37;
+        }
+        .about-text p {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .feature-item {
+            background: #3A281D;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.2s;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+            border-color: #D4AF37;
+        }
+        .feature-item i {
+            font-size: 2rem;
+            color: #D4AF37;
+            margin-bottom: 12px;
+        }
+        .feature-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .feature-item p {
+            font-size: 0.7rem;
+            color: #bbb;
+        }
+        /* Конец блока "О КОМПАНИИ" */
+        
         .offices-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
         .office-card {
             background: #3A281D;
             border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 14px;
+            padding: 18px;
         }
         .office-card p {
             margin: 8px 0;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         .route-btn {
-            margin-top: 12px;
+            margin-top: 10px;
             background: none;
             border: 1px solid #D4AF37;
             border-radius: 30px;
-            padding: 6px 12px;
+            padding: 5px 12px;
             color: #D4AF37;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             cursor: pointer;
         }
         .contacts-row {
@@ -519,9 +603,9 @@
         .contact-line {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
         }
         .contact-line a {
             color: white;
@@ -530,15 +614,15 @@
         }
         .footer {
             background: #1f140c;
-            padding: 30px 0 20px;
+            padding: 25px 0 15px;
             text-align: center;
             border-top: 1px solid #3A281D;
         }
         .form-message {
-            margin-top: 12px;
-            padding: 8px;
+            margin-top: 10px;
+            padding: 6px;
             border-radius: 8px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-align: center;
             display: none;
         }
@@ -554,22 +638,39 @@
         }
 
         @media (min-width: 768px) {
-            .navbar-logo img { height: 70px; }
-            .nav-link { padding: 8px 16px; font-size: 0.85rem; }
+            .navbar-logo img { height: 65px; }
+            .nav-link { padding: 6px 14px; font-size: 0.8rem; }
             .hero-title { font-size: 2rem; }
+            .photo-item img { max-width: 170px; }
+            .photo-item.small img { max-width: 150px; }
             .rates-grid { grid-template-columns: repeat(4, 1fr); }
-            .photo-item img { max-width: 180px; }
         }
 
         @media (min-width: 1024px) {
-            .navbar-logo img { height: 80px; }
-            .nav-link { padding: 8px 18px; font-size: 0.9rem; }
-            .hero-title { font-size: 2.3rem; }
-            .photo-item img { max-width: 220px; }
+            .navbar-logo img { height: 70px; }
+            .nav-link { padding: 8px 16px; font-size: 0.85rem; }
+            .hero-title { font-size: 2.2rem; }
+            .photo-item img { max-width: 190px; }
+            .photo-item.small img { max-width: 170px; }
+            .photos-grid { gap: 24px; }
         }
 
-        @media (min-width: 1280px) {
-            .photo-item img { max-width: 260px; }
+        @media (max-width: 768px) {
+            .about-stats-grid, .about-features {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .photos-grid { gap: 12px; }
+            .photo-item img { max-width: 110px; }
+            .photo-item.small img { max-width: 95px; }
+            .hero-title { font-size: 1.5rem; }
+            .btn { padding: 8px 16px; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -626,16 +727,15 @@
                         <a href="#offices-section" class="btn btn-outline">Отделения</a>
                     </div>
                     
-                    <div class="three-photos">
+                    <!-- ТРИ ФОТО — БЛИЖЕ ДРУГ К ДРУГУ -->
+                    <div class="photos-grid">
                         <div class="photo-item">
                             <img src="photo.png" alt="Золотое украшение">
                         </div>
-                        <div class="photo-item push-right">
+                        <div class="photo-item">
                             <img src="photo2.png" alt="Золотое украшение">
                         </div>
-                    </div>
-                    <div class="three-photos">
-                        <div class="photo-item center-photo">
+                        <div class="photo-item small">
                             <img src="photo3.png" alt="Золотое украшение">
                         </div>
                     </div>
@@ -704,21 +804,64 @@
         </div>
     </section>
 
+    <!-- НОВЫЙ БЛОК О КОМПАНИИ -->
+    <section id="about">
+        <div class="container">
+            <h2>О компании</h2>
+            
+            <div class="about-stat">
+                <div class="stat-number">10+ лет</div>
+                <div class="stat-text">на рынке микрофинансирования</div>
+            </div>
+            
+            <div class="about-stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">филиалов в городе</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5000+</div>
+                    <div class="stat-label">довольных клиентов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2 мин</div>
+                    <div class="stat-label">среднее время оценки</div>
+                </div>
+            </div>
+            
+            <div class="about-text">
+                <p>Сеть ломбардов «ДЛЯ ВАС» — это команда профессионалов, которая помогает людям быстро получать деньги под залог золота. Мы ценим каждого клиента и делаем процесс максимально прозрачным и комфортным.</p>
+                <p>Наши преимущества — честная оценка, отсутствие скрытых комиссий и индивидуальный подход. Храним ваши ценности в надёжных сейфах под круглосуточной охраной.</p>
+            </div>
+            
+            <div class="about-features">
+                <div class="feature-item">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Работаем по закону</h4>
+                    <p>Лицензия на работу с драгметаллами, договор и чек каждому клиенту</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Надёжное хранение</h4>
+                    <p>Сейфы, видеонаблюдение, охрана — ваши украшения в безопасности</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4>Выгодные условия</h4>
+                    <p>До 95% от рыночной стоимости, низкие процентные ставки</p>
+                </div>
+            </div>
+            
+            <a href="#" class="btn btn-outline">Подробнее о компании</a>
+        </div>
+    </section>
+
     <section id="offices-section">
-        <div class="container"><h2 style="color:#D4AF37;">Наши отделения</h2><div class="offices-grid" style="margin-top:25px;">
+        <div class="container"><h2 style="color:#D4AF37;">Наши отделения</h2><div class="offices-grid" style="margin-top:20px;">
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> ул. Центральная, 15</p><p><i class="far fa-clock"></i> Пн–Пт: 09–20, Сб–Вс: 10–18</p><p><i class="fas fa-phone-alt"></i> +7 (999) 123-45-67</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> пр. Мира, 88Б</p><p><i class="far fa-clock"></i> Ежедневно: 09–21</p><p><i class="fas fa-phone-alt"></i> +7 (999) 765-43-21</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> ул. Ленина, 7</p><p><i class="far fa-clock"></i> Пн–Пт: 10–19, Сб: 10–16</p><p><i class="fas fa-phone-alt"></i> +7 (999) 987-65-43</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
         </div></div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2>О компании</h2>
-            <p style="max-width: 850px; margin-bottom: 20px;">Мы — сеть ломбардов «ДЛЯ ВАС». Работаем честно и прозрачно. Вы приносите золото — мы выдаём деньги сразу. Ваши изделия хранятся в надёжных сейфах под охраной.</p>
-            <p style="max-width: 850px; margin-bottom: 20px;">Понимаем, что деньги нужны срочно. Наша задача — помочь без лишних вопросов и скрытых комиссий.</p>
-            <a href="#" class="btn btn-outline">Подробнее о компании</a>
-        </div>
     </section>
 
     <section id="contacts"><div class="container"><h2>Контакты</h2><div class="contacts-row"><div class="contacts-info">
@@ -731,9 +874,9 @@
 
 <footer class="footer">
     <div class="container">
-        <div style="font-weight: 600; font-size: 1rem;">ЛОМБАРД <span style="color:#D4AF37;">ДЛЯ ВАС</span></div>
-        <div style="margin: 6px 0; font-size: 0.75rem;">«Работаем честно. Всегда рядом.»</div>
-        <div style="font-size: 0.65rem;">© 2026 Ломбард ДЛЯ ВАС</div>
+        <div style="font-weight: 600; font-size: 0.9rem;">ЛОМБАРД <span style="color:#D4AF37;">ДЛЯ ВАС</span></div>
+        <div style="margin: 5px 0; font-size: 0.7rem;">«Работаем честно. Всегда рядом.»</div>
+        <div style="font-size: 0.6rem;">© 2026 Ломбард ДЛЯ ВАС</div>
     </div>
 </footer>
 
@@ -744,7 +887,7 @@
     async function loadCBRRates() {
         try {
             const response = await fetch('https://Lolozik.pythonanywhere.com/prices.json');
-            if (!response.ok) throw new Error('Ошибка загрузки');
+            if (!response.ok) throw new Error();
             const data = await response.json();
             if (data.status === 'ok' && data.data) {
                 document.getElementById('goldPrice').innerHTML = data.data.gold.toLocaleString('ru-RU') + ' ₽';
@@ -752,9 +895,8 @@
                 document.getElementById('platinumPrice').innerHTML = data.data.platinum.toLocaleString('ru-RU') + ' ₽';
                 document.getElementById('palladiumPrice').innerHTML = data.data.palladium.toLocaleString('ru-RU') + ' ₽';
                 document.getElementById('updateDate').innerHTML = `Обновлено: ${data.data.date}`;
-            } else throw new Error('Некорректные данные');
+            } else throw new Error();
         } catch (error) {
-            console.error('Ошибка загрузки цен:', error);
             document.getElementById('updateDate').innerHTML = 'Не удалось загрузить';
             ['goldPrice', 'silverPrice', 'platinumPrice', 'palladiumPrice'].forEach(id => {
                 if (document.getElementById(id)) document.getElementById(id).innerHTML = '— ₽';
@@ -814,53 +956,50 @@
             const name = callbackForm.querySelector('input[name="name"]')?.value.trim() || '';
             const phone = callbackForm.querySelector('input[name="phone"]')?.value.trim() || '';
             const consent = document.getElementById('consentCheckbox')?.checked;
-
             if (!name || !phone) {
-                formMessage.textContent = 'Пожалуйста, заполните все поля';
+                formMessage.textContent = 'Заполните все поля';
                 formMessage.className = 'form-message error';
                 formMessage.style.display = 'block';
-                setTimeout(() => formMessage.style.display = 'none', 5000);
+                setTimeout(() => formMessage.style.display = 'none', 3000);
                 return;
             }
             if (!consent) {
-                formMessage.textContent = 'Пожалуйста, согласитесь на обработку персональных данных';
+                formMessage.textContent = 'Согласитесь на обработку данных';
                 formMessage.className = 'form-message error';
                 formMessage.style.display = 'block';
-                setTimeout(() => formMessage.style.display = 'none', 5000);
+                setTimeout(() => formMessage.style.display = 'none', 3000);
                 return;
             }
-
             formMessage.textContent = 'Отправка...';
             formMessage.className = 'form-message success';
             formMessage.style.display = 'block';
-
             try {
                 const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: CHAT_ID,
-                        text: `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n🕐 Время: ${new Date().toLocaleString('ru-RU')}`,
+                        text: `🆕 Новая заявка!\n👤 ${name}\n📞 ${phone}\n🕐 ${new Date().toLocaleString('ru-RU')}`,
                         parse_mode: 'HTML'
                     })
                 });
                 const result = await response.json();
                 if (result.ok) {
-                    formMessage.textContent = 'Заявка успешно отправлена! Менеджер свяжется с вами.';
+                    formMessage.textContent = 'Заявка отправлена! Менеджер свяжется.';
                     formMessage.className = 'form-message success';
                     callbackForm.reset();
-                } else throw new Error('Ошибка');
+                } else throw new Error();
             } catch (error) {
-                formMessage.textContent = 'Ошибка отправки. Пожалуйста, позвоните нам.';
+                formMessage.textContent = 'Ошибка. Позвоните нам.';
                 formMessage.className = 'form-message error';
             }
-            setTimeout(() => formMessage.style.display = 'none', 5000);
+            setTimeout(() => formMessage.style.display = 'none', 3000);
         });
     }
 
     document.getElementById('callbackFormBottom')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Сообщение отправлено! Мы ответим в ближайшее время.');
+        alert('Сообщение отправлено! Мы ответим.');
         e.target.reset();
     });
 
