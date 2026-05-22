@@ -4,23 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
     <title>Ломбард ДЛЯ ВАС | Займы под залог золота</title>
-    <!-- Favicon (замените на свой файл) -->
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135760.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Яндекс.Метрика (замените счётчик на свой) -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
-        ym(99999999, 'init', { // Замените 99999999 на ваш ID счётчика
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/99999999" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <style>
         * {
             margin: 0;
@@ -30,16 +16,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0D0D0D; /* Глубокий чёрный */
+            background-color: #0D0D0D;
             color: #E0E0E0;
             line-height: 1.5;
             scroll-behavior: smooth;
             font-weight: 400;
-        }
-
-        /* Плавная прокрутка для всех ссылок */
-        html {
-            scroll-behavior: smooth;
         }
 
         /* Навигация */
@@ -260,12 +241,6 @@
             line-height: 1.3;
             margin: 0 0 16px 0;
         }
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
         
         .photos-grid {
             display: flex;
@@ -292,6 +267,23 @@
         }
         .photo-item.small img {
             max-width: 130px;
+        }
+        
+        /* Продающий текст */
+        .hero-selling-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #e0e0e0;
+            padding: 20px 0 10px 0;
+            border-left: 3px solid #D4AF37;
+            padding-left: 18px;
+            margin: 10px 0;
+        }
+        .gold-guarantee {
+            color: #D4AF37;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 4px;
         }
         
         .btn {
@@ -323,14 +315,6 @@
             background: rgba(212, 175, 55, 0.1);
             transform: translateY(-2px);
         }
-        .hero-description {
-            background: rgba(26, 26, 26, 0.5);
-            padding: 14px 16px;
-            border-radius: 12px;
-            border-left: 3px solid #D4AF37;
-            font-size: 0.85rem;
-            color: #CCCCCC;
-        }
 
         .right-column {
             flex: 0.9;
@@ -340,7 +324,6 @@
             gap: 20px;
             justify-content: center;
         }
-        /* Переключатель Займ / Выкуп */
         .calc-switch {
             display: flex;
             background: #1A1A1A;
@@ -746,7 +729,7 @@
             .photo-item img { max-width: 110px; }
             .photo-item.small img { max-width: 95px; }
             .hero-title { font-size: 1.5rem; }
-            .btn { padding: 8px 16px; font-size: 0.75rem; }
+            .hero-selling-text { font-size: 0.85rem; padding-left: 14px; }
             .go-top { width: 40px; height: 40px; font-size: 1.2rem; bottom: 20px; right: 20px; }
         }
     </style>
@@ -799,10 +782,6 @@
                     <div class="hero-title">
                         Выгодные займы<br>в ломбарде под залог золота
                     </div>
-                    <div class="hero-buttons">
-                        <a href="#services" class="btn btn-primary">Наши услуги</a>
-                        <a href="#offices-section" class="btn btn-outline">Отделения</a>
-                    </div>
                     
                     <div class="photos-grid">
                         <div class="photo-item">
@@ -816,8 +795,10 @@
                         </div>
                     </div>
                     
-                    <div class="hero-description">
-                        <p>Компания «Ломбард Для Вас» предлагает населению выгодные условия кредитования. Граждане, находящиеся в сложном финансовом положении, могут обратиться к нам для получения денежных средств под залог имущества. В случае, если получение заработной платы или пенсии отложено на неопределенный срок, а финансовая поддержка требуется в настоящее время, ломбард готов предоставить необходимую помощь. Мы принимаем на хранение драгоценности, гарантируя их сохранность. Выкуп заложенного имущества возможен в любой удобный для вас момент.</p>
+                    <div class="hero-selling-text">
+                        Нужны деньги срочно? Оставьте заявку онлайн и получите сумму на карту в день обращения.<br>
+                        Оценка золота — бесплатно, честно и прозрачно.<br>
+                        <span class="gold-guarantee">Договор, сохранность и конфиденциальность — гарантируем.</span>
                     </div>
                 </div>
 
@@ -916,12 +897,19 @@
         </div></div>
     </section>
 
-    <section id="contacts"><div class="container"><h2>Контакты</h2><div class="contacts-row"><div class="contacts-info">
-        <div class="contact-line"><i class="fas fa-phone-alt"></i> <a href="tel:+79991234567">+7 (999) 123-45-67</a></div>
-        <div class="contact-line"><i class="fab fa-whatsapp"></i> <a href="#">WhatsApp</a></div>
-        <div class="contact-line"><i class="fab fa-telegram"></i> <a href="#">Telegram</a></div>
-        <div class="contact-line"><i class="fas fa-envelope"></i> <a href="mailto:info@lombard-dlyavas.ru">info@lombard-dlyavas.ru</a></div>
-    </div><div class="contact-form"><form id="callbackFormBottom"><div class="form-group"><label>Имя</label><input type="text"></div><div class="form-group"><label>Телефон</label><input type="tel"></div><div class="form-group"><label>Сообщение</label><textarea rows="3"></textarea></div><button type="submit" class="btn btn-primary">Связаться</button></form></div></div></div></section>
+    <section id="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contacts-row">
+                <div class="contacts-info">
+                    <div class="contact-line"><i class="fas fa-phone-alt"></i> <a href="tel:+79991234567">+7 (999) 123-45-67</a></div>
+                    <div class="contact-line"><i class="fab fa-whatsapp"></i> <a href="#">WhatsApp</a></div>
+                    <div class="contact-line"><i class="fab fa-telegram"></i> <a href="#">Telegram</a></div>
+                    <div class="contact-line"><i class="fas fa-envelope"></i> <a href="mailto:info@lombard-dlyavas.ru">info@lombard-dlyavas.ru</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer class="footer">
@@ -932,23 +920,19 @@
     </div>
 </footer>
 
-<!-- Кнопка "Наверх" -->
 <div class="go-top" id="goTop"><i class="fas fa-arrow-up"></i></div>
 
 <script>
     // Telegram и Email настройки
     const BOT_TOKEN = '8860116966:AAGGyeM1PnMB6nEbcnPgEEmHxQ4q3QSYr80';
     const CHAT_ID = '6622691805';
-    const ADMIN_EMAIL = 'info@lombard-dlyavas.ru'; // Замените на ваш email
+    const ADMIN_EMAIL = 'info@lombard-dlyavas.ru';
 
-    // Цены для калькулятора
     const purityPrices = { 375: 2800, 500: 3800, 585: 4600, 750: 5900, 999: 7800 };
     const LOAN_PERCENT = 0.72;
     const BUYOUT_PERCENT = 0.95;
-
     let currentMode = 'loan';
 
-    // Переключение режимов калькулятора
     document.querySelectorAll('.calc-switch-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.calc-switch-btn').forEach(b => b.classList.remove('active'));
@@ -965,7 +949,6 @@
         let resultSpan = document.getElementById('loanAmount');
         let resultLabel = document.getElementById('calcResultLabel');
         let amount;
-        
         if (currentMode === 'loan') {
             amount = Math.floor(pricePerGram * weight * LOAN_PERCENT);
             resultLabel.innerHTML = '💰 Примерная сумма займа:';
@@ -984,7 +967,6 @@
     });
     calculateLoan();
 
-    // Курсы ЦБ РФ
     async function loadCBRRates() {
         try {
             const response = await fetch('https://Lolozik.pythonanywhere.com/prices.json');
@@ -1005,7 +987,6 @@
         }
     }
 
-    // Слайдер
     const slides = document.querySelectorAll('#fullWidthSlider .slide');
     const dotsWrapper = document.getElementById('sliderDotsWrapper');
     let currentIndex = 0, sliderInterval;
@@ -1033,17 +1014,14 @@
     function resetInterval() { clearInterval(sliderInterval); startSlider(); }
     if (slides.length > 0) { createDots(); startSlider(); }
 
-    // Отправка в Telegram и Email
     async function sendToTelegramAndEmail(name, phone) {
         const message = `🆕 Новая заявка!\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n🕐 Время: ${new Date().toLocaleString('ru-RU')}`;
-        // Telegram
         try {
             await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'HTML' })
             });
         } catch(e) { console.error('Telegram error:', e); }
-        // Email (через FormSubmit.co - бесплатный сервис)
         try {
             await fetch('https://formsubmit.co/ajax/' + ADMIN_EMAIL, {
                 method: 'POST',
@@ -1086,18 +1064,11 @@
         });
     }
 
-    document.getElementById('callbackFormBottom')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Сообщение отправлено! Мы ответим.');
-        e.target.reset();
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
         loadCBRRates();
         setInterval(loadCBRRates, 3600000);
     });
 
-    // Кнопка "Наверх"
     const goTopBtn = document.getElementById('goTop');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) goTopBtn.classList.add('show');
