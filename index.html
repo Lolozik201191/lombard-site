@@ -365,7 +365,7 @@
             }
         }
 
-        /* КАЛЬКУЛЯТОР — ФИКСИРОВАННАЯ ВЫСОТА И ВЫРАВНИВАНИЕ */
+        /* ===== КАЛЬКУЛЯТОР — ФИНАЛЬНАЯ ВЕРСИЯ ===== */
         .calculator-full-width {
             width: 100%;
             background: #1A1A1A;
@@ -384,6 +384,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
+            align-items: stretch;
         }
         .calc-left {
             flex: 2;
@@ -394,6 +395,7 @@
         .calc-right {
             flex: 1;
             min-width: 260px;
+            display: flex;
         }
         .calc-switch {
             display: flex;
@@ -483,30 +485,31 @@
             display: block;
         }
 
-        /* ПРАВАЯ ЧАСТЬ — ФИКСИРОВАННАЯ ВЫСОТА */
+        /* ПРАВАЯ ЧАСТЬ — ИДЕАЛЬНОЕ ВЫРАВНИВАНИЕ */
         .result-side {
             background: #0D0D0D;
             padding: 20px;
-            height: 100%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 300px;
+            min-height: 100%;
         }
         .result-amount-sunlight {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .result-label {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #aaa;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .result-value {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #D4AF37;
+            line-height: 1.2;
         }
         .result-info {
             margin-bottom: 20px;
@@ -515,8 +518,8 @@
         .info-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
-            font-size: 0.8rem;
+            padding: 6px 0;
+            font-size: 0.75rem;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .info-row span:last-child {
@@ -527,12 +530,12 @@
             background: #D4AF37;
             color: #0D0D0D;
             width: 100%;
-            padding: 12px;
+            padding: 8px;
             font-weight: 600;
             border: none;
             cursor: pointer;
             margin-bottom: 12px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: all 0.2s;
         }
         .ask-question-btn:hover {
@@ -540,7 +543,7 @@
             transform: translateY(-2px);
         }
         .calculator-note {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: #aaa;
             text-align: center;
         }
@@ -587,28 +590,21 @@
             }
             .result-side {
                 padding: 12px;
-                min-height: 260px;
-            }
-            .result-amount-sunlight {
-                margin-bottom: 12px;
-            }
-            .result-label {
-                font-size: 0.65rem;
             }
             .result-value {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
             .info-row {
                 padding: 4px 0;
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
             .ask-question-btn {
-                padding: 8px;
-                font-size: 0.8rem;
+                padding: 6px;
+                font-size: 0.75rem;
                 margin-bottom: 8px;
             }
             .calculator-note {
-                font-size: 0.5rem;
+                font-size: 0.45rem;
             }
             .calc-main-grid {
                 gap: 16px;
@@ -1037,12 +1033,12 @@
                     </div>
                     
                     <div class="calc-right">
-                        <div class="result-side">
+                        <div class="result-side" id="resultSide">
                             <div class="result-amount-sunlight">
                                 <span class="result-label" id="resultLabel">💰 Выдадим на руки (займ)</span>
                                 <span class="result-value" id="loanAmount">5 070 ₽</span>
                             </div>
-                            <div class="result-info">
+                            <div class="result-info" id="resultInfo">
                                 <div class="info-row" id="tariffRow">
                                     <span>Тариф:</span>
                                     <span id="tariffName">Оптимальный выбор</span>
@@ -1238,7 +1234,7 @@
         }
     }
 
-    // Калькулятор — с сохранением одинаковой высоты
+    // Калькулятор — финальная версия
     let currentMode = 'loan';
     let currentPurity = 585;
     let currentPrice = 5070;
@@ -1251,6 +1247,11 @@
         let totalAmount;
         let resultLabelText;
         
+        const tariffRow = document.getElementById('tariffRow');
+        const dailyRateRow = document.getElementById('dailyRateRow');
+        const interestRow = document.getElementById('interestRow');
+        const daysParamItem = document.getElementById('daysParamItem');
+        
         if (currentMode === 'loan') {
             totalAmount = currentPrice * currentWeight;
             resultLabelText = '💰 Выдадим на руки (займ)';
@@ -1259,18 +1260,19 @@
             document.getElementById('dailyRate').innerHTML = `0.293% (${dailyRateRub} ₽)`;
             document.getElementById('totalInterest').innerHTML = totalInterestAmount.toLocaleString('ru-RU') + ' ₽';
             document.getElementById('tariffName').innerHTML = 'Оптимальный выбор';
-            document.getElementById('tariffRow').style.display = 'flex';
-            document.getElementById('dailyRateRow').style.display = 'flex';
-            document.getElementById('interestRow').style.display = 'flex';
-            document.getElementById('daysParamItem').style.display = 'block';
+            
+            if (tariffRow) tariffRow.style.display = 'flex';
+            if (dailyRateRow) dailyRateRow.style.display = 'flex';
+            if (interestRow) interestRow.style.display = 'flex';
+            if (daysParamItem) daysParamItem.style.display = 'block';
         } else {
             totalAmount = currentBuyoutPrice * currentWeight;
             resultLabelText = '💰 Сумма выкупа';
-            // Скрываем ненужные строки и поле "Срок займа"
-            document.getElementById('tariffRow').style.display = 'none';
-            document.getElementById('dailyRateRow').style.display = 'none';
-            document.getElementById('interestRow').style.display = 'none';
-            document.getElementById('daysParamItem').style.display = 'none';
+            
+            if (tariffRow) tariffRow.style.display = 'none';
+            if (dailyRateRow) dailyRateRow.style.display = 'none';
+            if (interestRow) interestRow.style.display = 'none';
+            if (daysParamItem) daysParamItem.style.display = 'none';
         }
         
         document.getElementById('loanAmount').innerHTML = totalAmount.toLocaleString('ru-RU') + ' ₽';
