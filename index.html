@@ -47,6 +47,8 @@
         .navbar-logo img {
             height: 50px;
             width: auto;
+            min-width: 180px;  /* растягиваем логотип */
+            object-fit: contain;
         }
         .nav-menu {
             display: flex;
@@ -898,6 +900,10 @@
             .params-row {
                 flex-direction: column;
                 gap: 12px;
+            }
+            .navbar-logo img {
+                min-width: 140px;
+                height: 40px;
             }
         }
     </style>
