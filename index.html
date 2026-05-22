@@ -839,32 +839,49 @@
 </footer>
 
 <script>
+    // Telegram настройки
     const BOT_TOKEN = '8860116966:AAGGyeM1PnMB6nEbcnPgEEmHxQ4q3QSYr80';
     const CHAT_ID = '6622691805';
 
+    // === ЗАГРУЗКА ЦЕН С PYTHONANYWHERE ===
     async function loadCBRRates() {
         try {
-            const response = await fetch('https://Lolozik.pythonanywhere.com/prices.json');
-            if (!response.ok) throw new Error('Ошибка загрузки');
+            const pricesUrl = 'https://Lolozik.pythonanywhere.com/prices.json';
+            
+            const response = await fetch(pricesUrl);
+            
+            if (!response.ok) {
+                throw new Error('Ошибка загрузки: ' + response.status);
+            }
+            
             const data = await response.json();
+            
             if (data.status === 'ok' && data.data) {
                 document.getElementById('goldPrice').innerHTML = data.data.gold.toLocaleString('ru-RU') + ' ₽';
                 document.getElementById('silverPrice').innerHTML = data.data.silver.toLocaleString('ru-RU') + ' ₽';
                 document.getElementById('platinumPrice').innerHTML = data.data.platinum.toLocaleString('ru-RU') + ' ₽';
                 document.getElementById('palladiumPrice').innerHTML = data.data.palladium.toLocaleString('ru-RU') + ' ₽';
                 document.getElementById('updateDate').innerHTML = `Обновлено: ${data.data.date}`;
-            } else throw new Error('Некорректные данные');
+                console.log('✅ Цены успешно загружены');
+            } else {
+                throw new Error('Некорректные данные');
+            }
         } catch (error) {
+            console.error('❌ Ошибка загрузки цен:', error);
             document.getElementById('updateDate').innerHTML = 'Не удалось загрузить';
             ['goldPrice', 'silverPrice', 'platinumPrice', 'palladiumPrice'].forEach(id => {
-                document.getElementById(id).innerHTML = '— ₽';
+                if (document.getElementById(id)) {
+                    document.getElementById(id).innerHTML = '— ₽';
+                }
             });
         }
     }
 
+    // Слайдер
     const slides = document.querySelectorAll('#fullWidthSlider .slide');
     const dotsWrapper = document.getElementById('sliderDotsWrapper');
-    let currentIndex = 0, sliderInterval;
+    let currentIndex = 0;
+    let sliderInterval;
 
     function createDots() {
         if (!dotsWrapper) return;
@@ -873,29 +890,50 @@
             const dot = document.createElement('span');
             dot.classList.add('dot');
             if (i === currentIndex) dot.classList.add('active');
-            dot.addEventListener('click', () => { goToSlide(i); resetInterval(); });
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+                resetInterval();
+            });
             dotsWrapper.appendChild(dot);
         });
     }
 
     function goToSlide(index) {
-        slides.forEach((s, i) => s.classList.toggle('active', i === index));
-        document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === index));
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
         currentIndex = index;
     }
 
-    function nextSlide() { goToSlide((currentIndex + 1) % slides.length); }
-    function startSlider() { sliderInterval = setInterval(nextSlide, 4000); }
-    function resetInterval() { clearInterval(sliderInterval); startSlider(); }
+    function nextSlide() {
+        goToSlide((currentIndex + 1) % slides.length);
+    }
 
-    if (slides.length > 0) { createDots(); startSlider(); }
+    function startSlider() {
+        sliderInterval = setInterval(nextSlide, 4000);
+    }
 
+    function resetInterval() {
+        clearInterval(sliderInterval);
+        startSlider();
+    }
+
+    if (slides.length > 0) {
+        createDots();
+        startSlider();
+    }
+
+    // Калькулятор
     const purityPrices = { 375: 2800, 500: 3800, 585: 4600, 750: 5900, 999: 7800 };
     const LOAN_PERCENT = 0.72;
     function calculateLoan() {
         let purity = parseFloat(document.getElementById('puritySelect').value);
         let weight = parseFloat(document.getElementById('weightInput').value) || 0;
-        let amount = Math.floor((purityPrices[purity] || 4600) * weight * LOAN_PERCENT);
+        let pricePerGram = purityPrices[purity] || 4600;
+        let amount = Math.floor(pricePerGram * weight * LOAN_PERCENT);
         document.getElementById('loanAmount').innerText = amount.toLocaleString('ru-RU') + ' ₽';
     }
     document.getElementById('puritySelect')?.addEventListener('change', calculateLoan);
@@ -906,66 +944,90 @@
     });
     calculateLoan();
 
+    // Отправка формы в Telegram
     const callbackForm = document.getElementById('callbackForm');
     const formMessage = document.getElementById('formMessage');
+
     if (callbackForm) {
         callbackForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = callbackForm.querySelector('input[name="name"]')?.value.trim() || '';
-            const phone = callbackForm.querySelector('input[name="phone"]')?.value.trim() || '';
-            const consent = document.getElementById('consentCheckbox')?.checked;
-
+            
+            const nameInput = callbackForm.querySelector('input[name="name"]');
+            const phoneInput = callbackForm.querySelector('input[name="phone"]');
+            const consentInput = document.getElementById('consentCheckbox');
+            
+            const name = nameInput?.value.trim() || '';
+            const phone = phoneInput?.value.trim() || '';
+            
             if (!name || !phone) {
-                formMessage.textContent = 'Пожалуйста, заполните все поля';
-                formMessage.className = 'form-message error';
-                formMessage.style.display = 'block';
-                setTimeout(() => formMessage.style.display = 'none', 5000);
+                showMessage('Пожалуйста, заполните все поля', 'error');
                 return;
             }
-            if (!consent) {
-                formMessage.textContent = 'Пожалуйста, согласитесь на обработку персональных данных';
-                formMessage.className = 'form-message error';
-                formMessage.style.display = 'block';
-                setTimeout(() => formMessage.style.display = 'none', 5000);
+            
+            if (!consentInput?.checked) {
+                showMessage('Пожалуйста, согласитесь на обработку персональных данных', 'error');
                 return;
             }
-
-            formMessage.textContent = 'Отправка...';
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
-
+            
+            showMessage('Отправка...', 'success', false);
+            
+            const message = `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n🕐 Время: ${new Date().toLocaleString('ru-RU')}`;
+            
             try {
-                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+                
+                const response = await fetch(url, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
                     body: JSON.stringify({
                         chat_id: CHAT_ID,
-                        text: `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n🕐 Время: ${new Date().toLocaleString('ru-RU')}`,
+                        text: message,
                         parse_mode: 'HTML'
                     })
                 });
+                
                 const result = await response.json();
+                
                 if (result.ok) {
-                    formMessage.textContent = 'Заявка успешно отправлена! Менеджер свяжется с вами.';
-                    formMessage.className = 'form-message success';
+                    showMessage('Заявка успешно отправлена! Менеджер свяжется с вами.', 'success');
                     callbackForm.reset();
                 } else {
-                    throw new Error('Ошибка');
+                    console.error('Telegram error:', result);
+                    showMessage('Ошибка отправки. Пожалуйста, позвоните нам по телефону.', 'error');
                 }
             } catch (error) {
-                formMessage.textContent = 'Ошибка отправки. Пожалуйста, позвоните нам.';
-                formMessage.className = 'form-message error';
+                console.error('Ошибка:', error);
+                showMessage('Ошибка соединения. Пожалуйста, позвоните нам по телефону: +7 (999) 123-45-67', 'error');
             }
-            setTimeout(() => formMessage.style.display = 'none', 5000);
+            
+            function showMessage(text, type, autoClear = true) {
+                if (!formMessage) return;
+                formMessage.textContent = text;
+                formMessage.className = `form-message ${type}`;
+                formMessage.style.display = 'block';
+                
+                if (autoClear) {
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                }
+            }
+        });
+    }
+    
+    // Форма в контактах
+    const bottomForm = document.getElementById('callbackFormBottom');
+    if (bottomForm) {
+        bottomForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Сообщение отправлено! Мы ответим в ближайшее время.');
+            bottomForm.reset();
         });
     }
 
-    document.getElementById('callbackFormBottom')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Сообщение отправлено! Мы ответим в ближайшее время.');
-        e.target.reset();
-    });
-
+    // Загружаем цены при загрузке страницы и раз в час
     document.addEventListener('DOMContentLoaded', () => {
         loadCBRRates();
         setInterval(loadCBRRates, 3600000);
