@@ -74,7 +74,6 @@
         .nav-link:hover {
             color: #D4AF37;
         }
-        /* Убираем иконку у пункта "О компании" */
         .nav-link.about-link i {
             display: none;
         }
@@ -145,7 +144,6 @@
 
         main { padding-top: 70px; }
 
-        /* Кнопка "Наверх" */
         .go-top {
             position: fixed;
             bottom: 30px;
@@ -276,7 +274,6 @@
             margin-top: 4px;
         }
 
-        /* ГЛАВНЫЙ БЛОК */
         .hero-single-col {
             margin-bottom: 40px;
             text-align: center;
@@ -314,7 +311,6 @@
             box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
         }
         
-        /* Текст под фото */
         .hero-description-text {
             background: #1A1A1A;
             padding: 24px;
@@ -333,7 +329,6 @@
             margin-bottom: 0;
         }
 
-        /* УВЕЛИЧЕННЫЕ РАЗМЕРЫ МИНИ-ФОТО */
         @media (max-width: 640px) {
             .photo-item img {
                 max-width: 130px;
@@ -370,7 +365,7 @@
             }
         }
 
-        /* КАЛЬКУЛЯТОР */
+        /* КАЛЬКУЛЯТОР — ФИКСИРОВАННАЯ ВЫСОТА И ПРОПОРЦИИ */
         .calculator-full-width {
             width: 100%;
             background: #1A1A1A;
@@ -486,6 +481,7 @@
             display: block;
         }
 
+        /* ФИКСИРОВАННЫЙ БЛОК РЕЗУЛЬТАТА (не меняет высоту) */
         .result-side {
             background: #0D0D0D;
             padding: 20px;
@@ -493,6 +489,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            min-height: 280px;
         }
         .result-amount-sunlight {
             text-align: center;
@@ -511,6 +508,7 @@
         }
         .result-info {
             margin-bottom: 20px;
+            flex-grow: 1;
         }
         .info-row {
             display: flex;
@@ -523,6 +521,9 @@
             color: #D4AF37;
             font-weight: 500;
         }
+        .info-row.placeholder {
+            visibility: hidden;
+        }
         .ask-question-btn {
             background: #D4AF37;
             color: #0D0D0D;
@@ -533,9 +534,11 @@
             cursor: pointer;
             margin-bottom: 12px;
             font-size: 0.9rem;
+            transition: all 0.2s;
         }
         .ask-question-btn:hover {
             background: #E5C158;
+            transform: translateY(-2px);
         }
         .calculator-note {
             font-size: 0.6rem;
@@ -543,7 +546,6 @@
             text-align: center;
         }
 
-        /* === МОБИЛЬНАЯ ВЕРСИЯ: компактный калькулятор === */
         @media (max-width: 768px) {
             .calculator-full-width {
                 padding: 16px;
@@ -586,6 +588,7 @@
             }
             .result-side {
                 padding: 12px;
+                min-height: 240px;
             }
             .result-amount-sunlight {
                 margin-bottom: 12px;
@@ -717,8 +720,6 @@
             color: #D4AF37;
             font-size: 1rem;
         }
-        /* Кнопки "Подробнее" убраны */
-
         .tariff-note {
             text-align: center;
             font-size: 0.7rem;
@@ -728,7 +729,6 @@
             border-top: 1px solid rgba(212, 175, 55, 0.15);
         }
 
-        /* Блок О КОМПАНИИ — скрыт на телефонах */
         .about-section {
             display: block;
         }
@@ -922,7 +922,6 @@
     </div>
 </div>
 
-<!-- Мобильное меню (без иконки у "О компании" тоже) -->
 <div class="mobile-menu" id="mobileMenu">
     <button class="close-btn" id="closeMenuBtn"><i class="fas fa-times"></i></button>
     <a href="#services"><i class="fas fa-gem"></i> Услуги</a>
@@ -1045,15 +1044,15 @@
                                 <span class="result-value" id="loanAmount">5 070 ₽</span>
                             </div>
                             <div class="result-info">
-                                <div class="info-row">
+                                <div class="info-row" id="tariffRow">
                                     <span>Тариф:</span>
                                     <span id="tariffName">Оптимальный выбор</span>
                                 </div>
-                                <div class="info-row">
+                                <div class="info-row" id="dailyRateRow">
                                     <span>Ставка в день:</span>
                                     <span id="dailyRate">0.293% (14.86 ₽)</span>
                                 </div>
-                                <div class="info-row">
+                                <div class="info-row" id="interestRow">
                                     <span>Проценты за период:</span>
                                     <span id="totalInterest">446 ₽</span>
                                 </div>
@@ -1080,7 +1079,6 @@
         </div>
     </section>
 
-    <!-- БЛОК ТАРИФОВ (кнопки "Подробнее" удалены) -->
     <section id="tariffs">
         <div class="container">
             <h2>Тарифы займа</h2>
@@ -1128,7 +1126,6 @@
         </div>
     </section>
 
-    <!-- Блок О КОМПАНИИ — скрыт на телефонах (класс about-section) -->
     <div class="about-section">
         <section id="about">
             <div class="container">
@@ -1242,7 +1239,7 @@
         }
     }
 
-    // Калькулятор
+    // Калькулятор — с сохранением одинаковой высоты
     let currentMode = 'loan';
     let currentPurity = 585;
     let currentPrice = 5070;
@@ -1263,14 +1260,16 @@
             document.getElementById('dailyRate').innerHTML = `0.293% (${dailyRateRub} ₽)`;
             document.getElementById('totalInterest').innerHTML = totalInterestAmount.toLocaleString('ru-RU') + ' ₽';
             document.getElementById('tariffName').innerHTML = 'Оптимальный выбор';
-            document.querySelectorAll('.info-row').forEach(row => row.style.display = 'flex');
+            document.getElementById('tariffRow').style.display = 'flex';
+            document.getElementById('dailyRateRow').style.display = 'flex';
+            document.getElementById('interestRow').style.display = 'flex';
         } else {
             totalAmount = currentBuyoutPrice * currentWeight;
             resultLabelText = '💰 Сумма выкупа';
-            document.getElementById('dailyRate').innerHTML = '—';
-            document.getElementById('totalInterest').innerHTML = '—';
-            document.getElementById('tariffName').innerHTML = '—';
-            document.querySelectorAll('.info-row').forEach(row => row.style.display = 'none');
+            // Скрываем строки, но оставляем место (блок не меняет высоту)
+            document.getElementById('tariffRow').style.display = 'none';
+            document.getElementById('dailyRateRow').style.display = 'none';
+            document.getElementById('interestRow').style.display = 'none';
         }
         
         document.getElementById('loanAmount').innerHTML = totalAmount.toLocaleString('ru-RU') + ' ₽';
@@ -1279,6 +1278,7 @@
         document.getElementById('daysDisplay').innerHTML = currentDays + ' дней';
     }
 
+    // Переключение режима
     document.querySelectorAll('.calc-switch-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.calc-switch-btn').forEach(b => b.classList.remove('active'));
@@ -1303,6 +1303,7 @@
         });
     });
 
+    // Выбор пробы
     document.querySelectorAll('.purity-card-sunlight').forEach(card => {
         card.addEventListener('click', () => {
             document.querySelectorAll('.purity-card-sunlight').forEach(c => c.classList.remove('active'));
@@ -1319,6 +1320,7 @@
         });
     });
 
+    // Вес
     document.getElementById('weightSelector').addEventListener('click', () => {
         let newWeight = prompt('Введите вес в граммах (от 0.5 до 50)', currentWeight);
         if (newWeight && !isNaN(newWeight) && newWeight > 0 && newWeight <= 50) {
@@ -1327,6 +1329,7 @@
         }
     });
 
+    // Срок
     document.getElementById('daysSelector').addEventListener('click', () => {
         let newDays = prompt('Введите срок займа в днях (от 7 до 365)', currentDays);
         if (newDays && !isNaN(newDays) && newDays >= 7 && newDays <= 365) {
@@ -1335,6 +1338,7 @@
         }
     });
 
+    // Кнопка "Задать вопрос"
     document.getElementById('askQuestionBtn').addEventListener('click', () => {
         window.open('https://t.me/Lolozik201191', '_blank');
     });
