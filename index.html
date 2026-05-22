@@ -48,7 +48,6 @@
             height: 50px;
             width: auto;
         }
-        /* Обычное меню (для планшетов и ПК) */
         .nav-menu {
             display: flex;
             flex-wrap: wrap;
@@ -73,7 +72,14 @@
         .nav-link:hover {
             color: #D4AF37;
         }
-        /* Кнопка бургер-меню (скрыта на больших экранах) */
+        /* Убираем иконку у пункта "О компании" */
+        .nav-link.about-link i {
+            display: none;
+        }
+        .nav-link.about-link {
+            padding-left: 14px;
+        }
+        
         .burger-btn {
             display: none;
             background: none;
@@ -83,7 +89,6 @@
             cursor: pointer;
             z-index: 1001;
         }
-        /* Мобильное меню (выезжающее) */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -171,7 +176,6 @@
             padding: 20px 0 40px;
         }
 
-        /* Слайдер */
         .full-width-slider {
             width: 100%;
             margin-bottom: 16px;
@@ -270,7 +274,7 @@
             margin-top: 4px;
         }
 
-        /* ГЛАВНЫЙ БЛОК (ЗАГОЛОВОК + ТРИ ФОТО + КОРОТКИЙ ТЕКСТ) */
+        /* ГЛАВНЫЙ БЛОК */
         .hero-single-col {
             margin-bottom: 40px;
             text-align: center;
@@ -288,8 +292,8 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 24px;
+            margin-bottom: 28px;
         }
         .photo-item {
             flex: 0 0 auto;
@@ -308,41 +312,59 @@
             box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
         }
         
-        .hero-short-text {
-            font-size: 0.9rem;
-            color: #ccc;
-            line-height: 1.4;
-            max-width: 500px;
+        /* Текст под фото */
+        .hero-description-text {
+            background: #1A1A1A;
+            padding: 24px;
+            border-left: 3px solid #D4AF37;
+            text-align: left;
+            max-width: 90%;
             margin: 0 auto;
         }
+        .hero-description-text p {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #ccc;
+        }
+        .hero-description-text p:last-child {
+            margin-bottom: 0;
+        }
 
-        /* Адаптивные размеры мини-фото */
+        /* УВЕЛИЧЕННЫЕ РАЗМЕРЫ МИНИ-ФОТО */
         @media (max-width: 640px) {
             .photo-item img {
-                max-width: 95px;
+                max-width: 130px;
             }
             .hero-title {
                 font-size: 1.5rem;
             }
+            .hero-description-text {
+                max-width: 100%;
+                padding: 16px;
+            }
+            .photos-grid {
+                gap: 16px;
+            }
         }
         @media (min-width: 641px) and (max-width: 768px) {
             .photo-item img {
-                max-width: 110px;
+                max-width: 150px;
             }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
             .photo-item img {
-                max-width: 140px;
+                max-width: 180px;
             }
         }
         @media (min-width: 1025px) and (max-width: 1280px) {
             .photo-item img {
-                max-width: 160px;
+                max-width: 210px;
             }
         }
         @media (min-width: 1281px) {
             .photo-item img {
-                max-width: 180px;
+                max-width: 240px;
             }
         }
 
@@ -519,6 +541,76 @@
             text-align: center;
         }
 
+        /* === МОБИЛЬНАЯ ВЕРСИЯ: компактный калькулятор === */
+        @media (max-width: 768px) {
+            .calculator-full-width {
+                padding: 16px;
+            }
+            .calculator-full-width h3 {
+                font-size: 1rem;
+                margin-bottom: 12px;
+            }
+            .calc-switch-btn {
+                padding: 6px;
+                font-size: 0.75rem;
+            }
+            .params-row {
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+            .param-value {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+            .param-item label {
+                font-size: 0.6rem;
+            }
+            .purities-grid-sunlight {
+                gap: 8px;
+                margin-bottom: 16px;
+            }
+            .purity-card-sunlight {
+                padding: 8px 4px;
+            }
+            .purity-card-sunlight i {
+                font-size: 0.8rem;
+                margin-bottom: 4px;
+            }
+            .purity-value {
+                font-size: 0.75rem;
+            }
+            .purity-price {
+                font-size: 0.55rem;
+            }
+            .result-side {
+                padding: 12px;
+            }
+            .result-amount-sunlight {
+                margin-bottom: 12px;
+            }
+            .result-label {
+                font-size: 0.65rem;
+            }
+            .result-value {
+                font-size: 1.4rem;
+            }
+            .info-row {
+                padding: 4px 0;
+                font-size: 0.7rem;
+            }
+            .ask-question-btn {
+                padding: 8px;
+                font-size: 0.8rem;
+                margin-bottom: 8px;
+            }
+            .calculator-note {
+                font-size: 0.5rem;
+            }
+            .calc-main-grid {
+                gap: 16px;
+            }
+        }
+
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -636,6 +728,16 @@
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Блок О КОМПАНИИ — скрыт на телефонах */
+        .about-section {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .about-section {
+                display: none;
+            }
         }
 
         .about-stat {
@@ -790,18 +892,12 @@
                 bottom: 20px;
                 right: 20px;
             }
-            .calc-main-grid {
-                flex-direction: column;
-            }
             .purities-grid-sunlight {
                 grid-template-columns: repeat(3, 1fr);
             }
             .params-row {
                 flex-direction: column;
                 gap: 12px;
-            }
-            .hero-title {
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -818,19 +914,19 @@
             <li><a href="#services" class="nav-link"><i class="fas fa-gem"></i> Услуги</a></li>
             <li><a href="#tariffs" class="nav-link"><i class="fas fa-tags"></i> Тарифы</a></li>
             <li><a href="#offices-section" class="nav-link"><i class="fas fa-map-marker-alt"></i> Адреса</a></li>
-            <li><a href="#about" class="nav-link"><i class="fas fa-building"></i> О компании</a></li>
+            <li><a href="#about" class="nav-link about-link">О компании</a></li>
             <li><a href="#contacts" class="nav-link"><i class="fas fa-phone-alt"></i> Контакты</a></li>
         </ul>
     </div>
 </div>
 
-<!-- Мобильное меню -->
+<!-- Мобильное меню (без иконки у "О компании" тоже) -->
 <div class="mobile-menu" id="mobileMenu">
     <button class="close-btn" id="closeMenuBtn"><i class="fas fa-times"></i></button>
     <a href="#services"><i class="fas fa-gem"></i> Услуги</a>
     <a href="#tariffs"><i class="fas fa-tags"></i> Тарифы</a>
     <a href="#offices-section"><i class="fas fa-map-marker-alt"></i> Адреса</a>
-    <a href="#about"><i class="fas fa-building"></i> О компании</a>
+    <a href="#about">О компании</a>
     <a href="#contacts"><i class="fas fa-phone-alt"></i> Контакты</a>
 </div>
 <div class="overlay" id="overlay"></div>
@@ -861,7 +957,6 @@
                 <div class="cbr-update" id="updateDate">Загрузка...</div>
             </div>
 
-            <!-- ГЛАВНЫЙ БЛОК: ЗАГОЛОВОК + ТРИ ФОТО + КОРОТКИЙ ТЕКСТ -->
             <div class="hero-single-col">
                 <div class="hero-title">
                     Выгодные займы<br>под залог золота
@@ -879,13 +974,12 @@
                     </div>
                 </div>
                 
-                <div class="hero-short-text">
-                    Оценка золота — бесплатно, честно и прозрачно.<br>
-                    Договор, сохранность и конфиденциальность — гарантируем.
+                <div class="hero-description-text">
+                    <p>Сеть ломбардов «ДЛЯ ВАС» — это команда профессионалов, которая помогает людям быстро получать деньги под залог золота. Мы ценим каждого клиента и делаем процесс максимально прозрачным и комфортным.</p>
+                    <p>Наши преимущества — честная оценка, отсутствие скрытых комиссий и индивидуальный подход. Храним ваши ценности в надёжных сейфах под круглосуточной охраной.</p>
                 </div>
             </div>
 
-            <!-- КАЛЬКУЛЯТОР -->
             <div class="calculator-full-width">
                 <h3>Рассчитайте, сколько получите</h3>
                 
@@ -1035,29 +1129,32 @@
         </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>О компании</h2>
-            <div class="about-stat">
-                <div class="stat-number">10+ лет</div>
-                <div class="stat-text">на рынке микрофинансирования</div>
+    <!-- Блок О КОМПАНИИ — скрыт на телефонах (класс about-section) -->
+    <div class="about-section">
+        <section id="about">
+            <div class="container">
+                <h2>О компании</h2>
+                <div class="about-stat">
+                    <div class="stat-number">10+ лет</div>
+                    <div class="stat-text">на рынке микрофинансирования</div>
+                </div>
+                <div class="about-stats-grid">
+                    <div class="stat-card"><div class="stat-value">5</div><div class="stat-label">филиалов в городе</div></div>
+                    <div class="stat-card"><div class="stat-value">5000+</div><div class="stat-label">довольных клиентов</div></div>
+                    <div class="stat-card"><div class="stat-value">2 мин</div><div class="stat-label">среднее время оценки</div></div>
+                </div>
+                <div class="about-text">
+                    <p>Наша миссия — сделать процесс получения денег под залог золота быстрым, прозрачным и доступным для каждого. Мы работаем с 2015 года и заслужили доверие тысяч клиентов.</p>
+                    <p>Каждый сотрудник проходит обучение и даёт гарантию честной оценки. Мы дорожим репутацией и всегда открыты к диалогу.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature-item"><i class="fas fa-file-alt"></i><h4>Работаем по закону</h4><p>Лицензия на работу с драгметаллами, договор и чек каждому клиенту</p></div>
+                    <div class="feature-item"><i class="fas fa-shield-alt"></i><h4>Надёжное хранение</h4><p>Сейфы, видеонаблюдение, охрана — ваши украшения в безопасности</p></div>
+                    <div class="feature-item"><i class="fas fa-hand-holding-usd"></i><h4>Выгодные условия</h4><p>До 95% от рыночной стоимости, низкие процентные ставки</p></div>
+                </div>
             </div>
-            <div class="about-stats-grid">
-                <div class="stat-card"><div class="stat-value">5</div><div class="stat-label">филиалов в городе</div></div>
-                <div class="stat-card"><div class="stat-value">5000+</div><div class="stat-label">довольных клиентов</div></div>
-                <div class="stat-card"><div class="stat-value">2 мин</div><div class="stat-label">среднее время оценки</div></div>
-            </div>
-            <div class="about-text">
-                <p>Сеть ломбардов «ДЛЯ ВАС» — это команда профессионалов, которая помогает людям быстро получать деньги под залог золота. Мы ценим каждого клиента и делаем процесс максимально прозрачным и комфортным.</p>
-                <p>Наши преимущества — честная оценка, отсутствие скрытых комиссий и индивидуальный подход. Храним ваши ценности в надёжных сейфах под круглосуточной охраной.</p>
-            </div>
-            <div class="about-features">
-                <div class="feature-item"><i class="fas fa-file-alt"></i><h4>Работаем по закону</h4><p>Лицензия на работу с драгметаллами, договор и чек каждому клиенту</p></div>
-                <div class="feature-item"><i class="fas fa-shield-alt"></i><h4>Надёжное хранение</h4><p>Сейфы, видеонаблюдение, охрана — ваши украшения в безопасности</p></div>
-                <div class="feature-item"><i class="fas fa-hand-holding-usd"></i><h4>Выгодные условия</h4><p>До 95% от рыночной стоимости, низкие процентные ставки</p></div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <section id="offices-section">
         <div class="container"><h2 style="color:#D4AF37;">Наши отделения</h2><div class="offices-grid" style="margin-top:20px;">
@@ -1093,7 +1190,7 @@
 <div class="go-top" id="goTop"><i class="fas fa-arrow-up"></i></div>
 
 <script>
-    // === БУРГЕР-МЕНЮ ===
+    // Бургер-меню
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('overlay');
@@ -1117,7 +1214,7 @@
         link.addEventListener('click', closeMenu);
     });
 
-    // === КНОПКА "НАВЕРХ" ===
+    // Кнопка "Наверх"
     const goTopBtn = document.getElementById('goTop');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) goTopBtn.classList.add('show');
@@ -1127,7 +1224,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // === ОБНОВЛЕНИЕ КУРСОВ ЦБ ===
+    // Обновление курсов ЦБ
     async function loadCBRRates() {
         try {
             const response = await fetch('https://Lolozik.pythonanywhere.com/prices.json');
@@ -1146,7 +1243,7 @@
         }
     }
 
-    // === КАЛЬКУЛЯТОР ===
+    // Калькулятор
     let currentMode = 'loan';
     let currentPurity = 585;
     let currentPrice = 5070;
@@ -1243,7 +1340,7 @@
         window.open('https://t.me/Lolozik201191', '_blank');
     });
 
-    // === СЛАЙДЕР ===
+    // Слайдер
     const slides = document.querySelectorAll('#fullWidthSlider .slide');
     const dotsWrapper = document.getElementById('sliderDotsWrapper');
     let currentIndex = 0, sliderInterval;
@@ -1271,7 +1368,6 @@
     function resetInterval() { clearInterval(sliderInterval); startSlider(); }
     if (slides.length > 0) { createDots(); startSlider(); }
 
-    // ИНИЦИАЛИЗАЦИЯ
     loadCBRRates();
     setInterval(loadCBRRates, 3600000);
 </script>
