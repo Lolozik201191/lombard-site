@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
     <title>Ломбард ДЛЯ ВАС | Займы под залог золота</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
             font-weight: 400;
         }
 
+        /* Навигация — адаптивная */
         .navbar {
             position: fixed;
             top: 0;
@@ -30,7 +31,7 @@
             background: rgba(42, 27, 18, 0.96);
             backdrop-filter: blur(12px);
             z-index: 1000;
-            padding: 4px 0;
+            padding: 8px 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         }
         .navbar .container {
@@ -38,39 +39,36 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 12px;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
         .navbar-logo {
             flex-shrink: 0;
             line-height: 0;
-            margin-left: 0;
         }
         .navbar-logo img {
-            height: 80px;
+            height: 60px;
             width: auto;
             display: block;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
             transition: all 0.2s ease;
-            background: transparent;
         }
         .nav-menu {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             list-style: none;
-            margin-right: 0;
         }
         .nav-link {
             display: inline-block;
-            padding: 6px 16px;
-            font-size: 0.9rem;
+            padding: 6px 12px;
+            font-size: 0.8rem;
             font-weight: 500;
             color: #EEEEEE;
             text-decoration: none;
-            border-radius: 40px;
+            border-radius: 30px;
             transition: all 0.2s ease;
             white-space: nowrap;
             background: rgba(0,0,0,0.2);
@@ -80,19 +78,20 @@
             color: #D4AF37;
         }
 
-        main { padding-top: 100px; }
+        main { padding-top: 88px; }
 
         .hero-wrapper {
-            padding: 30px 0 60px;
+            padding: 20px 0 40px;
         }
 
+        /* Слайдер — адаптивный */
         .full-width-slider {
             width: 100%;
-            margin-bottom: 20px;
-            border-radius: 24px;
+            margin-bottom: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            aspect-ratio: 1707 / 992;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 16 / 9;
         }
         .full-width-slider .slides-container {
             position: relative;
@@ -106,11 +105,11 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+            transition: opacity 0.6s ease-in-out;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border-radius: 24px;
+            border-radius: 20px;
         }
         .full-width-slider .slide.active {
             opacity: 1;
@@ -119,13 +118,13 @@
         
         .slider-dots-wrapper {
             text-align: center;
-            padding: 16px 0 20px 0;
+            padding: 12px 0 16px 0;
         }
         .dot {
             display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin: 0 6px;
+            width: 8px;
+            height: 8px;
+            margin: 0 5px;
             background-color: rgba(212, 175, 55, 0.4);
             border-radius: 50%;
             cursor: pointer;
@@ -133,49 +132,42 @@
         }
         .dot.active {
             background-color: #D4AF37;
-            transform: scale(1.2);
+            transform: scale(1.3);
         }
 
+        /* Блок с курсами — адаптивный */
         .cbr-rates-card {
             background: #3A281D;
-            border-radius: 20px;
-            padding: 16px 24px;
-            margin-bottom: 30px;
+            border-radius: 16px;
+            padding: 12px 16px;
+            margin-bottom: 24px;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
             width: 100%;
-        }
-        .cbr-rates-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.4);
         }
         .cbr-rates-card h3 {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #D4AF37;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-        }
-        .cbr-rates-card h3 i {
-            font-size: 0.9rem;
+            gap: 6px;
         }
         .rates-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
         }
         .rate-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 12px;
+            padding: 6px 10px;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            font-size: 0.8rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
         }
         .rate-item .metal-name {
             color: #E0C87C;
@@ -187,69 +179,70 @@
         }
         .cbr-note {
             text-align: center;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: #aaa;
-            margin-top: 12px;
-            padding-top: 8px;
+            margin-top: 8px;
+            padding-top: 6px;
             border-top: 1px solid rgba(212, 175, 55, 0.2);
         }
         .cbr-update {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             text-align: center;
             color: #888;
-            margin-top: 6px;
+            margin-top: 5px;
         }
 
+        /* Основная сетка — адаптивная */
         .hero-grid-two {
             display: flex;
             flex-wrap: wrap;
             align-items: stretch;
             justify-content: space-between;
-            gap: 40px;
+            gap: 30px;
         }
         .hero-left-content {
             flex: 1.2;
-            min-width: 280px;
+            min-width: 260px;
             display: flex;
             flex-direction: column;
         }
         .hero-title {
-            font-size: 2.4rem;
+            font-size: 1.8rem;
             font-weight: 600;
             color: #D4AF37;
             line-height: 1.3;
-            margin: 0 0 20px 0;
+            margin: 0 0 16px 0;
         }
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         
+        /* Три мини-фото — адаптивные */
         .three-photos {
             display: flex;
             flex-wrap: wrap;
             align-items: flex-end;
             justify-content: flex-start;
-            gap: 20px;
-            margin-bottom: 24px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         .photo-item {
             flex-shrink: 0;
         }
         .photo-item img {
-            max-width: 260px;
+            max-width: 140px;
             width: 100%;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 16px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
             display: block;
         }
         .photo-item img:hover {
             transform: scale(1.02);
-            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.25);
         }
         .photo-item.push-right {
             margin-left: auto;
@@ -261,10 +254,10 @@
         
         .btn {
             display: inline-block;
-            padding: 12px 28px;
-            border-radius: 10px;
+            padding: 10px 20px;
+            border-radius: 30px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -273,7 +266,7 @@
         .btn-primary {
             background-color: #D4AF37;
             color: #121212;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
         .btn-primary:hover {
             background-color: #E5C158;
@@ -290,79 +283,67 @@
         }
         .hero-description {
             background: rgba(30, 30, 30, 0.35);
-            padding: 20px 24px;
-            border-radius: 16px;
+            padding: 16px 18px;
+            border-radius: 14px;
             border-left: 3px solid #D4AF37;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #e0e0e0;
         }
 
         .right-column {
             flex: 0.9;
-            min-width: 300px;
+            min-width: 280px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
             justify-content: center;
         }
         .compact-form-card {
             background: #3A281D;
             border-radius: 20px;
-            padding: 20px 24px;
+            padding: 18px 20px;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .compact-form-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.4);
         }
         .compact-form-card .form-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #D4AF37;
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
         .compact-input-group {
             margin-bottom: 12px;
         }
         .compact-input-group label {
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 500;
             color: #E0C87C;
             margin-bottom: 4px;
         }
         .compact-input-group input {
             width: 100%;
-            padding: 10px 14px;
+            padding: 8px 12px;
             background: #2A1B12;
             border: 1px solid #5e4a36;
             border-radius: 12px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: white;
-            transition: 0.2s;
-        }
-        .compact-input-group input:focus {
-            border-color: #D4AF37;
-            outline: none;
         }
         .compact-checkbox {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 12px 0 16px;
+            gap: 8px;
+            margin: 12px 0 14px;
         }
         .compact-checkbox input {
             width: 16px;
             height: 16px;
             accent-color: #D4AF37;
-            cursor: pointer;
         }
         .compact-checkbox label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #bbb;
-            cursor: pointer;
         }
         .compact-btn {
             background: #D4AF37;
@@ -370,11 +351,10 @@
             width: 100%;
             padding: 10px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border: none;
             border-radius: 40px;
             cursor: pointer;
-            transition: 0.2s;
         }
         .compact-btn:hover {
             background: #E5C158;
@@ -384,26 +364,21 @@
         .compact-calculator {
             background: #3A281D;
             border-radius: 20px;
-            padding: 20px 24px;
+            padding: 18px 20px;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .compact-calculator:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.4);
         }
         .compact-calculator h3 {
             text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #D4AF37;
-            margin-bottom: 16px;
-        }
-        .calc-group {
             margin-bottom: 14px;
         }
+        .calc-group {
+            margin-bottom: 12px;
+        }
         .calc-group label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 500;
             color: #E0C87C;
             display: block;
@@ -411,26 +386,22 @@
         }
         .calc-group select, .calc-group input {
             width: 100%;
-            padding: 10px 14px;
+            padding: 8px 12px;
             background: #2A1B12;
             border: 1px solid #5e4a36;
             border-radius: 12px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: white;
-        }
-        .calc-group select:focus, .calc-group input:focus {
-            border-color: #D4AF37;
-            outline: none;
         }
         .compact-calc-result {
             background: #1f140c;
             border-radius: 12px;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
-            margin: 16px 0;
+            margin: 14px 0;
         }
         .compact-calc-result span {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #D4AF37;
         }
@@ -440,41 +411,40 @@
             width: 100%;
             padding: 10px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border: none;
             border-radius: 40px;
             cursor: pointer;
-            transition: 0.2s;
         }
         .compact-calc-btn:hover {
             background: #E5C158;
             transform: translateY(-2px);
         }
         .small-note {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: #aaa;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
         section {
-            padding: 70px 0;
+            padding: 50px 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.12);
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 0.7s ease forwards;
+            animation: fadeInUp 0.6s ease forwards;
         }
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
         h2 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 500;
             color: #D4AF37;
             position: relative;
@@ -484,83 +454,98 @@
         h2::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -6px;
             left: 0;
-            width: 50px;
+            width: 40px;
             height: 2px;
             background: #D4AF37;
         }
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
         .card {
             background: #3A281D;
             border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 16px;
-            padding: 32px 24px;
+            padding: 24px 20px;
             transition: all 0.3s;
         }
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             border-color: #D4AF37;
         }
         .card i {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #D4AF37;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 0.85rem;
+            color: #ddd;
         }
         .trust-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 24px;
-            margin-top: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
         .trust-item {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             background: rgba(58, 40, 29, 0.7);
-            padding: 16px;
+            padding: 12px;
             border-radius: 12px;
+            font-size: 0.8rem;
         }
         .trust-item i {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             color: #D4AF37;
-            min-width: 36px;
+            min-width: 30px;
         }
         .offices-grid, .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
         }
         .office-card, .review-card {
             background: #3A281D;
             border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 16px;
-            padding: 24px;
+            padding: 20px;
+        }
+        .office-card p, .review-card p {
+            margin: 8px 0;
+            font-size: 0.85rem;
         }
         .route-btn {
-            margin-top: 16px;
+            margin-top: 12px;
             background: none;
             border: 1px solid #D4AF37;
-            border-radius: 8px;
-            padding: 8px 16px;
+            border-radius: 30px;
+            padding: 6px 12px;
             color: #D4AF37;
+            font-size: 0.75rem;
             cursor: pointer;
         }
         .contacts-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 48px;
-            margin-top: 24px;
+            gap: 30px;
+            margin-top: 20px;
         }
         .contact-line {
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 18px;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
         }
         .contact-line a {
             color: white;
@@ -569,16 +554,15 @@
         }
         .footer {
             background: #1f140c;
-            padding: 40px 0 28px;
+            padding: 30px 0 20px;
             text-align: center;
             border-top: 1px solid #3A281D;
         }
-        
         .form-message {
-            margin-top: 15px;
-            padding: 10px;
+            margin-top: 12px;
+            padding: 8px;
             border-radius: 8px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-align: center;
             display: none;
         }
@@ -593,60 +577,24 @@
             display: block;
         }
 
-        @media (max-width: 880px) {
-            .hero-grid-two {
-                flex-direction: column;
-            }
-            .right-column {
-                order: 2;
-            }
-            .hero-left-content {
-                order: 1;
-            }
-            .hero-title {
-                text-align: center;
-                font-size: 1.9rem;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .three-photos {
-                justify-content: center;
-            }
-            .photo-item.push-right {
-                margin-left: 0;
-            }
-            .photo-item.center-photo {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .photo-item img {
-                max-width: 200px;
-            }
-            .rates-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
+        /* Планшеты и десктопы */
+        @media (min-width: 768px) {
+            .navbar-logo img { height: 70px; }
+            .nav-link { padding: 8px 16px; font-size: 0.85rem; }
+            .hero-title { font-size: 2rem; }
+            .rates-grid { grid-template-columns: repeat(4, 1fr); }
+            .photo-item img { max-width: 180px; }
         }
-        @media (max-width: 768px) {
-            .navbar .container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .navbar-logo img {
-                height: 60px;
-            }
-            main { padding-top: 85px; }
-            .full-width-slider {
-                aspect-ratio: 1707 / 992;
-            }
-            h2 { font-size: 1.7rem; }
-            .compact-form-card, .compact-calculator, .cbr-rates-card {
-                padding: 16px 20px;
-            }
-            .photo-item img {
-                max-width: 150px;
-            }
+
+        @media (min-width: 1024px) {
+            .navbar-logo img { height: 80px; }
+            .nav-link { padding: 8px 18px; font-size: 0.9rem; }
+            .hero-title { font-size: 2.3rem; }
+            .photo-item img { max-width: 220px; }
+        }
+
+        @media (min-width: 1280px) {
+            .photo-item img { max-width: 260px; }
         }
     </style>
 </head>
@@ -793,7 +741,7 @@
     </section>
 
     <section id="offices-section">
-        <div class="container"><h2 style="color:#D4AF37;">Наши отделения</h2><div class="offices-grid" style="margin-top:32px;">
+        <div class="container"><h2 style="color:#D4AF37;">Наши отделения</h2><div class="offices-grid" style="margin-top:25px;">
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> ул. Центральная, 15</p><p><i class="far fa-clock"></i> Пн–Пт: 09–20, Сб–Вс: 10–18</p><p><i class="fas fa-phone-alt"></i> +7 (999) 123-45-67</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> пр. Мира, 88Б</p><p><i class="far fa-clock"></i> Ежедневно: 09–21</p><p><i class="fas fa-phone-alt"></i> +7 (999) 765-43-21</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> ул. Ленина, 7</p><p><i class="far fa-clock"></i> Пн–Пт: 10–19, Сб: 10–16</p><p><i class="fas fa-phone-alt"></i> +7 (999) 987-65-43</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
@@ -811,13 +759,13 @@
         <div class="trust-item"><i class="fas fa-file-invoice"></i><span>Договор и чек каждому</span></div>
         <div class="trust-item"><i class="fas fa-gavel"></i><span>Соблюдаем 115-ФЗ</span></div>
         <div class="trust-item"><i class="fas fa-lock"></i><span>152-ФЗ о персональных данных</span></div>
-    </div><div class="small-note" style="margin-top:30px;">Лицензия № ЛО-77-001234 от 15.05.2023</div></div></section>
+    </div><div class="small-note" style="margin-top:20px;">Лицензия № ЛО-77-001234 от 15.05.2023</div></div></section>
 
     <section id="about">
         <div class="container">
             <h2>О компании</h2>
-            <p style="max-width: 850px; margin-bottom: 24px;">Мы — сеть ломбардов «ДЛЯ ВАС». Работаем честно и прозрачно. Вы приносите золото — мы выдаём деньги сразу. Ваши изделия хранятся в надёжных сейфах под охраной.</p>
-            <p style="max-width: 850px; margin-bottom: 28px;">Понимаем, что деньги нужны срочно. Наша задача — помочь без лишних вопросов и скрытых комиссий.</p>
+            <p style="max-width: 850px; margin-bottom: 20px;">Мы — сеть ломбардов «ДЛЯ ВАС». Работаем честно и прозрачно. Вы приносите золото — мы выдаём деньги сразу. Ваши изделия хранятся в надёжных сейфах под охраной.</p>
+            <p style="max-width: 850px; margin-bottom: 20px;">Понимаем, что деньги нужны срочно. Наша задача — помочь без лишних вопросов и скрытых комиссий.</p>
             <a href="#" class="btn btn-outline">Подробнее о компании</a>
         </div>
     </section>
@@ -832,9 +780,9 @@
 
 <footer class="footer">
     <div class="container">
-        <div style="font-weight: 600; font-size: 1.2rem;">ЛОМБАРД <span style="color:#D4AF37;">ДЛЯ ВАС</span></div>
-        <div style="margin: 8px 0;">«Работаем честно. Всегда рядом.»</div>
-        <div style="font-size: 0.75rem;">© 2026 Ломбард ДЛЯ ВАС</div>
+        <div style="font-weight: 600; font-size: 1rem;">ЛОМБАРД <span style="color:#D4AF37;">ДЛЯ ВАС</span></div>
+        <div style="margin: 6px 0; font-size: 0.75rem;">«Работаем честно. Всегда рядом.»</div>
+        <div style="font-size: 0.65rem;">© 2026 Ломбард ДЛЯ ВАС</div>
     </div>
 </footer>
 
@@ -845,58 +793,30 @@
 
     // === ЗАГРУЗКА ЦЕН С ОБХОДОМ CORS ===
     async function loadCBRRates() {
-        const targetUrl = 'https://Lolozik.pythonanywhere.com/prices.json';
-        const proxyUrl = 'https://api.allorigins.win/raw?url=';
-        
-        // Пробуем прямой запрос
         try {
-            const response = await fetch(targetUrl, { mode: 'cors' });
-            if (response.ok) {
-                const data = await response.json();
-                if (data.status === 'ok' && data.data) {
-                    updatePricesUI(data.data);
-                    console.log('✅ Цены загружены напрямую');
-                    return;
-                }
-            }
-        } catch (directError) {
-            console.log('Прямой запрос не удался, пробуем прокси...');
-        }
-        
-        // Пробуем через прокси
-        try {
-            const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
-            if (!response.ok) throw new Error('Ошибка прокси');
-            
+            const response = await fetch('https://Lolozik.pythonanywhere.com/prices.json');
+            if (!response.ok) throw new Error('Ошибка загрузки');
             const data = await response.json();
             if (data.status === 'ok' && data.data) {
-                updatePricesUI(data.data);
-                console.log('✅ Цены загружены через прокси');
-                return;
-            }
-            throw new Error('Некорректные данные');
-        } catch (proxyError) {
-            console.error('❌ Ошибка загрузки цен:', proxyError);
+                document.getElementById('goldPrice').innerHTML = data.data.gold.toLocaleString('ru-RU') + ' ₽';
+                document.getElementById('silverPrice').innerHTML = data.data.silver.toLocaleString('ru-RU') + ' ₽';
+                document.getElementById('platinumPrice').innerHTML = data.data.platinum.toLocaleString('ru-RU') + ' ₽';
+                document.getElementById('palladiumPrice').innerHTML = data.data.palladium.toLocaleString('ru-RU') + ' ₽';
+                document.getElementById('updateDate').innerHTML = `Обновлено: ${data.data.date}`;
+            } else throw new Error('Некорректные данные');
+        } catch (error) {
+            console.error('Ошибка загрузки цен:', error);
             document.getElementById('updateDate').innerHTML = 'Не удалось загрузить';
             ['goldPrice', 'silverPrice', 'platinumPrice', 'palladiumPrice'].forEach(id => {
                 if (document.getElementById(id)) document.getElementById(id).innerHTML = '— ₽';
             });
-        }
-        
-        function updatePricesUI(pricesData) {
-            document.getElementById('goldPrice').innerHTML = pricesData.gold.toLocaleString('ru-RU') + ' ₽';
-            document.getElementById('silverPrice').innerHTML = pricesData.silver.toLocaleString('ru-RU') + ' ₽';
-            document.getElementById('platinumPrice').innerHTML = pricesData.platinum.toLocaleString('ru-RU') + ' ₽';
-            document.getElementById('palladiumPrice').innerHTML = pricesData.palladium.toLocaleString('ru-RU') + ' ₽';
-            document.getElementById('updateDate').innerHTML = `Обновлено: ${pricesData.date}`;
         }
     }
 
     // Слайдер
     const slides = document.querySelectorAll('#fullWidthSlider .slide');
     const dotsWrapper = document.getElementById('sliderDotsWrapper');
-    let currentIndex = 0;
-    let sliderInterval;
+    let currentIndex = 0, sliderInterval;
 
     function createDots() {
         if (!dotsWrapper) return;
@@ -905,41 +825,22 @@
             const dot = document.createElement('span');
             dot.classList.add('dot');
             if (i === currentIndex) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToSlide(i);
-                resetInterval();
-            });
+            dot.addEventListener('click', () => { goToSlide(i); resetInterval(); });
             dotsWrapper.appendChild(dot);
         });
     }
 
     function goToSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-        document.querySelectorAll('.dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === index));
         currentIndex = index;
     }
 
-    function nextSlide() {
-        goToSlide((currentIndex + 1) % slides.length);
-    }
+    function nextSlide() { goToSlide((currentIndex + 1) % slides.length); }
+    function startSlider() { sliderInterval = setInterval(nextSlide, 4000); }
+    function resetInterval() { clearInterval(sliderInterval); startSlider(); }
 
-    function startSlider() {
-        sliderInterval = setInterval(nextSlide, 4000);
-    }
-
-    function resetInterval() {
-        clearInterval(sliderInterval);
-        startSlider();
-    }
-
-    if (slides.length > 0) {
-        createDots();
-        startSlider();
-    }
+    if (slides.length > 0) { createDots(); startSlider(); }
 
     // Калькулятор
     const purityPrices = { 375: 2800, 500: 3800, 585: 4600, 750: 5900, 999: 7800 };
@@ -947,8 +848,7 @@
     function calculateLoan() {
         let purity = parseFloat(document.getElementById('puritySelect').value);
         let weight = parseFloat(document.getElementById('weightInput').value) || 0;
-        let pricePerGram = purityPrices[purity] || 4600;
-        let amount = Math.floor(pricePerGram * weight * LOAN_PERCENT);
+        let amount = Math.floor((purityPrices[purity] || 4600) * weight * LOAN_PERCENT);
         document.getElementById('loanAmount').innerText = amount.toLocaleString('ru-RU') + ' ₽';
     }
     document.getElementById('puritySelect')?.addEventListener('change', calculateLoan);
@@ -959,90 +859,65 @@
     });
     calculateLoan();
 
-    // Отправка формы в Telegram
+    // Форма обратной связи
     const callbackForm = document.getElementById('callbackForm');
     const formMessage = document.getElementById('formMessage');
-
     if (callbackForm) {
         callbackForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            const nameInput = callbackForm.querySelector('input[name="name"]');
-            const phoneInput = callbackForm.querySelector('input[name="phone"]');
-            const consentInput = document.getElementById('consentCheckbox');
-            
-            const name = nameInput?.value.trim() || '';
-            const phone = phoneInput?.value.trim() || '';
-            
+            const name = callbackForm.querySelector('input[name="name"]')?.value.trim() || '';
+            const phone = callbackForm.querySelector('input[name="phone"]')?.value.trim() || '';
+            const consent = document.getElementById('consentCheckbox')?.checked;
+
             if (!name || !phone) {
-                showMessage('Пожалуйста, заполните все поля', 'error');
+                formMessage.textContent = 'Пожалуйста, заполните все поля';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+                setTimeout(() => formMessage.style.display = 'none', 5000);
                 return;
             }
-            
-            if (!consentInput?.checked) {
-                showMessage('Пожалуйста, согласитесь на обработку персональных данных', 'error');
+            if (!consent) {
+                formMessage.textContent = 'Пожалуйста, согласитесь на обработку персональных данных';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+                setTimeout(() => formMessage.style.display = 'none', 5000);
                 return;
             }
-            
-            showMessage('Отправка...', 'success', false);
-            
-            const message = `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n🕐 Время: ${new Date().toLocaleString('ru-RU')}`;
-            
+
+            formMessage.textContent = 'Отправка...';
+            formMessage.className = 'form-message success';
+            formMessage.style.display = 'block';
+
             try {
-                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-                
-                const response = await fetch(url, {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: CHAT_ID,
-                        text: message,
+                        text: `🆕 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n🕐 Время: ${new Date().toLocaleString('ru-RU')}`,
                         parse_mode: 'HTML'
                     })
                 });
-                
                 const result = await response.json();
-                
                 if (result.ok) {
-                    showMessage('Заявка успешно отправлена! Менеджер свяжется с вами.', 'success');
+                    formMessage.textContent = 'Заявка успешно отправлена! Менеджер свяжется с вами.';
+                    formMessage.className = 'form-message success';
                     callbackForm.reset();
-                } else {
-                    console.error('Telegram error:', result);
-                    showMessage('Ошибка отправки. Пожалуйста, позвоните нам по телефону.', 'error');
-                }
+                } else throw new Error('Ошибка');
             } catch (error) {
-                console.error('Ошибка:', error);
-                showMessage('Ошибка соединения. Пожалуйста, позвоните нам по телефону: +7 (999) 123-45-67', 'error');
+                formMessage.textContent = 'Ошибка отправки. Пожалуйста, позвоните нам.';
+                formMessage.className = 'form-message error';
             }
-            
-            function showMessage(text, type, autoClear = true) {
-                if (!formMessage) return;
-                formMessage.textContent = text;
-                formMessage.className = `form-message ${type}`;
-                formMessage.style.display = 'block';
-                
-                if (autoClear) {
-                    setTimeout(() => {
-                        formMessage.style.display = 'none';
-                    }, 5000);
-                }
-            }
-        });
-    }
-    
-    // Форма в контактах
-    const bottomForm = document.getElementById('callbackFormBottom');
-    if (bottomForm) {
-        bottomForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Сообщение отправлено! Мы ответим в ближайшее время.');
-            bottomForm.reset();
+            setTimeout(() => formMessage.style.display = 'none', 5000);
         });
     }
 
-    // Загружаем цены при загрузке страницы и раз в час
+    document.getElementById('callbackFormBottom')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Сообщение отправлено! Мы ответим в ближайшее время.');
+        e.target.reset();
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
         loadCBRRates();
         setInterval(loadCBRRates, 3600000);
