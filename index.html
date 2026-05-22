@@ -22,7 +22,6 @@
             font-weight: 400;
         }
 
-        /* Навигация — адаптивная */
         .navbar {
             position: fixed;
             top: 0;
@@ -84,7 +83,6 @@
             padding: 20px 0 40px;
         }
 
-        /* Слайдер — адаптивный */
         .full-width-slider {
             width: 100%;
             margin-bottom: 16px;
@@ -135,7 +133,6 @@
             transform: scale(1.3);
         }
 
-        /* Блок с курсами — адаптивный */
         .cbr-rates-card {
             background: #3A281D;
             border-radius: 16px;
@@ -192,7 +189,6 @@
             margin-top: 5px;
         }
 
-        /* Основная сетка — адаптивная */
         .hero-grid-two {
             display: flex;
             flex-wrap: wrap;
@@ -220,7 +216,6 @@
             margin-bottom: 20px;
         }
         
-        /* Три мини-фото — адаптивные */
         .three-photos {
             display: flex;
             flex-wrap: wrap;
@@ -490,37 +485,18 @@
             font-size: 0.85rem;
             color: #ddd;
         }
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .trust-item {
-            display: flex;
-            gap: 12px;
-            background: rgba(58, 40, 29, 0.7);
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-        }
-        .trust-item i {
-            font-size: 1.3rem;
-            color: #D4AF37;
-            min-width: 30px;
-        }
-        .offices-grid, .reviews-grid {
+        .offices-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
-        .office-card, .review-card {
+        .office-card {
             background: #3A281D;
             border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 16px;
             padding: 20px;
         }
-        .office-card p, .review-card p {
+        .office-card p {
             margin: 8px 0;
             font-size: 0.85rem;
         }
@@ -577,7 +553,6 @@
             display: block;
         }
 
-        /* Планшеты и десктопы */
         @media (min-width: 768px) {
             .navbar-logo img { height: 70px; }
             .nav-link { padding: 8px 16px; font-size: 0.85rem; }
@@ -609,7 +584,6 @@
             <li><a href="#services" class="nav-link">Услуги</a></li>
             <li><a href="#calculator" class="nav-link">Калькулятор</a></li>
             <li><a href="#offices-section" class="nav-link">Адреса</a></li>
-            <li><a href="#reviews" class="nav-link">Отзывы</a></li>
             <li><a href="#about" class="nav-link">О компании</a></li>
             <li><a href="#contacts" class="nav-link">Контакты</a></li>
         </ul>
@@ -730,16 +704,6 @@
         </div>
     </section>
 
-    <section>
-        <div class="container"><h2>Почему нам доверяют</h2><div class="trust-grid">
-            <div class="trust-item"><i class="fas fa-balance-scale"></i><span>Честная оценка — всё показываем</span></div>
-            <div class="trust-item"><i class="fas fa-bolt"></i><span>Деньги сразу, без очередей</span></div>
-            <div class="trust-item"><i class="fas fa-shield-alt"></i><span>Охрана, сейфы, видео</span></div>
-            <div class="trust-item"><i class="fas fa-file-signature"></i><span>Договор и чек</span></div>
-            <div class="trust-item"><i class="fas fa-user-secret"></i><span>Конфиденциальность</span></div>
-        </div></div>
-    </section>
-
     <section id="offices-section">
         <div class="container"><h2 style="color:#D4AF37;">Наши отделения</h2><div class="offices-grid" style="margin-top:25px;">
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> ул. Центральная, 15</p><p><i class="far fa-clock"></i> Пн–Пт: 09–20, Сб–Вс: 10–18</p><p><i class="fas fa-phone-alt"></i> +7 (999) 123-45-67</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
@@ -747,19 +711,6 @@
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> ул. Ленина, 7</p><p><i class="far fa-clock"></i> Пн–Пт: 10–19, Сб: 10–16</p><p><i class="fas fa-phone-alt"></i> +7 (999) 987-65-43</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
         </div></div>
     </section>
-
-    <section id="reviews"><div class="container"><h2>Отзывы клиентов</h2><div class="reviews-grid">
-        <div class="review-card"><i class="fas fa-quote-left"></i><p>«Оценили честно, быстро и без лишних слов.»</p><span style="color:#D4AF37;">— Анна</span></div>
-        <div class="review-card"><i class="fas fa-quote-left"></i><p>«Приятные сотрудники, всё объяснили, деньги сразу.»</p><span style="color:#D4AF37;">— Дмитрий</span></div>
-        <div class="review-card"><i class="fas fa-quote-left"></i><p>«Золото хранили аккуратно, забрала в идеальном состоянии.»</p><span style="color:#D4AF37;">— Елена</span></div>
-    </div></div></section>
-
-    <section><div class="container"><h2>Работаем по закону. Есть лицензия.</h2><div class="trust-grid">
-        <div class="trust-item"><i class="fas fa-certificate"></i><span>Лицензия Пробирной палаты</span></div>
-        <div class="trust-item"><i class="fas fa-file-invoice"></i><span>Договор и чек каждому</span></div>
-        <div class="trust-item"><i class="fas fa-gavel"></i><span>Соблюдаем 115-ФЗ</span></div>
-        <div class="trust-item"><i class="fas fa-lock"></i><span>152-ФЗ о персональных данных</span></div>
-    </div><div class="small-note" style="margin-top:20px;">Лицензия № ЛО-77-001234 от 15.05.2023</div></div></section>
 
     <section id="about">
         <div class="container">
@@ -787,11 +738,9 @@
 </footer>
 
 <script>
-    // Telegram настройки
     const BOT_TOKEN = '8860116966:AAGGyeM1PnMB6nEbcnPgEEmHxQ4q3QSYr80';
     const CHAT_ID = '6622691805';
 
-    // === ЗАГРУЗКА ЦЕН С ОБХОДОМ CORS ===
     async function loadCBRRates() {
         try {
             const response = await fetch('https://Lolozik.pythonanywhere.com/prices.json');
@@ -813,7 +762,6 @@
         }
     }
 
-    // Слайдер
     const slides = document.querySelectorAll('#fullWidthSlider .slide');
     const dotsWrapper = document.getElementById('sliderDotsWrapper');
     let currentIndex = 0, sliderInterval;
@@ -842,7 +790,6 @@
 
     if (slides.length > 0) { createDots(); startSlider(); }
 
-    // Калькулятор
     const purityPrices = { 375: 2800, 500: 3800, 585: 4600, 750: 5900, 999: 7800 };
     const LOAN_PERCENT = 0.72;
     function calculateLoan() {
@@ -859,7 +806,6 @@
     });
     calculateLoan();
 
-    // Форма обратной связи
     const callbackForm = document.getElementById('callbackForm');
     const formMessage = document.getElementById('formMessage');
     if (callbackForm) {
