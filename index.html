@@ -845,37 +845,50 @@
 
     // === ЗАГРУЗКА ЦЕН С ОБХОДОМ CORS ===
     async function loadCBRRates() {
+        const targetUrl = 'https://Lolozik.pythonanywhere.com/prices.json';
+        const proxyUrl = 'https://api.allorigins.win/raw?url=';
+        
+        // Пробуем прямой запрос
         try {
-            // Используем публичный CORS-прокси для обхода блокировки
-            const proxyUrl = 'https://api.allorigins.win/raw?url=';
-            const targetUrl = 'https://Lolozik.pythonanywhere.com/prices.json';
-            
-            const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
-            
-            if (!response.ok) {
-                throw new Error('Ошибка загрузки: ' + response.status);
+            const response = await fetch(targetUrl, { mode: 'cors' });
+            if (response.ok) {
+                const data = await response.json();
+                if (data.status === 'ok' && data.data) {
+                    updatePricesUI(data.data);
+                    console.log('✅ Цены загружены напрямую');
+                    return;
+                }
             }
+        } catch (directError) {
+            console.log('Прямой запрос не удался, пробуем прокси...');
+        }
+        
+        // Пробуем через прокси
+        try {
+            const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+            if (!response.ok) throw new Error('Ошибка прокси');
             
             const data = await response.json();
-            
             if (data.status === 'ok' && data.data) {
-                document.getElementById('goldPrice').innerHTML = data.data.gold.toLocaleString('ru-RU') + ' ₽';
-                document.getElementById('silverPrice').innerHTML = data.data.silver.toLocaleString('ru-RU') + ' ₽';
-                document.getElementById('platinumPrice').innerHTML = data.data.platinum.toLocaleString('ru-RU') + ' ₽';
-                document.getElementById('palladiumPrice').innerHTML = data.data.palladium.toLocaleString('ru-RU') + ' ₽';
-                document.getElementById('updateDate').innerHTML = `Обновлено: ${data.data.date}`;
-                console.log('✅ Цены успешно загружены через прокси');
-            } else {
-                throw new Error('Некорректные данные');
+                updatePricesUI(data.data);
+                console.log('✅ Цены загружены через прокси');
+                return;
             }
-        } catch (error) {
-            console.error('❌ Ошибка загрузки цен:', error);
+            throw new Error('Некорректные данные');
+        } catch (proxyError) {
+            console.error('❌ Ошибка загрузки цен:', proxyError);
             document.getElementById('updateDate').innerHTML = 'Не удалось загрузить';
             ['goldPrice', 'silverPrice', 'platinumPrice', 'palladiumPrice'].forEach(id => {
-                if (document.getElementById(id)) {
-                    document.getElementById(id).innerHTML = '— ₽';
-                }
+                if (document.getElementById(id)) document.getElementById(id).innerHTML = '— ₽';
             });
+        }
+        
+        function updatePricesUI(pricesData) {
+            document.getElementById('goldPrice').innerHTML = pricesData.gold.toLocaleString('ru-RU') + ' ₽';
+            document.getElementById('silverPrice').innerHTML = pricesData.silver.toLocaleString('ru-RU') + ' ₽';
+            document.getElementById('platinumPrice').innerHTML = pricesData.platinum.toLocaleString('ru-RU') + ' ₽';
+            document.getElementById('palladiumPrice').innerHTML = pricesData.palladium.toLocaleString('ru-RU') + ' ₽';
+            document.getElementById('updateDate').innerHTML = `Обновлено: ${pricesData.date}`;
         }
     }
 
