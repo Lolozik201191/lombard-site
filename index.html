@@ -45,9 +45,9 @@
             padding: 0 20px;
         }
         .navbar-logo img {
-            height: 50px;
+            height: 70px; /* Увеличен логотип */
             width: auto;
-            min-width: 180px;
+            min-width: 200px;
             object-fit: contain;
         }
         .nav-menu {
@@ -142,7 +142,7 @@
             display: block;
         }
 
-        main { padding-top: 70px; }
+        main { padding-top: 86px; } /* Увеличен отступ под высокий логотип */
 
         .go-top {
             position: fixed;
@@ -365,7 +365,7 @@
             }
         }
 
-        /* ===== КАЛЬКУЛЯТОР — ФИНАЛЬНАЯ ВЕРСИЯ ===== */
+        /* ===== КАЛЬКУЛЯТОР — ИДЕАЛЬНОЕ ВЫРАВНИВАНИЕ ===== */
         .calculator-full-width {
             width: 100%;
             background: #1A1A1A;
@@ -548,6 +548,20 @@
             text-align: center;
         }
 
+        /* Специальные стили для режима выкупа */
+        .result-side.buyout-mode .result-info {
+            display: none;
+        }
+        .result-side.buyout-mode {
+            justify-content: center;
+        }
+        .result-side.buyout-mode .result-amount-sunlight {
+            margin-bottom: 24px;
+        }
+        .result-side.buyout-mode .ask-question-btn {
+            margin-bottom: 0;
+        }
+
         @media (max-width: 768px) {
             .calculator-full-width {
                 padding: 16px;
@@ -609,6 +623,11 @@
             .calc-main-grid {
                 gap: 16px;
             }
+            .navbar-logo img {
+                height: 60px;
+                min-width: 160px;
+            }
+            main { padding-top: 78px; }
         }
 
         .container {
@@ -891,10 +910,6 @@
             .params-row {
                 flex-direction: column;
                 gap: 12px;
-            }
-            .navbar-logo img {
-                min-width: 140px;
-                height: 40px;
             }
         }
     </style>
@@ -1234,7 +1249,7 @@
         }
     }
 
-    // Калькулятор — финальная версия
+    // Калькулятор — финальная версия с идеальным выравниванием
     let currentMode = 'loan';
     let currentPurity = 585;
     let currentPrice = 5070;
@@ -1247,6 +1262,7 @@
         let totalAmount;
         let resultLabelText;
         
+        const resultSide = document.getElementById('resultSide');
         const tariffRow = document.getElementById('tariffRow');
         const dailyRateRow = document.getElementById('dailyRateRow');
         const interestRow = document.getElementById('interestRow');
@@ -1265,6 +1281,7 @@
             if (dailyRateRow) dailyRateRow.style.display = 'flex';
             if (interestRow) interestRow.style.display = 'flex';
             if (daysParamItem) daysParamItem.style.display = 'block';
+            if (resultSide) resultSide.classList.remove('buyout-mode');
         } else {
             totalAmount = currentBuyoutPrice * currentWeight;
             resultLabelText = '💰 Сумма выкупа';
@@ -1273,6 +1290,7 @@
             if (dailyRateRow) dailyRateRow.style.display = 'none';
             if (interestRow) interestRow.style.display = 'none';
             if (daysParamItem) daysParamItem.style.display = 'none';
+            if (resultSide) resultSide.classList.add('buyout-mode');
         }
         
         document.getElementById('loanAmount').innerHTML = totalAmount.toLocaleString('ru-RU') + ' ₽';
