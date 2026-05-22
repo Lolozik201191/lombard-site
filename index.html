@@ -365,7 +365,7 @@
             }
         }
 
-        /* КАЛЬКУЛЯТОР — ФИКСИРОВАННАЯ ВЫСОТА И ПРОПОРЦИИ */
+        /* КАЛЬКУЛЯТОР — ФИКСИРОВАННАЯ ВЫСОТА И ВЫРАВНИВАНИЕ */
         .calculator-full-width {
             width: 100%;
             background: #1A1A1A;
@@ -388,6 +388,8 @@
         .calc-left {
             flex: 2;
             min-width: 260px;
+            display: flex;
+            flex-direction: column;
         }
         .calc-right {
             flex: 1;
@@ -481,7 +483,7 @@
             display: block;
         }
 
-        /* ФИКСИРОВАННЫЙ БЛОК РЕЗУЛЬТАТА (не меняет высоту) */
+        /* ПРАВАЯ ЧАСТЬ — ФИКСИРОВАННАЯ ВЫСОТА */
         .result-side {
             background: #0D0D0D;
             padding: 20px;
@@ -489,7 +491,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 280px;
+            min-height: 300px;
         }
         .result-amount-sunlight {
             text-align: center;
@@ -520,9 +522,6 @@
         .info-row span:last-child {
             color: #D4AF37;
             font-weight: 500;
-        }
-        .info-row.placeholder {
-            visibility: hidden;
         }
         .ask-question-btn {
             background: #D4AF37;
@@ -588,7 +587,7 @@
             }
             .result-side {
                 padding: 12px;
-                min-height: 240px;
+                min-height: 260px;
             }
             .result-amount-sunlight {
                 margin-bottom: 12px;
@@ -999,7 +998,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                             </div>
-                            <div class="param-item">
+                            <div class="param-item" id="daysParamItem">
                                 <label>Срок займа</label>
                                 <div class="param-value" id="daysSelector">
                                     <span id="daysDisplay">30 дней</span>
@@ -1263,13 +1262,15 @@
             document.getElementById('tariffRow').style.display = 'flex';
             document.getElementById('dailyRateRow').style.display = 'flex';
             document.getElementById('interestRow').style.display = 'flex';
+            document.getElementById('daysParamItem').style.display = 'block';
         } else {
             totalAmount = currentBuyoutPrice * currentWeight;
             resultLabelText = '💰 Сумма выкупа';
-            // Скрываем строки, но оставляем место (блок не меняет высоту)
+            // Скрываем ненужные строки и поле "Срок займа"
             document.getElementById('tariffRow').style.display = 'none';
             document.getElementById('dailyRateRow').style.display = 'none';
             document.getElementById('interestRow').style.display = 'none';
+            document.getElementById('daysParamItem').style.display = 'none';
         }
         
         document.getElementById('loanAmount').innerHTML = totalAmount.toLocaleString('ru-RU') + ' ₽';
@@ -1329,7 +1330,7 @@
         }
     });
 
-    // Срок
+    // Срок (для займа)
     document.getElementById('daysSelector').addEventListener('click', () => {
         let newDays = prompt('Введите срок займа в днях (от 7 до 365)', currentDays);
         if (newDays && !isNaN(newDays) && newDays >= 7 && newDays <= 365) {
