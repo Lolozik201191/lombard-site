@@ -46,12 +46,12 @@
 
         /* Верхняя строка */
         .navbar-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 5px;  /* Было 8px, стало 5px */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 5px;
         }
 
         .navbar-logo img {
@@ -124,27 +124,27 @@
         }
 
         .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 6px;
-    list-style: none;
-    margin: 0;      /* Добавьте эту строку */
-    padding: 0;     /* Добавьте эту строку */
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 6px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
         .nav-link {
-    display: inline-block;
-    padding: 4px 14px;  /* Было 6px 14px — уменьшили на 2px */
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #EEEEEE;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    border-radius: 40px;
-    background: rgba(255,255,255,0.05);
-}
+            display: inline-block;
+            padding: 4px 14px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #EEEEEE;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            border-radius: 40px;
+            background: rgba(255,255,255,0.05);
+        }
 
         .nav-link i {
             margin-right: 6px;
@@ -259,7 +259,7 @@
         }
 
         main {
-            padding-top: 130px;
+            padding-top: 120px;
         }
 
         /* Модальное окно */
@@ -327,7 +327,7 @@
             color: #aaa;
         }
 
-        /* Остальные стили (слайдер, калькулятор, тарифы и т.д.) */
+        /* Остальные стили */
         .go-top {
             position: fixed;
             bottom: 30px;
@@ -439,11 +439,6 @@
             gap: 8px;
         }
 
-        .trend-icon {
-            color: #2ecc71;
-            font-size: 1rem;
-        }
-
         .rates-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -468,22 +463,10 @@
             text-align: center;
         }
 
-        .rate-icon.gold {
-            color: #D4AF37;
-        }
-
-        .rate-icon.silver {
-            color: #8c9aa8;
-        }
-
-        .rate-icon.platinum {
-            color: #e5e8eb;
-            text-shadow: 0 0 1px #aaa;
-        }
-
-        .rate-icon.palladium {
-            color: #b0bec5;
-        }
+        .rate-icon.gold { color: #D4AF37; }
+        .rate-icon.silver { color: #8c9aa8; }
+        .rate-icon.platinum { color: #e5e8eb; text-shadow: 0 0 1px #aaa; }
+        .rate-icon.palladium { color: #b0bec5; }
 
         .rate-info {
             flex: 1;
@@ -574,16 +557,9 @@
         }
 
         @media (max-width: 640px) {
-            .hero-description-text {
-                max-width: 100%;
-                padding: 16px;
-            }
-            .hero-title {
-                font-size: 1.5rem;
-            }
-            .rates-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .hero-description-text { max-width: 100%; padding: 16px; }
+            .hero-title { font-size: 1.5rem; }
+            .rates-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         .calculator-full-width {
@@ -831,24 +807,11 @@
         }
 
         @media (max-width: 768px) {
-            .calculator-full-width {
-                padding: 20px;
-            }
-            .calc-switch-btn {
-                padding: 8px;
-                font-size: 0.8rem;
-            }
-            .params-row {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .purities-grid-sunlight {
-                gap: 8px;
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .result-value {
-                font-size: 1.4rem;
-            }
+            .calculator-full-width { padding: 20px; }
+            .calc-switch-btn { padding: 8px; font-size: 0.8rem; }
+            .params-row { flex-direction: column; gap: 12px; }
+            .purities-grid-sunlight { gap: 8px; grid-template-columns: repeat(3, 1fr); }
+            .result-value { font-size: 1.4rem; }
         }
 
         .container {
@@ -999,12 +962,7 @@
             box-shadow: 0 12px 28px rgba(0,0,0,0.08);
         }
 
-        .tariff-card.popular {
-            border: 2px solid #D4AF37;
-            background: linear-gradient(145deg, #ffffff, #fef9e6);
-        }
-
-        .tariff-card.vip {
+        .tariff-card.popular, .tariff-card.vip {
             border: 2px solid #D4AF37;
             background: linear-gradient(145deg, #ffffff, #fef9e6);
         }
@@ -1461,7 +1419,7 @@
                 height: 50px;
             }
             main {
-                padding-top: 110px;
+                padding-top: 100px;
             }
             .about-stats-grid {
                 grid-template-columns: 1fr;
