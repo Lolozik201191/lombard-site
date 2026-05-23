@@ -42,16 +42,22 @@
             padding: 0 20px;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         /* Верхняя строка */
         .navbar-top {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
+        }
+
+        /* Логотип — опущен на 2px вниз */
+        .navbar-logo {
+            position: relative;
+            top: 2px;
         }
 
         .navbar-logo img {
@@ -61,12 +67,18 @@
             object-fit: contain;
         }
 
+        /* Правая верхняя часть (телефон, иконки, кнопка) — фиксированное положение */
         .navbar-contacts {
             display: flex;
             align-items: center;
             gap: 20px;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            position: absolute;
+            right: 20px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            height: fit-content;
         }
 
         .navbar-phone {
@@ -131,6 +143,9 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            position: absolute;
+            right: 20px;
+            bottom: 4px;
         }
 
         .nav-link {
@@ -259,7 +274,7 @@
         }
 
         main {
-            padding-top: 120px;
+            padding-top: 118px;
         }
 
         /* Модальное окно */
@@ -1392,12 +1407,21 @@
         }
 
         @media (max-width: 768px) {
+            .navbar-logo {
+                top: 0;
+            }
             .navbar-top {
                 flex-wrap: wrap;
                 justify-content: space-between;
+                margin-bottom: 0;
             }
             .navbar-contacts {
+                position: static;
                 justify-content: flex-end;
+                margin: 0;
+                right: auto;
+                top: auto;
+                bottom: auto;
             }
             .navbar-bottom {
                 display: none;
@@ -1410,10 +1434,6 @@
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-            }
-            .navbar-top {
-                margin-bottom: 0;
-                flex: 1;
             }
             .navbar-logo img {
                 height: 50px;
