@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #b8c7da 0%, #9aabbd 100%);
+            background: linear-gradient(145deg, #2a3b4c 0%, #1a2a38 100%);
             color: #1e2a3a;
             line-height: 1.5;
             scroll-behavior: smooth;
@@ -51,7 +51,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         /* Логотип — опущен на 2px вниз */
@@ -67,18 +67,19 @@
             object-fit: contain;
         }
 
-        /* Правая верхняя часть (телефон, иконки, кнопка) — фиксированное положение */
-       .navbar-contacts {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    position: absolute;
-    right: 20px;
-    top: -2px;              /* Привязано к верху */
-    bottom: auto;        /* Отключаем привязку к низу */
-    height: fit-content;
-}
+        /* Правая верхняя часть (телефон, иконки, кнопка) — привязана к верху */
+        .navbar-contacts {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: absolute;
+            right: 20px;
+            top: -2px;
+            bottom: auto;
+            height: fit-content;
+        }
+
         .navbar-phone {
             color: #EEEEEE;
             text-decoration: none;
@@ -127,25 +128,25 @@
             transform: translateY(-2px);
         }
 
-        /* Нижняя строка (меню) */
+        /* Нижняя строка (меню) — привязана к низу */
         .navbar-bottom {
             display: flex;
             justify-content: flex-end;
         }
 
         .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 6px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    right: 20px;
-    bottom: 4px;         /* Привязано к низу */
-    top: auto;           /* Отключаем привязку к верху */
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 6px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            right: 20px;
+            bottom: 4px;
+            top: auto;
+        }
 
         .nav-link {
             display: inline-block;
@@ -432,7 +433,7 @@
         }
 
         .cbr-rates-card {
-            background: rgba(255,255,255,0.85);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(4px);
             border-radius: 28px;
             padding: 12px 20px;
@@ -523,9 +524,10 @@
         .hero-title {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #1e2a3a;
+            color: #ffffff;
             line-height: 1.3;
             margin: 0 0 20px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .photos-grid {
@@ -553,7 +555,7 @@
         @media (min-width: 1281px) { .photo-item img { max-width: 280px; } }
 
         .hero-description-text {
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.85);
             backdrop-filter: blur(2px);
             padding: 24px;
             border-left: 4px solid #D4AF37;
@@ -567,7 +569,7 @@
             margin-bottom: 12px;
             font-size: 0.9rem;
             line-height: 1.5;
-            color: #2c3e50;
+            color: #1e2a3a;
         }
 
         @media (max-width: 640px) {
@@ -578,7 +580,7 @@
 
         .calculator-full-width {
             width: 100%;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(0,0,0,0.05);
             border-radius: 32px;
@@ -836,7 +838,7 @@
 
         section {
             padding: 60px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s ease forwards;
@@ -852,12 +854,13 @@
         h2 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #1e2a3a;
+            color: #ffffff;
             display: inline-block;
             margin-bottom: 30px;
             letter-spacing: -0.01em;
             border-left: 4px solid #D4AF37;
             padding-left: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .services-advantages-grid {
@@ -945,7 +948,7 @@
             color: #5c6f87;
         }
 
-        /* Тарифы слайдер */
+        /* Тарифы слайдер - бесконечная плавная карусель */
         .tariffs-slider-container {
             position: relative;
             overflow: hidden;
@@ -954,8 +957,9 @@
 
         .tariffs-track {
             display: flex;
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             gap: 24px;
+            will-change: transform;
         }
 
         .tariff-card {
@@ -1096,10 +1100,10 @@
         .tariff-note {
             text-align: center;
             font-size: 0.7rem;
-            color: #5c6f87;
+            color: #ffffff;
             margin-top: 20px;
             padding-top: 16px;
-            border-top: 1px solid #eef2f6;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
 
         .about-stats-grid {
@@ -1414,13 +1418,9 @@
                 justify-content: space-between;
                 margin-bottom: 0;
             }
+            /* Скрываем правую часть на мобильных - остаётся только логотип и бургер */
             .navbar-contacts {
-                position: static;
-                justify-content: flex-end;
-                margin: 0;
-                right: auto;
-                top: auto;
-                bottom: auto;
+                display: none !important;
             }
             .navbar-bottom {
                 display: none;
@@ -1490,7 +1490,6 @@
                     <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
                     <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk"></i></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer"><img src="https://logo-teka.com/upload/medialibrary/0c5/0c5e2a7e3f8d6b1a4c9e7d5f2a8b3c6d.png" alt="Max" style="width: 20px; height: 20px; filter: brightness(0) invert(1);"></a>
                 </div>
                 <button class="callback-btn" id="openModalBtn">Заказать звонок</button>
             </div>
@@ -1521,7 +1520,6 @@
             <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
             <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
             <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
-            <a href="#" target="_blank"><img src="https://logo-teka.com/upload/medialibrary/0c5/0c5e2a7e3f8d6b1a4c9e7d5f2a8b3c6d.png" alt="Max" style="width: 18px; height: 18px; filter: brightness(0) invert(1);"></a>
         </div>
     </div>
 </div>
@@ -1549,7 +1547,7 @@
             </div>
             <div class="slider-dots-wrapper" id="sliderDotsWrapper"></div>
             <div class="cbr-rates-card" id="cbrRatesCard">
-                <h3><i class="fas fa-chart-line"></i> Курсы драгметаллов</h3>
+                <h3>Курсы драгметаллов</h3>
                 <div class="rates-grid" id="ratesGrid">
                     <div class="rate-item"><div class="rate-icon gold"><i class="fas fa-coins"></i></div><div class="rate-info"><span class="metal-name">Золото (999)</span><span class="metal-price" id="goldPrice">— ₽</span></div></div>
                     <div class="rate-item"><div class="rate-icon silver"><i class="fas fa-ring"></i></div><div class="rate-info"><span class="metal-name">Серебро (999)</span><span class="metal-price" id="silverPrice">— ₽</span></div></div>
@@ -1708,7 +1706,7 @@
         <div class="footer-grid">
             <div class="footer-col"><h4>Ломбард ДЛЯ ВАС</h4><a href="#about">О компании</a><a href="#services">Услуги</a><a href="#tariffs">Тарифы</a><a href="#contacts">Контакты</a></div>
             <div class="footer-col"><h4>Клиентам</h4><a href="#calculator-section">Калькулятор</a><a href="#offices-section">Адреса отделений</a><a href="#help">Помощь и FAQ</a></div>
-            <div class="footer-col"><h4>Связаться</h4><div class="social-links"><a href="#"><i class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-telegram"></i></a><a href="#"><i class="fab fa-vk"></i></a><a href="#"><img src="https://logo-teka.com/upload/medialibrary/0c5/0c5e2a7e3f8d6b1a4c9e7d5f2a8b3c6d.png" alt="Max" style="width: 22px; filter: brightness(0) invert(1);"></a></div></div>
+            <div class="footer-col"><h4>Связаться</h4><div class="social-links"><a href="#"><i class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-telegram"></i></a><a href="#"><i class="fab fa-vk"></i></a></div></div>
         </div>
         <div class="footer-bottom">
             <div style="font-weight: 500;">ЛОМБАРД <span style="color:#D4AF37;">ДЛЯ ВАС</span></div>
@@ -1883,52 +1881,144 @@
         window.open('https://t.me/Lolozik201191', '_blank');
     });
 
-    // Карусель тарифов
+    // --- Бесконечная плавная карусель для тарифов ---
     const track = document.getElementById('tariffsTrack');
     const prevBtn = document.getElementById('prevTariffBtn');
     const nextBtn = document.getElementById('nextTariffBtn');
     const dotsContainer = document.getElementById('tariffDots');
+    
+    let currentIndex = 0;
     let cardWidth = 0;
     let visibleCards = 4;
-    let currentIndexTariff = 0;
-    const totalCards = document.querySelectorAll('.tariff-card').length;
+    let totalCards = 5; // 5 тарифов
+    let isTransitioning = false;
+    let cloneCards = [];
 
-    function updateSlider() {
+    // Функция для обновления размеров
+    function updateCardWidth() {
         const container = document.querySelector('.tariffs-slider-container');
         if (!container) return;
         const containerWidth = container.clientWidth;
         const firstCard = document.querySelector('.tariff-card');
-        if (firstCard) cardWidth = firstCard.offsetWidth + 24;
-        visibleCards = Math.floor(containerWidth / cardWidth);
-        if (visibleCards < 1) visibleCards = 1;
-        const maxIndex = Math.max(0, totalCards - visibleCards);
-        if (currentIndexTariff > maxIndex) currentIndexTariff = maxIndex;
-        const translateX = -currentIndexTariff * cardWidth;
-        track.style.transform = `translateX(${translateX}px)`;
-        updateDots();
+        if (firstCard) {
+            cardWidth = firstCard.offsetWidth + 24; // + gap
+        }
+        if (cardWidth > 0) {
+            visibleCards = Math.floor(containerWidth / cardWidth);
+            if (visibleCards < 1) visibleCards = 1;
+        }
     }
 
-    function updateDots() {
+    // Создаём клоны для бесконечной прокрутки
+    function setupInfiniteCarousel() {
+        const originalCards = document.querySelectorAll('.tariff-card');
+        totalCards = originalCards.length;
+        
+        // Очищаем трек
+        track.innerHTML = '';
+        
+        // Добавляем клоны: [последний, ...оригиналы..., первый]
+        const lastClone = originalCards[totalCards - 1].cloneNode(true);
+        const firstClone = originalCards[0].cloneNode(true);
+        
+        track.appendChild(lastClone);
+        originalCards.forEach(card => track.appendChild(card.cloneNode(true)));
+        track.appendChild(firstClone);
+        
+        // Сохраняем все карточки в карусели
+        cloneCards = document.querySelectorAll('.tariff-card');
+        
+        // Устанавливаем начальную позицию (на первый оригинальный элемент)
+        currentIndex = 1;
+        updateSliderPosition(false);
+        updateDotsInfinite();
+    }
+
+    function updateSliderPosition(animate = true) {
+        if (!track) return;
+        const offset = -currentIndex * cardWidth;
+        track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+        track.style.transform = `translateX(${offset}px)`;
+        
+        if (!animate) {
+            // Force reflow
+            track.offsetHeight;
+        }
+    }
+
+    function handleTransitionEnd() {
+        isTransitioning = false;
+        // Если дошли до клона последнего (индекс totalCards)
+        if (currentIndex >= totalCards + 1) {
+            currentIndex = 1;
+            updateSliderPosition(false);
+            updateDotsInfinite();
+        }
+        // Если дошли до клона первого (индекс 0)
+        if (currentIndex <= 0) {
+            currentIndex = totalCards;
+            updateSliderPosition(false);
+            updateDotsInfinite();
+        }
+        updateDotsInfinite();
+    }
+
+    function updateDotsInfinite() {
         if (!dotsContainer) return;
         dotsContainer.innerHTML = '';
-        const maxIndex = Math.max(0, totalCards - visibleCards);
-        for (let i = 0; i <= maxIndex; i++) {
+        let activeIndex = ((currentIndex - 1 + totalCards) % totalCards);
+        for (let i = 0; i < totalCards; i++) {
             const dot = document.createElement('span');
             dot.classList.add('slider-dot');
-            if (i === currentIndexTariff) dot.classList.add('active');
-            dot.addEventListener('click', () => { currentIndexTariff = i; updateSlider(); });
+            if (i === activeIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex = i + 1;
+                updateSliderPosition(true);
+                setTimeout(() => { isTransitioning = false; }, 500);
+            });
             dotsContainer.appendChild(dot);
         }
     }
 
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => { if (currentIndexTariff > 0) currentIndexTariff--; updateSlider(); });
-        nextBtn.addEventListener('click', () => { const maxIndex = Math.max(0, totalCards - visibleCards); if (currentIndexTariff < maxIndex) currentIndexTariff++; updateSlider(); });
-        window.addEventListener('resize', () => { updateSlider(); });
-        setTimeout(() => { updateSlider(); }, 100);
+    function goToNext() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex++;
+        updateSliderPosition(true);
     }
 
-    // Слайдер верхний
+    function goToPrev() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex--;
+        updateSliderPosition(true);
+    }
+
+    // Инициализация карусели
+    function initInfiniteCarousel() {
+        updateCardWidth();
+        setupInfiniteCarousel();
+        if (track) {
+            track.addEventListener('transitionend', handleTransitionEnd);
+        }
+    }
+
+    if (prevBtn && nextBtn && track) {
+        prevBtn.addEventListener('click', goToPrev);
+        nextBtn.addEventListener('click', goToNext);
+        window.addEventListener('resize', () => {
+            updateCardWidth();
+            if (cardWidth > 0) {
+                updateSliderPosition(false);
+                updateDotsInfinite();
+            }
+        });
+        initInfiniteCarousel();
+    }
+
+    // Верхний слайдер
     const slides = document.querySelectorAll('#fullWidthSlider .slide');
     const dotsWrapper = document.getElementById('sliderDotsWrapper');
     let currentIndexSlide = 0;
