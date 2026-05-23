@@ -46,12 +46,12 @@
 
         /* Верхняя строка */
         .navbar-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 5px;  /* Было 8px, стало 5px */
         }
 
         .navbar-logo img {
@@ -124,25 +124,27 @@
         }
 
         .nav-menu {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 6px;
-            list-style: none;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+    list-style: none;
+    margin: 0;      /* Добавьте эту строку */
+    padding: 0;     /* Добавьте эту строку */
+}
 
         .nav-link {
-            display: inline-block;
-            padding: 6px 14px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #EEEEEE;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            border-radius: 40px;
-            background: rgba(255,255,255,0.05);
-        }
+    display: inline-block;
+    padding: 4px 14px;  /* Было 6px 14px — уменьшили на 2px */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #EEEEEE;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    border-radius: 40px;
+    background: rgba(255,255,255,0.05);
+}
 
         .nav-link i {
             margin-right: 6px;
