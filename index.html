@@ -68,19 +68,17 @@
         }
 
         /* Правая верхняя часть (телефон, иконки, кнопка) — фиксированное положение */
-        .navbar-contacts {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            position: absolute;
-            right: 20px;
-            top: -8px;
-            bottom: 0;
-            margin: auto 0;
-            height: fit-content;
-        }
-
+       .navbar-contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: absolute;
+    right: 20px;
+    top: -2px;              /* Привязано к верху */
+    bottom: auto;        /* Отключаем привязку к низу */
+    height: fit-content;
+}
         .navbar-phone {
             color: #EEEEEE;
             text-decoration: none;
@@ -136,17 +134,18 @@
         }
 
         .nav-menu {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 6px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            position: absolute;
-            right: 20px;
-            bottom: 4px;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 20px;
+    bottom: 4px;         /* Привязано к низу */
+    top: auto;           /* Отключаем привязку к верху */
+}
 
         .nav-link {
             display: inline-block;
