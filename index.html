@@ -16,14 +16,15 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #e8eef4 0%, #dfe6ed 100%);
+            background: linear-gradient(145deg, #b8c7da 0%, #9aabbd 100%);
             color: #1e2a3a;
             line-height: 1.5;
             scroll-behavior: smooth;
             font-weight: 400;
+            min-height: 100vh;
         }
 
-        /* Навигация (тёмная, как и просили) */
+        /* Навигация (тёмная) */
         .navbar {
             position: fixed;
             top: 0;
@@ -182,8 +183,8 @@
             margin-bottom: 16px;
             overflow: hidden;
             aspect-ratio: 16 / 9;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         .full-width-slider .slides-container {
             position: relative;
@@ -201,7 +202,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border-radius: 16px;
+            border-radius: 20px;
         }
         .full-width-slider .slide.active {
             opacity: 1;
@@ -217,7 +218,7 @@
             width: 8px;
             height: 8px;
             margin: 0 5px;
-            background-color: #b0bed0;
+            background-color: #5c6f87;
             cursor: pointer;
             border-radius: 50%;
         }
@@ -226,15 +227,15 @@
             transform: scale(1.2);
         }
 
-        /* Блок курсов с иконками и акцентами */
+        /* Блок курсов */
         .cbr-rates-card {
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.85);
             backdrop-filter: blur(4px);
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 12px 20px;
             margin-bottom: 24px;
             border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .cbr-rates-card h3 {
             text-align: center;
@@ -268,7 +269,7 @@
             width: 28px;
             text-align: center;
         }
-        .rate-icon.gold { color: #D4AF37; text-shadow: 0 0 2px rgba(212,175,55,0.3); }
+        .rate-icon.gold { color: #D4AF37; }
         .rate-icon.silver { color: #8c9aa8; }
         .rate-icon.platinum { color: #9dadbd; }
         .rate-icon.palladium { color: #7a8b9b; }
@@ -321,26 +322,22 @@
             gap: 24px;
             margin-bottom: 28px;
         }
-        .photo-item {
-            flex: 0 0 auto;
-        }
         .photo-item img {
             width: 100%;
             height: auto;
-            border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.08);
             transition: all 0.2s;
             object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.06);
         }
         .photo-item img:hover {
             transform: scale(1.02);
             border-color: #D4AF37;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
         }
         
         .hero-description-text {
-            background: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.7);
             backdrop-filter: blur(2px);
             padding: 24px;
             border-left: 3px solid #D4AF37;
@@ -355,59 +352,29 @@
             line-height: 1.5;
             color: #2c3e50;
         }
-        .hero-description-text p:last-child {
-            margin-bottom: 0;
-        }
 
         @media (max-width: 640px) {
-            .photo-item img {
-                max-width: 130px;
-            }
-            .hero-title {
-                font-size: 1.5rem;
-            }
-            .hero-description-text {
-                max-width: 100%;
-                padding: 16px;
-            }
-            .photos-grid {
-                gap: 16px;
-            }
-            .rates-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .photo-item img { max-width: 130px; }
+            .hero-title { font-size: 1.5rem; }
+            .hero-description-text { max-width: 100%; padding: 16px; }
+            .photos-grid { gap: 16px; }
+            .rates-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (min-width: 641px) and (max-width: 768px) {
-            .photo-item img {
-                max-width: 150px;
-            }
-        }
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .photo-item img {
-                max-width: 180px;
-            }
-        }
-        @media (min-width: 1025px) and (max-width: 1280px) {
-            .photo-item img {
-                max-width: 210px;
-            }
-        }
-        @media (min-width: 1281px) {
-            .photo-item img {
-                max-width: 240px;
-            }
-        }
+        @media (min-width: 641px) and (max-width: 768px) { .photo-item img { max-width: 150px; } }
+        @media (min-width: 769px) and (max-width: 1024px) { .photo-item img { max-width: 180px; } }
+        @media (min-width: 1025px) and (max-width: 1280px) { .photo-item img { max-width: 210px; } }
+        @media (min-width: 1281px) { .photo-item img { max-width: 240px; } }
 
-        /* КАЛЬКУЛЯТОР (светлая версия) */
+        /* КАЛЬКУЛЯТОР */
         .calculator-full-width {
             width: 100%;
-            background: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.85);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(0,0,0,0.05);
-            border-radius: 24px;
+            border-radius: 28px;
             padding: 24px;
             margin-top: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
         .calculator-full-width h3 {
             font-size: 1.2rem;
@@ -485,10 +452,7 @@
             font-size: 0.9rem;
             color: #1e2a3a;
         }
-        .param-value i {
-            font-size: 0.7rem;
-            color: #D4AF37;
-        }
+        .param-value i { font-size: 0.7rem; color: #D4AF37; }
 
         .purities-grid-sunlight {
             display: grid;
@@ -499,35 +463,16 @@
         .purity-card-sunlight {
             background: white;
             border: 1px solid #e2e8f0;
-            border-radius: 16px;
+            border-radius: 18px;
             padding: 12px 8px;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
         }
-        .purity-card-sunlight i {
-            font-size: 1rem;
-            color: #D4AF37;
-            margin-bottom: 6px;
-            display: inline-block;
-        }
-        .purity-card-sunlight.active {
-            border: 2px solid #D4AF37;
-            background: rgba(212, 175, 55, 0.08);
-        }
-        .purity-value {
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: block;
-            margin: 4px 0;
-            color: #1e2a3a;
-        }
-        .purity-price {
-            font-size: 0.65rem;
-            color: #D4AF37;
-            display: block;
-            font-weight: 600;
-        }
+        .purity-card-sunlight i { font-size: 1rem; color: #D4AF37; margin-bottom: 6px; display: inline-block; }
+        .purity-card-sunlight.active { border: 2px solid #D4AF37; background: rgba(212, 175, 55, 0.08); }
+        .purity-value { font-size: 0.9rem; font-weight: 600; display: block; margin: 4px 0; color: #1e2a3a; }
+        .purity-price { font-size: 0.65rem; color: #D4AF37; display: block; font-weight: 600; }
 
         .result-side {
             background: white;
@@ -540,139 +485,31 @@
             min-height: 100%;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
-        .result-amount-sunlight {
-            text-align: center;
-            margin-bottom: 16px;
-        }
-        .result-label {
-            display: block;
-            font-size: 0.7rem;
-            color: #5c6f87;
-            margin-bottom: 6px;
-        }
-        .result-value {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #D4AF37;
-            line-height: 1.2;
-        }
-        .result-info {
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            font-size: 0.75rem;
-            border-bottom: 1px solid #eef2f6;
-        }
-        .info-row span:last-child {
-            color: #D4AF37;
-            font-weight: 600;
-        }
-        .ask-question-btn {
-            background: #D4AF37;
-            color: #0D0D0D;
-            width: 100%;
-            padding: 8px;
-            font-weight: 600;
-            border: none;
-            border-radius: 40px;
-            cursor: pointer;
-            margin-bottom: 12px;
-            font-size: 0.8rem;
-            transition: all 0.2s;
-        }
-        .ask-question-btn:hover {
-            background: #E5C158;
-            transform: translateY(-2px);
-        }
-        .calculator-note {
-            font-size: 0.55rem;
-            color: #5c6f87;
-            text-align: center;
-        }
+        .result-amount-sunlight { text-align: center; margin-bottom: 16px; }
+        .result-label { display: block; font-size: 0.7rem; color: #5c6f87; margin-bottom: 6px; }
+        .result-value { font-size: 1.6rem; font-weight: 700; color: #D4AF37; line-height: 1.2; }
+        .result-info { margin-bottom: 20px; flex-grow: 1; }
+        .info-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.75rem; border-bottom: 1px solid #eef2f6; }
+        .info-row span:last-child { color: #D4AF37; font-weight: 600; }
+        .ask-question-btn { background: #D4AF37; color: #0D0D0D; width: 100%; padding: 8px; font-weight: 600; border: none; border-radius: 40px; cursor: pointer; margin-bottom: 12px; font-size: 0.8rem; transition: all 0.2s; }
+        .ask-question-btn:hover { background: #E5C158; transform: translateY(-2px); }
+        .calculator-note { font-size: 0.55rem; color: #5c6f87; text-align: center; }
 
-        .result-side.buyout-mode .result-info {
-            display: none;
-        }
-        .result-side.buyout-mode {
-            justify-content: center;
-        }
-        .result-side.buyout-mode .result-amount-sunlight {
-            margin-bottom: 24px;
-        }
-        .result-side.buyout-mode .ask-question-btn {
-            margin-bottom: 0;
-        }
+        .result-side.buyout-mode .result-info { display: none; }
+        .result-side.buyout-mode { justify-content: center; }
+        .result-side.buyout-mode .result-amount-sunlight { margin-bottom: 24px; }
+        .result-side.buyout-mode .ask-question-btn { margin-bottom: 0; }
 
         @media (max-width: 768px) {
-            .calculator-full-width {
-                padding: 16px;
-            }
-            .calculator-full-width h3 {
-                font-size: 1rem;
-                margin-bottom: 12px;
-            }
-            .calc-switch-btn {
-                padding: 6px;
-                font-size: 0.75rem;
-            }
-            .params-row {
-                gap: 12px;
-                margin-bottom: 16px;
-            }
-            .param-value {
-                padding: 6px 10px;
-                font-size: 0.8rem;
-            }
-            .param-item label {
-                font-size: 0.6rem;
-            }
-            .purities-grid-sunlight {
-                gap: 8px;
-                margin-bottom: 16px;
-            }
-            .purity-card-sunlight {
-                padding: 8px 4px;
-            }
-            .purity-card-sunlight i {
-                font-size: 0.8rem;
-                margin-bottom: 4px;
-            }
-            .purity-value {
-                font-size: 0.75rem;
-            }
-            .purity-price {
-                font-size: 0.55rem;
-            }
-            .result-side {
-                padding: 12px;
-            }
-            .result-value {
-                font-size: 1.3rem;
-            }
-            .info-row {
-                padding: 4px 0;
-                font-size: 0.65rem;
-            }
-            .ask-question-btn {
-                padding: 6px;
-                font-size: 0.75rem;
-                margin-bottom: 8px;
-            }
-            .calculator-note {
-                font-size: 0.45rem;
-            }
-            .calc-main-grid {
-                gap: 16px;
-            }
-            .navbar-logo img {
-                height: 60px;
-                min-width: 160px;
-            }
-            main { padding-top: 78px; }
+            .calculator-full-width { padding: 16px; }
+            .calculator-full-width h3 { font-size: 1rem; margin-bottom: 12px; }
+            .calc-switch-btn { padding: 6px; font-size: 0.75rem; }
+            .params-row { gap: 12px; margin-bottom: 16px; flex-direction: column; }
+            .param-value { padding: 6px 10px; font-size: 0.8rem; }
+            .purities-grid-sunlight { gap: 8px; margin-bottom: 16px; grid-template-columns: repeat(3, 1fr); }
+            .result-side { padding: 12px; }
+            .result-value { font-size: 1.3rem; }
+            .calc-main-grid { gap: 16px; }
         }
 
         .container {
@@ -688,9 +525,7 @@
             transform: translateY(20px);
             animation: fadeInUp 0.5s ease forwards;
         }
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
         h2 {
             font-size: 1.6rem;
             font-weight: 600;
@@ -700,7 +535,7 @@
             letter-spacing: -0.01em;
         }
 
-        /* НОВЫЙ БЛОК УСЛУГИ + ПРЕИМУЩЕСТВА */
+        /* Услуги + преимущества */
         .services-advantages-grid {
             display: flex;
             flex-wrap: wrap;
@@ -711,35 +546,15 @@
             flex: 1;
             background: white;
             padding: 28px;
-            border-radius: 24px;
+            border-radius: 28px;
             border: 1px solid #eef2f6;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-        .advantages-list h3 {
-            font-size: 1.3rem;
-            margin-bottom: 24px;
-            color: #1e2a3a;
-        }
-        .advantage-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .advantage-item i {
-            font-size: 1.8rem;
-            color: #D4AF37;
-            width: 44px;
-        }
-        .advantage-item .advantage-text h4 {
-            font-size: 1rem;
-            margin-bottom: 4px;
-            color: #1e2a3a;
-        }
-        .advantage-item .advantage-text p {
-            font-size: 0.8rem;
-            color: #5c6f87;
-        }
+        .advantages-list h3 { font-size: 1.3rem; margin-bottom: 24px; color: #1e2a3a; }
+        .advantage-item { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .advantage-item i { font-size: 1.8rem; color: #D4AF37; width: 44px; }
+        .advantage-item .advantage-text h4 { font-size: 1rem; margin-bottom: 4px; color: #1e2a3a; }
+        .advantage-item .advantage-text p { font-size: 0.8rem; color: #5c6f87; }
         .services-list {
             flex: 1;
             display: grid;
@@ -750,60 +565,39 @@
             background: white;
             padding: 24px;
             text-align: center;
-            border-radius: 24px;
+            border-radius: 28px;
             border: 1px solid #eef2f6;
             transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-        .service-card:hover {
-            transform: translateY(-4px);
-            border-color: #D4AF37;
-        }
-        .service-card i {
-            font-size: 2rem;
-            color: #D4AF37;
-            margin-bottom: 16px;
-        }
-        .service-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: #1e2a3a;
-        }
-        .service-card p {
-            font-size: 0.8rem;
-            color: #5c6f87;
-        }
+        .service-card:hover { transform: translateY(-4px); border-color: #D4AF37; }
+        .service-card i { font-size: 2rem; color: #D4AF37; margin-bottom: 16px; }
+        .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: #1e2a3a; }
+        .service-card p { font-size: 0.8rem; color: #5c6f87; }
 
-        /* ТАРИФЫ (светлая версия, строгие карточки) */
-        .tariffs-wrapper {
+        /* ТАРИФЫ СЛАЙДЕР */
+        .tariffs-slider-container {
             position: relative;
-        }
-        .tariffs-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            overflow: hidden;
             margin: 30px 0 20px;
         }
+        .tariffs-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            gap: 20px;
+        }
         .tariff-card {
+            flex: 0 0 calc(25% - 15px);
             background: white;
             border: 1px solid #eef2f6;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 24px;
             transition: all 0.2s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-        .tariff-card:hover {
-            transform: translateY(-2px);
-            border-color: #D4AF37;
-        }
-        .tariff-card.popular {
-            border: 2px solid #D4AF37;
-            background: linear-gradient(145deg, #ffffff, #fef9e6);
-        }
-        .tariff-card.vip {
-            border: 2px solid #D4AF37;
-            background: linear-gradient(145deg, #ffffff, #fef9e6);
-        }
+        .tariff-card:hover { transform: translateY(-2px); border-color: #D4AF37; }
+        .tariff-card.popular { border: 2px solid #D4AF37; background: linear-gradient(145deg, #ffffff, #fef9e6); }
+        .tariff-card.vip { border: 2px solid #D4AF37; background: linear-gradient(145deg, #ffffff, #fef9e6); }
         .tariff-badge {
             display: inline-block;
             font-size: 0.65rem;
@@ -814,63 +608,31 @@
             margin-bottom: 12px;
             border-radius: 30px;
         }
-        .tariff-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #1e2a3a;
-        }
-        .tariff-item {
+        .tariff-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; color: #1e2a3a; }
+        .tariff-item { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid #eef2f6; }
+        .tariff-item .label { font-size: 0.8rem; color: #5c6f87; }
+        .tariff-item .value { font-size: 0.9rem; font-weight: 600; color: #1e2a3a; }
+        .tariff-item .value.accent { color: #D4AF37; font-size: 1rem; }
+        .slider-controls {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 10px 0;
-            border-bottom: 1px solid #eef2f6;
+            justify-content: center;
+            margin: 20px 0 10px;
         }
-        .tariff-item .label {
-            font-size: 0.8rem;
-            color: #5c6f87;
-        }
-        .tariff-item .value {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #1e2a3a;
-        }
-        .tariff-item .value.accent {
-            color: #D4AF37;
-            font-size: 1rem;
-        }
-        .show-more-btn {
-            text-align: center;
-            margin: 10px 0 20px;
-        }
-        .show-more-btn button {
-            background: none;
+        .slider-btn {
+            background: rgba(255,255,255,0.8);
             border: none;
             font-size: 1.2rem;
             color: #D4AF37;
             cursor: pointer;
-            padding: 8px 16px;
+            padding: 8px 20px;
+            border-radius: 60px;
             transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border-radius: 40px;
-            background: white;
-            border: 1px solid #eef2f6;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
-        .show-more-btn button:hover {
-            color: #E5C158;
+        .slider-btn:hover {
+            background: #D4AF37;
+            color: #0D0D0D;
             transform: translateY(-2px);
-        }
-        .hidden-tariff {
-            display: none;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eef2f6;
-        }
-        .hidden-tariff.show {
-            display: block;
         }
         .tariff-note {
             text-align: center;
@@ -881,7 +643,7 @@
             border-top: 1px solid #eef2f6;
         }
 
-        /* Блок О КОМПАНИИ — вариант 3 (инфографика + временная линия) */
+        /* О компании (вариант 3) */
         .about-stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -890,67 +652,34 @@
         }
         .stat-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 28px;
             padding: 28px 20px;
             text-align: center;
             border: 1px solid #eef2f6;
             transition: all 0.2s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-        .stat-card:hover {
-            transform: translateY(-3px);
-            border-color: #D4AF37;
-        }
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #D4AF37;
-            margin-bottom: 8px;
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: #5c6f87;
-        }
+        .stat-card:hover { transform: translateY(-3px); border-color: #D4AF37; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: #D4AF37; margin-bottom: 8px; }
+        .stat-label { font-size: 0.85rem; color: #5c6f87; }
         .roadmap {
             max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 24px;
+            border-radius: 28px;
             padding: 28px;
             border: 1px solid #eef2f6;
         }
-        .roadmap h4 {
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-            color: #1e2a3a;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .roadmap h4 { font-size: 1.1rem; margin-bottom: 24px; color: #1e2a3a; display: flex; align-items: center; gap: 8px; }
         .roadmap-timeline {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
-            position: relative;
         }
-        .timeline-item {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            padding-top: 20px;
-        }
-        .timeline-year {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #D4AF37;
-            display: block;
-            margin-bottom: 6px;
-        }
-        .timeline-text {
-            font-size: 0.7rem;
-            color: #5c6f87;
-        }
+        .timeline-item { flex: 1; text-align: center; position: relative; padding-top: 20px; }
+        .timeline-year { font-size: 1.1rem; font-weight: 700; color: #D4AF37; display: block; margin-bottom: 6px; }
+        .timeline-text { font-size: 0.7rem; color: #5c6f87; }
 
         .offices-grid {
             display: grid;
@@ -960,18 +689,12 @@
         .office-card {
             background: white;
             border: 1px solid #eef2f6;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 20px;
             transition: all 0.2s;
         }
-        .office-card:hover {
-            border-color: #D4AF37;
-        }
-        .office-card p {
-            margin: 8px 0;
-            font-size: 0.8rem;
-            color: #1e2a3a;
-        }
+        .office-card:hover { border-color: #D4AF37; }
+        .office-card p { margin: 8px 0; font-size: 0.8rem; color: #1e2a3a; }
         .route-btn {
             margin-top: 12px;
             background: none;
@@ -983,29 +706,11 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .route-btn:hover {
-            background: #D4AF37;
-            color: white;
-        }
+        .route-btn:hover { background: #D4AF37; color: white; }
 
-        .contacts-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .contact-line {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            font-size: 0.85rem;
-            color: #1e2a3a;
-        }
-        .contact-line a {
-            color: #1e2a3a;
-            text-decoration: none;
-            border-bottom: 1px dotted #D4AF37;
-        }
+        .contacts-row { display: flex; flex-wrap: wrap; gap: 30px; }
+        .contact-line { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.85rem; color: #1e2a3a; }
+        .contact-line a { color: #1e2a3a; text-decoration: none; border-bottom: 1px dotted #D4AF37; }
 
         .footer {
             background: #0D0D0D;
@@ -1022,56 +727,20 @@
             display: none;
             border-radius: 12px;
         }
-        .form-message.success {
-            background: rgba(50, 120, 50, 0.15);
-            color: #2c6e2c;
-            display: block;
-        }
-        .form-message.error {
-            background: rgba(200, 50, 50, 0.15);
-            color: #c62828;
-            display: block;
-        }
+        .form-message.success { background: rgba(50, 120, 50, 0.15); color: #2c6e2c; display: block; }
+        .form-message.error { background: rgba(200, 50, 50, 0.15); color: #c62828; display: block; }
 
         @media (max-width: 1024px) {
-            .tariffs-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .tariff-card { flex: 0 0 calc(33.33% - 14px); }
         }
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            .burger-btn {
-                display: block;
-            }
-            .navbar .container {
-                justify-content: space-between;
-            }
-            .about-stats-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            .tariffs-grid {
-                grid-template-columns: 1fr;
-            }
-            .go-top {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-                bottom: 20px;
-                right: 20px;
-            }
-            .purities-grid-sunlight {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .params-row {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .services-advantages-grid {
-                flex-direction: column;
-            }
+            .nav-menu { display: none; }
+            .burger-btn { display: block; }
+            .navbar .container { justify-content: space-between; }
+            .about-stats-grid { grid-template-columns: 1fr; gap: 15px; }
+            .tariff-card { flex: 0 0 calc(100% - 0px); }
+            .services-advantages-grid { flex-direction: column; }
+            .go-top { width: 40px; height: 40px; font-size: 1.2rem; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -1112,7 +781,6 @@
                     <div class="slide" style="background-image: url('slide2.jpeg');"></div>
                 </div>
             </div>
-            
             <div class="slider-dots-wrapper" id="sliderDotsWrapper"></div>
 
             <div class="cbr-rates-card" id="cbrRatesCard">
@@ -1123,23 +791,17 @@
                     <div class="rate-item"><div class="rate-icon platinum"><i class="fas fa-chart-line"></i></div><div class="rate-info"><span class="metal-name">Платина (999)</span><span class="metal-price" id="platinumPrice">— ₽</span></div></div>
                     <div class="rate-item"><div class="rate-icon palladium"><i class="fas fa-chart-simple"></i></div><div class="rate-info"><span class="metal-name">Палладий (999)</span><span class="metal-price" id="palladiumPrice">— ₽</span></div></div>
                 </div>
-                <div class="cbr-note">
-                    <i class="fas fa-building-columns"></i> Официальные данные Банка России
-                </div>
+                <div class="cbr-note"><i class="fas fa-building-columns"></i> Официальные данные Банка России</div>
                 <div class="cbr-update" id="updateDate">Загрузка...</div>
             </div>
 
             <div class="hero-single-col">
-                <div class="hero-title">
-                    Выгодные займы<br>под залог золота
-                </div>
-                
+                <div class="hero-title">Выгодные займы<br>под залог золота</div>
                 <div class="photos-grid">
                     <div class="photo-item"><img src="photo.png" alt="Золотое украшение"></div>
                     <div class="photo-item"><img src="photo2.png" alt="Золотое украшение"></div>
                     <div class="photo-item"><img src="photo3.png" alt="Золотое украшение"></div>
                 </div>
-                
                 <div class="hero-description-text">
                     <p>Сеть ломбардов «ДЛЯ ВАС» — это команда профессионалов, которая помогает людям быстро получать деньги под залог золота. Мы ценим каждого клиента и делаем процесс максимально прозрачным и комфортным.</p>
                     <p>Наши преимущества — честная оценка, отсутствие скрытых комиссий и индивидуальный подход. Храним ваши ценности в надёжных сейфах под круглосуточной охраной.</p>
@@ -1148,31 +810,13 @@
 
             <div class="calculator-full-width">
                 <h3>Рассчитайте, сколько получите</h3>
-                
                 <div class="calc-main-grid">
                     <div class="calc-left">
-                        <div class="calc-switch">
-                            <div class="calc-switch-btn active" data-mode="loan">Займ</div>
-                            <div class="calc-switch-btn" data-mode="buyout">Выкуп</div>
-                        </div>
-                        
+                        <div class="calc-switch"><div class="calc-switch-btn active" data-mode="loan">Займ</div><div class="calc-switch-btn" data-mode="buyout">Выкуп</div></div>
                         <div class="params-row">
-                            <div class="param-item">
-                                <label>Вес изделия</label>
-                                <div class="param-value" id="weightSelector">
-                                    <span id="weightDisplay">1 г</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                            </div>
-                            <div class="param-item" id="daysParamItem">
-                                <label>Срок займа</label>
-                                <div class="param-value" id="daysSelector">
-                                    <span id="daysDisplay">30 дней</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                            </div>
+                            <div class="param-item"><label>Вес изделия</label><div class="param-value" id="weightSelector"><span id="weightDisplay">1 г</span><i class="fas fa-chevron-down"></i></div></div>
+                            <div class="param-item" id="daysParamItem"><label>Срок займа</label><div class="param-value" id="daysSelector"><span id="daysDisplay">30 дней</span><i class="fas fa-chevron-down"></i></div></div>
                         </div>
-                        
                         <div class="purities-grid-sunlight">
                             <div class="purity-card-sunlight" data-purity="375" data-price="3250" data-buyout="3650"><i class="fas fa-coins"></i><span class="purity-value">375</span><span class="purity-price">3 250 ₽</span></div>
                             <div class="purity-card-sunlight" data-purity="500" data-price="4330" data-buyout="4870"><i class="fas fa-coins"></i><span class="purity-value">500</span><span class="purity-price">4 330 ₽</span></div>
@@ -1181,7 +825,6 @@
                             <div class="purity-card-sunlight" data-purity="999" data-price="8660" data-buyout="9740"><i class="fas fa-coins"></i><span class="purity-value">999</span><span class="purity-price">8 660 ₽</span></div>
                         </div>
                     </div>
-                    
                     <div class="calc-right">
                         <div class="result-side" id="resultSide">
                             <div class="result-amount-sunlight"><span class="result-label" id="resultLabel">💰 Выдадим на руки (займ)</span><span class="result-value" id="loanAmount">5 070 ₽</span></div>
@@ -1199,29 +842,28 @@
         </div>
     </div>
 
-    <!-- ТАРИФЫ -->
+    <!-- ТАРИФЫ СЛАЙДЕР -->
     <section id="tariffs">
         <div class="container">
             <h2>Тарифы займа</h2>
-            <div class="tariffs-wrapper">
-                <div class="tariffs-grid" id="mainTariffs">
+            <div class="tariffs-slider-container">
+                <div class="tariffs-track" id="tariffsTrack">
                     <div class="tariff-card"><div class="tariff-badge">🔥 Для новых клиентов</div><h3>Первый займ</h3><div class="tariff-info"><div class="tariff-item"><span class="label">Сумма займа</span><span class="value">без ограничений</span></div><div class="tariff-item"><span class="label">Процент в день</span><span class="value accent">0.270%</span></div><div class="tariff-item"><span class="label">Процент в год</span><span class="value">98.550%</span></div></div></div>
                     <div class="tariff-card popular"><div class="tariff-badge">⭐ Самый популярный</div><h3>Оптимальный выбор</h3><div class="tariff-info"><div class="tariff-item"><span class="label">Сумма займа</span><span class="value">от 5 001 до 100 000 ₽</span></div><div class="tariff-item"><span class="label">Процент в день</span><span class="value accent">0.293%</span></div><div class="tariff-item"><span class="label">Процент в год</span><span class="value">106.945%</span></div></div></div>
                     <div class="tariff-card"><div class="tariff-badge">💎 Для крупных сумм</div><h3>Крупный клиент</h3><div class="tariff-info"><div class="tariff-item"><span class="label">Сумма займа</span><span class="value">от 100 001 ₽</span></div><div class="tariff-item"><span class="label">Процент в день</span><span class="value accent">0.270%</span></div><div class="tariff-item"><span class="label">Процент в год</span><span class="value">98.550%</span></div></div></div>
                     <div class="tariff-card vip"><div class="tariff-badge">👑 VIP-обслуживание</div><h3>VIP клиент</h3><div class="tariff-info"><div class="tariff-item"><span class="label">Сумма займа</span><span class="value">от 300 000 ₽</span></div><div class="tariff-item"><span class="label">Процент в день</span><span class="value accent">от 0.22%</span></div><div class="tariff-item"><span class="label">Процент в год</span><span class="value">от 80.30%</span></div></div></div>
-                </div>
-                <div class="show-more-btn">
-                    <button id="showSocialTariffBtn"><span>Социальный тариф</span> <i class="fas fa-chevron-down" id="arrowIcon"></i></button>
-                </div>
-                <div class="hidden-tariff" id="socialTariff">
                     <div class="tariff-card"><div class="tariff-badge">🤝 Льготный</div><h3>Социальный</h3><div class="tariff-info"><div class="tariff-item"><span class="label">Сумма займа</span><span class="value">без ограничений</span></div><div class="tariff-item"><span class="label">Процент в день</span><span class="value accent">0.270%</span></div><div class="tariff-item"><span class="label">Процент в год</span><span class="value">98.550%</span></div></div></div>
                 </div>
-                <div class="tariff-note"><i class="fas fa-info-circle"></i> Проценты рассчитаны при условии своевременного погашения займа. Подробные условия уточняйте у менеджеров.</div>
             </div>
+            <div class="slider-controls">
+                <button class="slider-btn" id="prevTariffBtn">← Предыдущие</button>
+                <button class="slider-btn" id="nextTariffBtn">Следующие →</button>
+            </div>
+            <div class="tariff-note"><i class="fas fa-info-circle"></i> Проценты рассчитаны при условии своевременного погашения займа. Подробные условия уточняйте у менеджеров.</div>
         </div>
     </section>
 
-    <!-- УСЛУГИ -->
+    <!-- УСЛУГИ + ПРЕИМУЩЕСТВА -->
     <section id="services">
         <div class="container">
             <h2>Услуги и преимущества</h2>
@@ -1240,7 +882,7 @@
         </div>
     </section>
 
-    <!-- О КОМПАНИИ (вариант 3) -->
+    <!-- О КОМПАНИИ -->
     <section id="about">
         <div class="container">
             <h2>О компании</h2>
@@ -1262,7 +904,7 @@
     </section>
 
     <section id="offices-section">
-        <div class="container"><h2 style="color:#1e2a3a;">Наши отделения</h2><div class="offices-grid" style="margin-top:20px;">
+        <div class="container"><h2>Наши отделения</h2><div class="offices-grid">
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> ул. Центральная, 15</p><p><i class="far fa-clock"></i> Пн–Пт: 09–20, Сб–Вс: 10–18</p><p><i class="fas fa-phone-alt"></i> +7 (999) 123-45-67</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> пр. Мира, 88Б</p><p><i class="far fa-clock"></i> Ежедневно: 09–21</p><p><i class="fas fa-phone-alt"></i> +7 (999) 765-43-21</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
             <div class="office-card"><p><i class="fas fa-map-marker-alt"></i> ул. Ленина, 7</p><p><i class="far fa-clock"></i> Пн–Пт: 10–19, Сб: 10–16</p><p><i class="fas fa-phone-alt"></i> +7 (999) 987-65-43</p><button class="route-btn" onclick="alert('Маршрут построен')">Построить маршрут</button></div>
@@ -1307,7 +949,7 @@
     overlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', closeMenu); });
 
-    // Кнопка "Наверх"
+    // Кнопка наверх
     const goTopBtn = document.getElementById('goTop');
     window.addEventListener('scroll', () => { if (window.scrollY > 300) goTopBtn.classList.add('show'); else goTopBtn.classList.remove('show'); });
     goTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
@@ -1402,25 +1044,50 @@
     document.getElementById('daysSelector').addEventListener('click', () => { let newDays = prompt('Введите срок займа в днях (от 7 до 365)', currentDays); if (newDays && !isNaN(newDays) && newDays >= 7 && newDays <= 365) { currentDays = parseInt(newDays); if (currentMode === 'loan') updateCalculator(); } });
     document.getElementById('askQuestionBtn').addEventListener('click', () => { window.open('https://t.me/Lolozik201191', '_blank'); });
 
-    // Тарифы стрелка
-    const showBtn = document.getElementById('showSocialTariffBtn');
-    const hiddenBlock = document.getElementById('socialTariff');
-    const arrowIcon = document.getElementById('arrowIcon');
-    if (showBtn) {
-        showBtn.addEventListener('click', () => {
-            hiddenBlock.classList.toggle('show');
-            if (hiddenBlock.classList.contains('show')) arrowIcon.classList.replace('fa-chevron-down', 'fa-chevron-up');
-            else arrowIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
-        });
+    // Слайдер тарифов
+    const track = document.getElementById('tariffsTrack');
+    const prevBtn = document.getElementById('prevTariffBtn');
+    const nextBtn = document.getElementById('nextTariffBtn');
+    let cardWidth = 0;
+    let visibleCards = 4;
+    let currentIndexTariff = 0;
+    const totalCards = document.querySelectorAll('.tariff-card').length;
+
+    function updateSlider() {
+        const container = document.querySelector('.tariffs-slider-container');
+        const card = document.querySelector('.tariff-card');
+        if (!card) return;
+        const containerWidth = container.clientWidth;
+        cardWidth = card.offsetWidth + 20;
+        visibleCards = Math.floor(containerWidth / cardWidth);
+        if (visibleCards < 1) visibleCards = 1;
+        const maxIndex = Math.max(0, totalCards - visibleCards);
+        if (currentIndexTariff > maxIndex) currentIndexTariff = maxIndex;
+        const translateX = -currentIndexTariff * cardWidth;
+        track.style.transform = `translateX(${translateX}px)`;
     }
 
-    // Слайдер
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentIndexTariff > 0) currentIndexTariff--;
+            updateSlider();
+        });
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = Math.max(0, totalCards - visibleCards);
+            if (currentIndexTariff < maxIndex) currentIndexTariff++;
+            updateSlider();
+        });
+        window.addEventListener('resize', () => { updateSlider(); });
+        setTimeout(updateSlider, 100);
+    }
+
+    // Слайдер фото
     const slides = document.querySelectorAll('#fullWidthSlider .slide');
     const dotsWrapper = document.getElementById('sliderDotsWrapper');
-    let currentIndex = 0, sliderInterval;
-    function createDots() { if (!dotsWrapper) return; dotsWrapper.innerHTML = ''; slides.forEach((_, i) => { const dot = document.createElement('span'); dot.classList.add('dot'); if (i === currentIndex) dot.classList.add('active'); dot.addEventListener('click', () => { goToSlide(i); resetInterval(); }); dotsWrapper.appendChild(dot); }); }
-    function goToSlide(index) { slides.forEach((s, i) => s.classList.toggle('active', i === index)); document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === index)); currentIndex = index; }
-    function nextSlide() { goToSlide((currentIndex + 1) % slides.length); }
+    let currentIndexSlide = 0, sliderInterval;
+    function createDots() { if (!dotsWrapper) return; dotsWrapper.innerHTML = ''; slides.forEach((_, i) => { const dot = document.createElement('span'); dot.classList.add('dot'); if (i === currentIndexSlide) dot.classList.add('active'); dot.addEventListener('click', () => { goToSlide(i); resetInterval(); }); dotsWrapper.appendChild(dot); }); }
+    function goToSlide(index) { slides.forEach((s, i) => s.classList.toggle('active', i === index)); document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === index)); currentIndexSlide = index; }
+    function nextSlide() { goToSlide((currentIndexSlide + 1) % slides.length); }
     function startSlider() { sliderInterval = setInterval(nextSlide, 4000); }
     function resetInterval() { clearInterval(sliderInterval); startSlider(); }
     if (slides.length > 0) { createDots(); startSlider(); }
