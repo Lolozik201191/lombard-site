@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #cfdde6 0%, #bccad6 100%);
+            background: linear-gradient(150deg, #cfdde6 0%, #bccad6 100%);
             color: #1e2a3a;
             line-height: 1.5;
             scroll-behavior: smooth;
@@ -448,6 +448,10 @@
             font-weight: 600;
             color: #1e2a3a;
             margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .rates-grid {
@@ -518,12 +522,12 @@
         }
 
         .hero-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #ffffff;
-            line-height: 1.3;
-            margin: 0 0 20px 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e2a3a;
+    line-height: 1.3;
+    margin: 0 0 20px 0;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
         }
 
         .photos-grid {
@@ -572,36 +576,6 @@
             .hero-description-text { max-width: 100%; padding: 16px; }
             .hero-title { font-size: 1.5rem; }
             .rates-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* Стили для полей ввода в калькуляторе */
-        .param-input {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 12px 16px;
-            font-size: 0.95rem;
-            color: #1e2a3a;
-            width: 100%;
-            transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-        }
-
-        .param-input:focus {
-            outline: none;
-            border-color: #D4AF37;
-            transform: translateY(-1px);
-        }
-
-        .param-input:hover {
-            border-color: #D4AF37;
-        }
-
-        .param-unit {
-            font-size: 0.75rem;
-            color: #5c6f87;
-            margin-left: 8px;
         }
 
         .calculator-full-width {
@@ -691,10 +665,29 @@
             font-weight: 500;
         }
 
-        .weight-input-wrapper {
+        .param-value {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 12px 16px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: #1e2a3a;
+            transition: all 0.2s;
+        }
+
+        .param-value i {
+            font-size: 0.8rem;
+            color: #D4AF37;
+            transition: transform 0.2s;
+        }
+
+        .param-value:hover {
+            border-color: #D4AF37;
+            transform: translateY(-1px);
         }
 
         .purities-grid-sunlight {
@@ -835,7 +828,6 @@
             .params-row { flex-direction: column; gap: 12px; }
             .purities-grid-sunlight { gap: 8px; grid-template-columns: repeat(3, 1fr); }
             .result-value { font-size: 1.4rem; }
-            .param-input { padding: 10px 14px; }
         }
 
         .container {
@@ -1426,6 +1418,7 @@
                 justify-content: space-between;
                 margin-bottom: 0;
             }
+            /* Скрываем правую часть на мобильных - остаётся только логотип и бургер */
             .navbar-contacts {
                 display: none !important;
             }
@@ -1582,14 +1575,8 @@
                     <div class="calc-left">
                         <div class="calc-switch"><div class="calc-switch-btn active" data-mode="loan">Займ</div><div class="calc-switch-btn" data-mode="buyout">Выкуп</div></div>
                         <div class="params-row">
-                            <div class="param-item">
-                                <label>Вес изделия (г)</label>
-                                <input type="number" id="weightInput" value="1" step="0.1" min="0.5" max="50" class="param-input">
-                            </div>
-                            <div class="param-item" id="daysParamItem">
-                                <label>Срок займа (дней)</label>
-                                <input type="number" id="daysInput" value="30" step="1" min="7" max="365" class="param-input">
-                            </div>
+                            <div class="param-item"><label>Вес изделия</label><div class="param-value" id="weightSelector"><span id="weightDisplay">1 г</span><i class="fas fa-chevron-down"></i></div></div>
+                            <div class="param-item" id="daysParamItem"><label>Срок займа</label><div class="param-value" id="daysSelector"><span id="daysDisplay">30 дней</span><i class="fas fa-chevron-down"></i></div></div>
                         </div>
                         <div class="purities-grid-sunlight">
                             <div class="purity-card-sunlight" data-purity="375" data-price="3250" data-buyout="3650"><i class="fas fa-coins"></i><span class="purity-value">375</span><span class="purity-price">3 250 ₽</span></div>
@@ -1799,7 +1786,7 @@
         } catch (error) { document.getElementById('updateDate').innerHTML = 'Не удалось загрузить'; }
     }
 
-    // Калькулятор с полями ввода
+    // Калькулятор
     let currentMode = 'loan';
     let currentPurity = 585;
     let currentPrice = 5070;
@@ -1808,24 +1795,9 @@
     let currentDays = 30;
     const DAILY_RATE = 0.00293;
 
-    // Элементы полей ввода
-    const weightInput = document.getElementById('weightInput');
-    const daysInput = document.getElementById('daysInput');
-
     function updateCalculator() {
-        // Получаем значения из полей ввода
-        currentWeight = parseFloat(weightInput.value);
-        currentDays = parseInt(daysInput.value);
-        
-        // Проверка на корректность
-        if (isNaN(currentWeight) || currentWeight < 0.5) currentWeight = 0.5;
-        if (isNaN(currentDays) || currentDays < 7) currentDays = 7;
-        if (currentWeight > 50) currentWeight = 50;
-        if (currentDays > 365) currentDays = 365;
-        
         let totalAmount, resultLabelText;
         const tariffRow = document.getElementById('tariffRow'), dailyRateRow = document.getElementById('dailyRateRow'), interestRow = document.getElementById('interestRow'), daysParamItem = document.getElementById('daysParamItem'), resultSide = document.getElementById('resultSide');
-        
         if (currentMode === 'loan') {
             totalAmount = currentPrice * currentWeight;
             resultLabelText = '💰 Выдадим на руки (займ)';
@@ -1849,13 +1821,12 @@
             if (resultSide) resultSide.classList.add('buyout-mode');
         }
         const amountSpan = document.getElementById('loanAmount');
-        amountSpan.innerHTML = totalAmount.toLocaleString('ru-RU') + ' ₽';
+        const newValue = totalAmount;
+        amountSpan.innerHTML = newValue.toLocaleString('ru-RU') + ' ₽';
         document.getElementById('resultLabel').innerHTML = resultLabelText;
+        document.getElementById('weightDisplay').innerHTML = currentWeight + ' г';
+        document.getElementById('daysDisplay').innerHTML = currentDays + ' дней';
     }
-
-    // Слушатели событий для полей ввода
-    weightInput.addEventListener('input', updateCalculator);
-    daysInput.addEventListener('input', updateCalculator);
 
     document.querySelectorAll('.calc-switch-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1890,6 +1861,22 @@
         });
     });
 
+    document.getElementById('weightSelector').addEventListener('click', () => {
+        let newWeight = prompt('Введите вес в граммах (от 0.5 до 50)', currentWeight);
+        if (newWeight && !isNaN(newWeight) && newWeight > 0 && newWeight <= 50) {
+            currentWeight = parseFloat(newWeight);
+            updateCalculator();
+        }
+    });
+
+    document.getElementById('daysSelector').addEventListener('click', () => {
+        let newDays = prompt('Введите срок займа в днях (от 7 до 365)', currentDays);
+        if (newDays && !isNaN(newDays) && newDays >= 7 && newDays <= 365) {
+            currentDays = parseInt(newDays);
+            if (currentMode === 'loan') updateCalculator();
+        }
+    });
+
     document.getElementById('askQuestionBtn').addEventListener('click', () => {
         window.open('https://t.me/Lolozik201191', '_blank');
     });
@@ -1903,17 +1890,18 @@
     let currentIndex = 0;
     let cardWidth = 0;
     let visibleCards = 4;
-    let totalCards = 5;
+    let totalCards = 5; // 5 тарифов
     let isTransitioning = false;
     let cloneCards = [];
 
+    // Функция для обновления размеров
     function updateCardWidth() {
         const container = document.querySelector('.tariffs-slider-container');
         if (!container) return;
         const containerWidth = container.clientWidth;
         const firstCard = document.querySelector('.tariff-card');
         if (firstCard) {
-            cardWidth = firstCard.offsetWidth + 24;
+            cardWidth = firstCard.offsetWidth + 24; // + gap
         }
         if (cardWidth > 0) {
             visibleCards = Math.floor(containerWidth / cardWidth);
@@ -1921,16 +1909,26 @@
         }
     }
 
+    // Создаём клоны для бесконечной прокрутки
     function setupInfiniteCarousel() {
         const originalCards = document.querySelectorAll('.tariff-card');
         totalCards = originalCards.length;
+        
+        // Очищаем трек
         track.innerHTML = '';
+        
+        // Добавляем клоны: [последний, ...оригиналы..., первый]
         const lastClone = originalCards[totalCards - 1].cloneNode(true);
         const firstClone = originalCards[0].cloneNode(true);
+        
         track.appendChild(lastClone);
         originalCards.forEach(card => track.appendChild(card.cloneNode(true)));
         track.appendChild(firstClone);
+        
+        // Сохраняем все карточки в карусели
         cloneCards = document.querySelectorAll('.tariff-card');
+        
+        // Устанавливаем начальную позицию (на первый оригинальный элемент)
         currentIndex = 1;
         updateSliderPosition(false);
         updateDotsInfinite();
@@ -1941,18 +1939,22 @@
         const offset = -currentIndex * cardWidth;
         track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
         track.style.transform = `translateX(${offset}px)`;
+        
         if (!animate) {
+            // Force reflow
             track.offsetHeight;
         }
     }
 
     function handleTransitionEnd() {
         isTransitioning = false;
+        // Если дошли до клона последнего (индекс totalCards)
         if (currentIndex >= totalCards + 1) {
             currentIndex = 1;
             updateSliderPosition(false);
             updateDotsInfinite();
         }
+        // Если дошли до клона первого (индекс 0)
         if (currentIndex <= 0) {
             currentIndex = totalCards;
             updateSliderPosition(false);
@@ -1994,6 +1996,7 @@
         updateSliderPosition(true);
     }
 
+    // Инициализация карусели
     function initInfiniteCarousel() {
         updateCardWidth();
         setupInfiniteCarousel();
