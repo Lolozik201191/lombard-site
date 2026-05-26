@@ -475,6 +475,7 @@
             flex-wrap: nowrap;
             gap: 0;
             flex: 1;
+            justify-content: space-between;
         }
 
         .metal-item {
@@ -482,17 +483,17 @@
             gap: 8px;
             align-items: center;
             flex-wrap: nowrap;
-            padding: 0 12px;
-            border-right: 2px solid #e2e8f0;
+            padding: 0;
+            position: relative;
         }
 
-        .metal-item:first-child {
-            padding-left: 0;
-        }
-
-        .metal-item:last-child {
-            border-right: none;
-            padding-right: 0;
+        .metal-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            height: 24px;
+            width: 1px;
+            background-color: #e2e8f0;
         }
 
         /* Стили для слитков */
@@ -585,8 +586,10 @@
                 gap: 12px;
                 width: 100%;
             }
+            .metal-item:not(:last-child)::after {
+                display: none;
+            }
             .metal-item {
-                border-right: none;
                 border-bottom: 1px solid #e2e8f0;
                 padding: 8px 0;
                 justify-content: space-between;
@@ -1646,22 +1649,22 @@
                             <div class="metal-item">
                                 <span class="bar-icon gold-bar"></span>
                                 <span class="metal-label">Золото</span>
-                                <span class="metal-value" id="goldPrice">— ₽</span>
+                                <span class="metal-value" id="goldPrice">—</span>
                             </div>
                             <div class="metal-item">
                                 <span class="bar-icon silver-bar"></span>
                                 <span class="metal-label">Серебро</span>
-                                <span class="metal-value" id="silverPrice">— ₽</span>
+                                <span class="metal-value" id="silverPrice">—</span>
                             </div>
                             <div class="metal-item">
                                 <span class="bar-icon platinum-bar"></span>
                                 <span class="metal-label">Платина</span>
-                                <span class="metal-value" id="platinumPrice">— ₽</span>
+                                <span class="metal-value" id="platinumPrice">—</span>
                             </div>
                             <div class="metal-item">
                                 <span class="bar-icon palladium-bar"></span>
                                 <span class="metal-label">Палладий</span>
-                                <span class="metal-value" id="palladiumPrice">— ₽</span>
+                                <span class="metal-value" id="palladiumPrice">—</span>
                             </div>
                         </div>
                     </div>
@@ -1894,10 +1897,10 @@
             if (!response.ok) throw new Error();
             const data = await response.json();
             if (data.cbr_price) {
-                document.getElementById('goldPrice').innerHTML = Math.floor(data.cbr_price).toLocaleString('ru-RU') + ' ₽';
-                document.getElementById('silverPrice').innerHTML = '175 ₽';
-                document.getElementById('platinumPrice').innerHTML = '4 483 ₽';
-                document.getElementById('palladiumPrice').innerHTML = '3 196 ₽';
+                document.getElementById('goldPrice').innerHTML = Math.floor(data.cbr_price).toLocaleString('ru-RU');
+                document.getElementById('silverPrice').innerHTML = '175';
+                document.getElementById('platinumPrice').innerHTML = '4 483';
+                document.getElementById('palladiumPrice').innerHTML = '3 196';
                 document.getElementById('updateDate').innerHTML = data.date || '26.05.2026';
             }
         } catch (error) { 
