@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(150deg, #cfdde6 0%, #bccad6 100%);
+            background: linear-gradient(145deg, #cfdde6 0%, #bccad6 100%);
             color: #1e2a3a;
             line-height: 1.5;
             scroll-behavior: smooth;
@@ -432,88 +432,88 @@
             transform: scale(1.3);
         }
 
+        /* Блок курсов — компактный, цены справа от названия */
         .cbr-rates-card {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 28px;
-            padding: 12px 20px;
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #D4AF37;
+            border-radius: 20px;
+            padding: 16px 24px;
             margin-bottom: 24px;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
         }
 
-        .cbr-rates-card h3 {
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #1e2a3a;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+        .rates-compact {
+            width: 100%;
         }
 
-        .rates-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-
-        .rate-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 6px 12px;
-            background: white;
-            border-radius: 60px;
-            font-size: 0.75rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .rate-icon {
-            font-size: 1.2rem;
-            width: 28px;
-            text-align: center;
-        }
-
-        .rate-icon.gold { color: #D4AF37; }
-        .rate-icon.silver { color: #8c9aa8; }
-        .rate-icon.platinum { color: #e5e8eb; text-shadow: 0 0 1px #aaa; }
-        .rate-icon.palladium { color: #b0bec5; }
-
-        .rate-info {
-            flex: 1;
+        .rates-header {
             display: flex;
             justify-content: space-between;
-            gap: 8px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .metal-name {
-            font-weight: 500;
-            color: #1e2a3a;
-        }
-
-        .metal-price {
+        .rates-title-main {
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #0D0D0D;
+            color: #1e2a3a;
+            line-height: 1.2;
         }
 
-        .cbr-note {
-            text-align: center;
-            font-size: 0.55rem;
+        .rates-date {
+            font-size: 0.7rem;
             color: #5c6f87;
-            margin-top: 10px;
-            padding-top: 6px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: 2px;  /* Минимальный отступ */
         }
 
-        .cbr-update {
-            font-size: 0.55rem;
-            text-align: center;
+        .rates-metals {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .metal-item {
+            display: flex;
+            gap: 6px;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .metal-label {
+            font-size: 0.8rem;
             color: #5c6f87;
-            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .metal-value {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #D4AF37;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .cbr-rates-card {
+                padding: 12px 16px;
+            }
+            .rates-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .rates-metals {
+                gap: 12px;
+                margin-top: 8px;
+            }
+            .metal-label {
+                font-size: 0.7rem;
+            }
+            .metal-value {
+                font-size: 0.8rem;
+            }
+            .rates-title-main {
+                font-size: 1.1rem;
+            }
         }
 
         .hero-single-col {
@@ -522,12 +522,12 @@
         }
 
         .hero-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #1e2a3a;
-    line-height: 1.3;
-    margin: 0 0 20px 0;
-    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e2a3a;
+            line-height: 1.3;
+            margin: 0 0 20px 0;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.5);
         }
 
         .photos-grid {
@@ -575,7 +575,30 @@
         @media (max-width: 640px) {
             .hero-description-text { max-width: 100%; padding: 16px; }
             .hero-title { font-size: 1.5rem; }
-            .rates-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Стили для полей ввода в калькуляторе */
+        .param-input {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            color: #1e2a3a;
+            width: 100%;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .param-input:focus {
+            outline: none;
+            border-color: #D4AF37;
+            transform: translateY(-1px);
+        }
+
+        .param-input:hover {
+            border-color: #D4AF37;
         }
 
         .calculator-full-width {
@@ -663,31 +686,6 @@
             display: block;
             margin-bottom: 6px;
             font-weight: 500;
-        }
-
-        .param-value {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 12px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-size: 0.95rem;
-            color: #1e2a3a;
-            transition: all 0.2s;
-        }
-
-        .param-value i {
-            font-size: 0.8rem;
-            color: #D4AF37;
-            transition: transform 0.2s;
-        }
-
-        .param-value:hover {
-            border-color: #D4AF37;
-            transform: translateY(-1px);
         }
 
         .purities-grid-sunlight {
@@ -828,6 +826,7 @@
             .params-row { flex-direction: column; gap: 12px; }
             .purities-grid-sunlight { gap: 8px; grid-template-columns: repeat(3, 1fr); }
             .result-value { font-size: 1.4rem; }
+            .param-input { padding: 10px 14px; }
         }
 
         .container {
@@ -854,13 +853,12 @@
         h2 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #ffffff;
+            color: #1e2a3a;
             display: inline-block;
             margin-bottom: 30px;
             letter-spacing: -0.01em;
             border-left: 4px solid #D4AF37;
             padding-left: 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .services-advantages-grid {
@@ -1100,10 +1098,10 @@
         .tariff-note {
             text-align: center;
             font-size: 0.7rem;
-            color: #ffffff;
+            color: #5c6f87;
             margin-top: 20px;
             padding-top: 16px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         .about-stats-grid {
@@ -1418,7 +1416,6 @@
                 justify-content: space-between;
                 margin-bottom: 0;
             }
-            /* Скрываем правую часть на мобильных - остаётся только логотип и бургер */
             .navbar-contacts {
                 display: none !important;
             }
@@ -1546,17 +1543,37 @@
                 </div>
             </div>
             <div class="slider-dots-wrapper" id="sliderDotsWrapper"></div>
+            
+            <!-- НОВЫЙ БЛОК КУРСОВ -->
             <div class="cbr-rates-card" id="cbrRatesCard">
-                <h3>Курсы драгметаллов</h3>
-                <div class="rates-grid" id="ratesGrid">
-                    <div class="rate-item"><div class="rate-icon gold"><i class="fas fa-coins"></i></div><div class="rate-info"><span class="metal-name">Золото (999)</span><span class="metal-price" id="goldPrice">— ₽</span></div></div>
-                    <div class="rate-item"><div class="rate-icon silver"><i class="fas fa-ring"></i></div><div class="rate-info"><span class="metal-name">Серебро (999)</span><span class="metal-price" id="silverPrice">— ₽</span></div></div>
-                    <div class="rate-item"><div class="rate-icon platinum"><i class="fas fa-coins"></i></div><div class="rate-info"><span class="metal-name">Платина (999)</span><span class="metal-price" id="platinumPrice">— ₽</span></div></div>
-                    <div class="rate-item"><div class="rate-icon palladium"><i class="fas fa-coins"></i></div><div class="rate-info"><span class="metal-name">Палладий (999)</span><span class="metal-price" id="palladiumPrice">— ₽</span></div></div>
+                <div class="rates-compact">
+                    <div class="rates-header">
+                        <div class="rates-title">
+                            <div class="rates-title-main">Курсы</div>
+                            <div class="rates-date" id="updateDate">Загрузка...</div>
+                        </div>
+                        <div class="rates-metals">
+                            <div class="metal-item">
+                                <span class="metal-label">Золото</span>
+                                <span class="metal-value" id="goldPrice">— ₽</span>
+                            </div>
+                            <div class="metal-item">
+                                <span class="metal-label">Серебро</span>
+                                <span class="metal-value" id="silverPrice">— ₽</span>
+                            </div>
+                            <div class="metal-item">
+                                <span class="metal-label">Платина</span>
+                                <span class="metal-value" id="platinumPrice">— ₽</span>
+                            </div>
+                            <div class="metal-item">
+                                <span class="metal-label">Палладий</span>
+                                <span class="metal-value" id="palladiumPrice">— ₽</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="cbr-note"><i class="fas fa-building-columns"></i> Официальные данные Банка России</div>
-                <div class="cbr-update" id="updateDate">Загрузка...</div>
             </div>
+
             <div class="hero-single-col">
                 <div class="hero-title">Выгодные займы<br>под залог золота</div>
                 <div class="photos-grid">
@@ -1575,8 +1592,14 @@
                     <div class="calc-left">
                         <div class="calc-switch"><div class="calc-switch-btn active" data-mode="loan">Займ</div><div class="calc-switch-btn" data-mode="buyout">Выкуп</div></div>
                         <div class="params-row">
-                            <div class="param-item"><label>Вес изделия</label><div class="param-value" id="weightSelector"><span id="weightDisplay">1 г</span><i class="fas fa-chevron-down"></i></div></div>
-                            <div class="param-item" id="daysParamItem"><label>Срок займа</label><div class="param-value" id="daysSelector"><span id="daysDisplay">30 дней</span><i class="fas fa-chevron-down"></i></div></div>
+                            <div class="param-item">
+                                <label>Вес изделия (г)</label>
+                                <input type="number" id="weightInput" value="1" step="0.1" min="0.5" max="50" class="param-input">
+                            </div>
+                            <div class="param-item" id="daysParamItem">
+                                <label>Срок займа (дней)</label>
+                                <input type="number" id="daysInput" value="30" step="1" min="7" max="365" class="param-input">
+                            </div>
                         </div>
                         <div class="purities-grid-sunlight">
                             <div class="purity-card-sunlight" data-purity="375" data-price="3250" data-buyout="3650"><i class="fas fa-coins"></i><span class="purity-value">375</span><span class="purity-price">3 250 ₽</span></div>
@@ -1778,15 +1801,17 @@
             const data = await response.json();
             if (data.cbr_price) {
                 document.getElementById('goldPrice').innerHTML = Math.floor(data.cbr_price).toLocaleString('ru-RU') + ' ₽';
-                document.getElementById('silverPrice').innerHTML = '172 ₽';
-                document.getElementById('platinumPrice').innerHTML = '4 406 ₽';
-                document.getElementById('palladiumPrice').innerHTML = '3 093 ₽';
-                document.getElementById('updateDate').innerHTML = `Обновлено: ${data.date || '22.05.2026'}`;
+                document.getElementById('silverPrice').innerHTML = '175 ₽';
+                document.getElementById('platinumPrice').innerHTML = '4 483 ₽';
+                document.getElementById('palladiumPrice').innerHTML = '3 196 ₽';
+                document.getElementById('updateDate').innerHTML = data.date || '26.05.2026';
             }
-        } catch (error) { document.getElementById('updateDate').innerHTML = 'Не удалось загрузить'; }
+        } catch (error) { 
+            document.getElementById('updateDate').innerHTML = '26.05.2026';
+        }
     }
 
-    // Калькулятор
+    // Калькулятор с полями ввода
     let currentMode = 'loan';
     let currentPurity = 585;
     let currentPrice = 5070;
@@ -1795,9 +1820,21 @@
     let currentDays = 30;
     const DAILY_RATE = 0.00293;
 
+    const weightInput = document.getElementById('weightInput');
+    const daysInput = document.getElementById('daysInput');
+
     function updateCalculator() {
+        currentWeight = parseFloat(weightInput.value);
+        currentDays = parseInt(daysInput.value);
+        
+        if (isNaN(currentWeight) || currentWeight < 0.5) currentWeight = 0.5;
+        if (isNaN(currentDays) || currentDays < 7) currentDays = 7;
+        if (currentWeight > 50) currentWeight = 50;
+        if (currentDays > 365) currentDays = 365;
+        
         let totalAmount, resultLabelText;
         const tariffRow = document.getElementById('tariffRow'), dailyRateRow = document.getElementById('dailyRateRow'), interestRow = document.getElementById('interestRow'), daysParamItem = document.getElementById('daysParamItem'), resultSide = document.getElementById('resultSide');
+        
         if (currentMode === 'loan') {
             totalAmount = currentPrice * currentWeight;
             resultLabelText = '💰 Выдадим на руки (займ)';
@@ -1821,12 +1858,12 @@
             if (resultSide) resultSide.classList.add('buyout-mode');
         }
         const amountSpan = document.getElementById('loanAmount');
-        const newValue = totalAmount;
-        amountSpan.innerHTML = newValue.toLocaleString('ru-RU') + ' ₽';
+        amountSpan.innerHTML = totalAmount.toLocaleString('ru-RU') + ' ₽';
         document.getElementById('resultLabel').innerHTML = resultLabelText;
-        document.getElementById('weightDisplay').innerHTML = currentWeight + ' г';
-        document.getElementById('daysDisplay').innerHTML = currentDays + ' дней';
     }
+
+    weightInput.addEventListener('input', updateCalculator);
+    daysInput.addEventListener('input', updateCalculator);
 
     document.querySelectorAll('.calc-switch-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1861,22 +1898,6 @@
         });
     });
 
-    document.getElementById('weightSelector').addEventListener('click', () => {
-        let newWeight = prompt('Введите вес в граммах (от 0.5 до 50)', currentWeight);
-        if (newWeight && !isNaN(newWeight) && newWeight > 0 && newWeight <= 50) {
-            currentWeight = parseFloat(newWeight);
-            updateCalculator();
-        }
-    });
-
-    document.getElementById('daysSelector').addEventListener('click', () => {
-        let newDays = prompt('Введите срок займа в днях (от 7 до 365)', currentDays);
-        if (newDays && !isNaN(newDays) && newDays >= 7 && newDays <= 365) {
-            currentDays = parseInt(newDays);
-            if (currentMode === 'loan') updateCalculator();
-        }
-    });
-
     document.getElementById('askQuestionBtn').addEventListener('click', () => {
         window.open('https://t.me/Lolozik201191', '_blank');
     });
@@ -1890,18 +1911,16 @@
     let currentIndex = 0;
     let cardWidth = 0;
     let visibleCards = 4;
-    let totalCards = 5; // 5 тарифов
+    let totalCards = 5;
     let isTransitioning = false;
-    let cloneCards = [];
 
-    // Функция для обновления размеров
     function updateCardWidth() {
         const container = document.querySelector('.tariffs-slider-container');
         if (!container) return;
         const containerWidth = container.clientWidth;
         const firstCard = document.querySelector('.tariff-card');
         if (firstCard) {
-            cardWidth = firstCard.offsetWidth + 24; // + gap
+            cardWidth = firstCard.offsetWidth + 24;
         }
         if (cardWidth > 0) {
             visibleCards = Math.floor(containerWidth / cardWidth);
@@ -1909,26 +1928,15 @@
         }
     }
 
-    // Создаём клоны для бесконечной прокрутки
     function setupInfiniteCarousel() {
         const originalCards = document.querySelectorAll('.tariff-card');
         totalCards = originalCards.length;
-        
-        // Очищаем трек
         track.innerHTML = '';
-        
-        // Добавляем клоны: [последний, ...оригиналы..., первый]
         const lastClone = originalCards[totalCards - 1].cloneNode(true);
         const firstClone = originalCards[0].cloneNode(true);
-        
         track.appendChild(lastClone);
         originalCards.forEach(card => track.appendChild(card.cloneNode(true)));
         track.appendChild(firstClone);
-        
-        // Сохраняем все карточки в карусели
-        cloneCards = document.querySelectorAll('.tariff-card');
-        
-        // Устанавливаем начальную позицию (на первый оригинальный элемент)
         currentIndex = 1;
         updateSliderPosition(false);
         updateDotsInfinite();
@@ -1939,22 +1947,18 @@
         const offset = -currentIndex * cardWidth;
         track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
         track.style.transform = `translateX(${offset}px)`;
-        
         if (!animate) {
-            // Force reflow
             track.offsetHeight;
         }
     }
 
     function handleTransitionEnd() {
         isTransitioning = false;
-        // Если дошли до клона последнего (индекс totalCards)
         if (currentIndex >= totalCards + 1) {
             currentIndex = 1;
             updateSliderPosition(false);
             updateDotsInfinite();
         }
-        // Если дошли до клона первого (индекс 0)
         if (currentIndex <= 0) {
             currentIndex = totalCards;
             updateSliderPosition(false);
@@ -1996,7 +2000,6 @@
         updateSliderPosition(true);
     }
 
-    // Инициализация карусели
     function initInfiniteCarousel() {
         updateCardWidth();
         setupInfiniteCarousel();
