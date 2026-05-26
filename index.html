@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #cfdde6 0%, #bccad6 100%);
+            background: linear-gradient(145deg, #faf6f0 0%, #efe8df 100%);
             color: #1e2a3a;
             line-height: 1.5;
             scroll-behavior: smooth;
@@ -371,13 +371,14 @@
             padding: 20px 0 40px;
         }
 
+        /* Слайдер с золотой рамкой */
         .full-width-slider {
             width: 100%;
             margin-bottom: 16px;
             overflow: hidden;
             aspect-ratio: 16 / 9;
             border-radius: 24px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
         }
 
         .full-width-slider .slides-container {
@@ -396,7 +397,9 @@
             transition: opacity 0.6s ease-in-out;
             background-size: cover;
             background-position: center;
-            border-radius: 24px;
+            border-radius: 22px;
+            border: 2px solid #D4AF37;
+            box-sizing: border-box;
         }
 
         .full-width-slider .slide.active {
@@ -425,7 +428,7 @@
             transform: scale(1.3);
         }
 
-        /* Блок курсов — увеличенные металлы и цены, разделители, без переноса */
+        /* Блок курсов */
         .cbr-rates-card {
             background: rgba(255,255,255,0.96);
             border: 1px solid #D4AF37;
@@ -516,7 +519,6 @@
             opacity: 0.7;
         }
 
-        /* Цвета слитков */
         .gold-bar {
             background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
             border: 1px solid #F0C674;
@@ -626,10 +628,16 @@
             width: 100%;
             height: auto;
             border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 2px solid #D4AF37;
             transition: all 0.3s;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             object-fit: cover;
+            box-sizing: border-box;
+        }
+
+        .photo-item img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.2);
         }
 
         @media (max-width: 640px) { .photo-item img { max-width: 130px; } }
@@ -688,7 +696,7 @@
             width: 100%;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid #D4AF37;
             border-radius: 32px;
             padding: 28px;
             margin-top: 20px;
@@ -922,7 +930,7 @@
 
         section {
             padding: 60px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s ease forwards;
