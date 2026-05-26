@@ -464,7 +464,7 @@
         .rates-date {
             font-size: 0.7rem;
             color: #5c6f87;
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         .rates-metals {
@@ -477,7 +477,7 @@
         .metal-item {
             display: flex;
             gap: 8px;
-            align-items: baseline;
+            align-items: center;
             flex-wrap: nowrap;
             padding: 0 12px;
             border-right: 2px solid #e2e8f0;
@@ -490,6 +490,51 @@
         .metal-item:last-child {
             border-right: none;
             padding-right: 0;
+        }
+
+        /* Стили для слитков */
+        .bar-icon {
+            display: inline-block;
+            width: 16px;
+            height: 10px;
+            border-radius: 2px;
+            margin-right: 6px;
+            position: relative;
+            top: 0px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .bar-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: inherit;
+            border-radius: 1px;
+            opacity: 0.7;
+        }
+
+        /* Цвета слитков */
+        .gold-bar {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            border: 1px solid #F0C674;
+        }
+
+        .silver-bar {
+            background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+            border: 1px solid #e2e8f0;
+        }
+
+        .platinum-bar {
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border: 1px solid #f1f5f9;
+        }
+
+        .palladium-bar {
+            background: linear-gradient(135deg, #b0bec5 0%, #90a4ae 100%);
+            border: 1px solid #cfd8dc;
         }
 
         .metal-label {
@@ -1591,18 +1636,22 @@
                         </div>
                         <div class="rates-metals">
                             <div class="metal-item">
+                                <span class="bar-icon gold-bar"></span>
                                 <span class="metal-label">Золото</span>
                                 <span class="metal-value" id="goldPrice">— ₽</span>
                             </div>
                             <div class="metal-item">
+                                <span class="bar-icon silver-bar"></span>
                                 <span class="metal-label">Серебро</span>
                                 <span class="metal-value" id="silverPrice">— ₽</span>
                             </div>
                             <div class="metal-item">
+                                <span class="bar-icon platinum-bar"></span>
                                 <span class="metal-label">Платина</span>
                                 <span class="metal-value" id="platinumPrice">— ₽</span>
                             </div>
                             <div class="metal-item">
+                                <span class="bar-icon palladium-bar"></span>
                                 <span class="metal-label">Палладий</span>
                                 <span class="metal-value" id="palladiumPrice">— ₽</span>
                             </div>
