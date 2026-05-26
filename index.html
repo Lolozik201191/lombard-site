@@ -6,7 +6,7 @@
     <title>Ломбард ДЛЯ ВАС | Займы под залог золота</title>
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135760.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -45,7 +45,6 @@
             position: relative;
         }
 
-        /* Верхняя строка */
         .navbar-top {
             display: flex;
             align-items: center;
@@ -54,7 +53,6 @@
             margin-bottom: 4px;
         }
 
-        /* Логотип — опущен на 2px вниз */
         .navbar-logo {
             position: relative;
             top: 2px;
@@ -67,7 +65,6 @@
             object-fit: contain;
         }
 
-        /* Правая верхняя часть (телефон, иконки, кнопка) — привязана к верху */
         .navbar-contacts {
             display: flex;
             align-items: center;
@@ -128,7 +125,6 @@
             transform: translateY(-2px);
         }
 
-        /* Нижняя строка (меню) — привязана к низу */
         .navbar-bottom {
             display: flex;
             justify-content: flex-end;
@@ -177,7 +173,6 @@
             display: none;
         }
 
-        /* Бургер-меню (мобильная версия) */
         .burger-btn {
             display: none;
             background: none;
@@ -277,7 +272,6 @@
             padding-top: 118px;
         }
 
-        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -342,7 +336,6 @@
             color: #aaa;
         }
 
-        /* Остальные стили */
         .go-top {
             position: fixed;
             bottom: 30px;
@@ -432,12 +425,12 @@
             transform: scale(1.3);
         }
 
-        /* Блок курсов — компактный, металлы на одной строке с "Курсы" */
+        /* Блок курсов — увеличенные шрифты для металлов и цен */
         .cbr-rates-card {
             background: rgba(255,255,255,0.96);
             border: 1px solid #D4AF37;
             border-radius: 20px;
-            padding: 16px 24px;
+            padding: 20px 28px;
             margin-bottom: 24px;
             box-shadow: 0 6px 14px rgba(0,0,0,0.08);
         }
@@ -474,27 +467,27 @@
         .rates-metals {
             display: flex;
             flex-wrap: wrap;
-            gap: 28px;
+            gap: 32px;
             flex: 1;
             justify-content: space-between;
         }
 
         .metal-item {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             align-items: baseline;
             flex-wrap: nowrap;
         }
 
         .metal-label {
-            font-size: 0.8rem;
+            font-size: 1rem;
             color: #5c6f87;
-            font-weight: 500;
+            font-weight: 600;
             white-space: nowrap;
         }
 
         .metal-value {
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: #D4AF37;
             white-space: nowrap;
@@ -516,6 +509,12 @@
             }
             .metal-item {
                 flex-wrap: wrap;
+            }
+            .metal-label {
+                font-size: 0.85rem;
+            }
+            .metal-value {
+                font-size: 1rem;
             }
         }
 
@@ -580,7 +579,6 @@
             .hero-title { font-size: 1.5rem; }
         }
 
-        /* Стили для полей ввода в калькуляторе */
         .param-input {
             background: white;
             border: 1px solid #D4AF37;
@@ -608,6 +606,7 @@
             width: 100%;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(8px);
+            border: 1px solid rgba(0,0,0,0.05);
             border-radius: 32px;
             padding: 28px;
             margin-top: 20px;
@@ -738,7 +737,6 @@
 
         .result-side {
             background: white;
-            border: 1px solid #D4AF37;
             border-radius: 28px;
             padding: 24px;
             width: 100%;
@@ -746,6 +744,7 @@
             flex-direction: column;
             justify-content: space-between;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #D4AF37;
         }
 
         .result-amount-sunlight {
@@ -950,7 +949,6 @@
             color: #5c6f87;
         }
 
-        /* Тарифы слайдер - бесконечная плавная карусель */
         .tariffs-slider-container {
             position: relative;
             overflow: hidden;
@@ -1526,7 +1524,6 @@
 </div>
 <div class="overlay" id="overlay"></div>
 
-<!-- Модальное окно -->
 <div class="modal" id="callbackModal">
     <div class="modal-content">
         <span class="close-modal" id="closeModalBtn">×</span>
@@ -1548,7 +1545,6 @@
             </div>
             <div class="slider-dots-wrapper" id="sliderDotsWrapper"></div>
             
-            <!-- Блок курсов -->
             <div class="cbr-rates-card" id="cbrRatesCard">
                 <div class="rates-compact">
                     <div class="rates-header">
@@ -1906,7 +1902,7 @@
         window.open('https://t.me/Lolozik201191', '_blank');
     });
 
-    // --- Бесконечная плавная карусель для тарифов ---
+    // Бесконечная плавная карусель для тарифов
     const track = document.getElementById('tariffsTrack');
     const prevBtn = document.getElementById('prevTariffBtn');
     const nextBtn = document.getElementById('nextTariffBtn');
