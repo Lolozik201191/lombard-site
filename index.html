@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #cfdde6 0%, #bccad6 100%);
+            background: linear-gradient(145deg, #faf6f0 0%, #efe8df 100%);
             color: #1e2a3a;
             line-height: 1.5;
             scroll-behavior: smooth;
@@ -167,6 +167,10 @@
             background: rgba(212, 175, 55, 0.2);
             color: #D4AF37;
             transform: translateY(-1px);
+        }
+
+        .nav-link.about-link i {
+            display: none;
         }
 
         .burger-btn {
@@ -367,14 +371,14 @@
             padding: 20px 0 40px;
         }
 
+        /* Слайдер с золотой рамкой */
         .full-width-slider {
             width: 100%;
             margin-bottom: 16px;
             overflow: hidden;
             aspect-ratio: 16 / 9;
             border-radius: 24px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-            border: 1px solid #D4AF37;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
         }
 
         .full-width-slider .slides-container {
@@ -393,7 +397,9 @@
             transition: opacity 0.6s ease-in-out;
             background-size: cover;
             background-position: center;
-            border-radius: 24px;
+            border-radius: 22px;
+            border: 2px solid #D4AF37;
+            box-sizing: border-box;
         }
 
         .full-width-slider .slide.active {
@@ -422,15 +428,15 @@
             transform: scale(1.3);
         }
 
-        /* Блок курсов компактный */
+        /* Блок курсов */
         .cbr-rates-card {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 28px;
-            padding: 12px 20px;
-            margin-bottom: 24px;
+            background: rgba(255,255,255,0.96);
             border: 1px solid #D4AF37;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            padding: 20px 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            overflow-x: auto;
         }
 
         .rates-compact {
@@ -439,60 +445,163 @@
 
         .rates-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
             flex-wrap: wrap;
-            gap: 20px;
+            align-items: baseline;
+            min-width: max-content;
         }
 
-        .rates-title h3 {
-            font-size: 1.2rem;
+        .rates-title {
+            padding-right: 24px;
+            border-right: 2px solid #D4AF37;
+            margin-right: 24px;
+            flex-shrink: 0;
+        }
+
+        .rates-title-main {
+            font-size: 1.3rem;
             font-weight: 700;
             color: #1e2a3a;
-            margin: 0 0 4px 0;
+            line-height: 1.2;
         }
 
         .rates-date {
             font-size: 0.7rem;
             color: #5c6f87;
+            margin-top: 2px;
         }
 
         .rates-metals {
             display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
+            flex-wrap: nowrap;
+            gap: 0;
+            flex: 1;
+            justify-content: space-between;
         }
 
         .metal-item {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2px;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: nowrap;
+            padding: 0;
+            position: relative;
+        }
+
+        .metal-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            height: 24px;
+            width: 1px;
+            background-color: #e2e8f0;
+        }
+
+        /* Стили для слитков */
+        .bar-icon {
+            display: inline-block;
+            width: 16px;
+            height: 10px;
+            border-radius: 2px;
+            margin-right: 6px;
+            position: relative;
+            top: 0px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .bar-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: inherit;
+            border-radius: 1px;
+            opacity: 0.7;
+        }
+
+        .gold-bar {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            border: 1px solid #F0C674;
+        }
+
+        .silver-bar {
+            background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+            border: 1px solid #e2e8f0;
+        }
+
+        .platinum-bar {
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border: 1px solid #f1f5f9;
+        }
+
+        .palladium-bar {
+            background: linear-gradient(135deg, #b0bec5 0%, #90a4ae 100%);
+            border: 1px solid #cfd8dc;
         }
 
         .metal-label {
-            font-size: 0.7rem;
+            font-size: 1.1rem;
             color: #5c6f87;
-            font-weight: 500;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         .metal-value {
-            font-size: 1rem;
-            font-weight: 700;
+            font-size: 1.3rem;
+            font-weight: 800;
             color: #D4AF37;
             white-space: nowrap;
         }
 
+        @media (max-width: 1024px) {
+            .cbr-rates-card {
+                overflow-x: auto;
+            }
+            .rates-header {
+                min-width: 800px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .cbr-rates-card {
+                padding: 16px;
+            }
             .rates-header {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 16px;
+                min-width: auto;
+            }
+            .rates-title {
+                border-right: none;
+                padding-right: 0;
+                margin-right: 0;
+                border-bottom: 2px solid #D4AF37;
+                padding-bottom: 12px;
+                width: 100%;
             }
             .rates-metals {
-                gap: 16px;
+                flex-wrap: wrap;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+            .metal-item:not(:last-child)::after {
+                display: none;
+            }
+            .metal-item {
+                border-bottom: 1px solid #e2e8f0;
+                padding: 8px 0;
+                justify-content: space-between;
+            }
+            .metal-item:last-child {
+                border-bottom: none;
+            }
+            .metal-label {
+                font-size: 1rem;
             }
             .metal-value {
-                font-size: 0.85rem;
+                font-size: 1.1rem;
             }
         }
 
@@ -522,10 +631,16 @@
             width: 100%;
             height: auto;
             border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 2px solid #D4AF37;
             transition: all 0.3s;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             object-fit: cover;
+            box-sizing: border-box;
+        }
+
+        .photo-item img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.2);
         }
 
         @media (max-width: 640px) { .photo-item img { max-width: 130px; } }
@@ -738,9 +853,10 @@
             letter-spacing: 0.5px;
         }
 
+        /* ИТОГОВАЯ СУММА — ЧЁРНЫЙ ЦВЕТ */
         .result-value {
             font-size: 1.8rem;
-            font-weight: 800;
+            font-weight: 700;
             color: #1e2a3a;
             line-height: 1.2;
             transition: all 0.2s;
@@ -818,7 +934,7 @@
 
         section {
             padding: 60px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s ease forwards;
@@ -927,7 +1043,6 @@
             color: #5c6f87;
         }
 
-        /* Тарифы слайдер - бесконечная плавная карусель */
         .tariffs-slider-container {
             position: relative;
             overflow: hidden;
@@ -1082,7 +1197,7 @@
             color: #5c6f87;
             margin-top: 20px;
             padding-top: 16px;
-            border-top: 1px solid #eef2f6;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         .about-stats-grid {
@@ -1477,7 +1592,7 @@
                 <li><a href="#services" class="nav-link"><i class="fas fa-gem"></i> Услуги</a></li>
                 <li><a href="#tariffs" class="nav-link"><i class="fas fa-tags"></i> Тарифы</a></li>
                 <li><a href="#offices-section" class="nav-link"><i class="fas fa-map-marker-alt"></i> Адреса</a></li>
-                <li><a href="#about" class="nav-link">О компании</a></li>
+                <li><a href="#about" class="nav-link about-link">О компании</a></li>
                 <li><a href="#contacts" class="nav-link"><i class="fas fa-phone-alt"></i> Контакты</a></li>
             </ul>
         </div>
@@ -1528,29 +1643,32 @@
                 <div class="rates-compact">
                     <div class="rates-header">
                         <div class="rates-title">
-                            <h3>Курсы драгметаллов</h3>
+                            <div class="rates-title-main">Курсы</div>
                             <div class="rates-date" id="updateDate">Загрузка...</div>
                         </div>
                         <div class="rates-metals">
                             <div class="metal-item">
-                                <div class="rate-icon gold"><i class="fas fa-coins"></i></div>
-                                <div class="rate-info"><span class="metal-name">Золото (999)</span><span class="metal-price" id="goldPrice">— ₽</span></div>
+                                <span class="bar-icon gold-bar"></span>
+                                <span class="metal-label">Золото</span>
+                                <span class="metal-value" id="goldPrice">—</span>
                             </div>
                             <div class="metal-item">
-                                <div class="rate-icon silver"><i class="fas fa-ring"></i></div>
-                                <div class="rate-info"><span class="metal-name">Серебро (999)</span><span class="metal-price" id="silverPrice">— ₽</span></div>
+                                <span class="bar-icon silver-bar"></span>
+                                <span class="metal-label">Серебро</span>
+                                <span class="metal-value" id="silverPrice">—</span>
                             </div>
                             <div class="metal-item">
-                                <div class="rate-icon platinum"><i class="fas fa-coins"></i></div>
-                                <div class="rate-info"><span class="metal-name">Платина (999)</span><span class="metal-price" id="platinumPrice">— ₽</span></div>
+                                <span class="bar-icon platinum-bar"></span>
+                                <span class="metal-label">Платина</span>
+                                <span class="metal-value" id="platinumPrice">—</span>
                             </div>
                             <div class="metal-item">
-                                <div class="rate-icon palladium"><i class="fas fa-coins"></i></div>
-                                <div class="rate-info"><span class="metal-name">Палладий (999)</span><span class="metal-price" id="palladiumPrice">— ₽</span></div>
+                                <span class="bar-icon palladium-bar"></span>
+                                <span class="metal-label">Палладий</span>
+                                <span class="metal-value" id="palladiumPrice">—</span>
                             </div>
                         </div>
                     </div>
-                    <div class="cbr-note"><i class="fas fa-building-columns"></i> Официальные данные Банка России</div>
                 </div>
             </div>
 
@@ -1567,17 +1685,17 @@
                 </div>
             </div>
             <div class="calculator-full-width">
-                <h3>Рассчитайте, сколько получите</h3>
+                <h3>Рассчитайте, сколько получите<br>за продажу золота</h3>
                 <div class="calc-main-grid">
                     <div class="calc-left">
                         <div class="calc-switch"><div class="calc-switch-btn active" data-mode="loan">Займ</div><div class="calc-switch-btn" data-mode="buyout">Выкуп</div></div>
                         <div class="params-row">
                             <div class="param-item">
-                                <label>Вес изделия</label>
+                                <label>Вес изделия (г)</label>
                                 <input type="number" id="weightInput" value="1" step="0.1" min="0.5" max="50" class="param-input">
                             </div>
                             <div class="param-item" id="daysParamItem">
-                                <label>Срок займа</label>
+                                <label>Срок займа (дней)</label>
                                 <input type="number" id="daysInput" value="30" step="1" min="7" max="365" class="param-input">
                             </div>
                         </div>
@@ -1591,7 +1709,10 @@
                     </div>
                     <div class="calc-right">
                         <div class="result-side" id="resultSide">
-                            <div class="result-amount-sunlight"><span class="result-label" id="resultLabel">💰 Выдадим на руки (займ)</span><span class="result-value" id="loanAmount">5 070 ₽</span></div>
+                            <div class="result-amount-sunlight">
+                                <!-- УБРАЛИ ЗНАЧОК ДЕНЕГ --><span class="result-label" id="resultLabel">Выдадим на руки (займ)</span>
+                                <span class="result-value" id="loanAmount">5 070 ₽</span>
+                            </div>
                             <div class="result-info" id="resultInfo">
                                 <div class="info-row" id="tariffRow"><span>Тариф:</span><span id="tariffName">Оптимальный выбор</span></div>
                                 <div class="info-row" id="dailyRateRow"><span>Ставка в день:</span><span id="dailyRate">0.293% (14.86 ₽)</span></div>
@@ -1781,10 +1902,10 @@
             if (!response.ok) throw new Error();
             const data = await response.json();
             if (data.cbr_price) {
-                document.getElementById('goldPrice').innerHTML = Math.floor(data.cbr_price).toLocaleString('ru-RU') + ' ₽';
-                document.getElementById('silverPrice').innerHTML = '175 ₽';
-                document.getElementById('platinumPrice').innerHTML = '4 483 ₽';
-                document.getElementById('palladiumPrice').innerHTML = '3 196 ₽';
+                document.getElementById('goldPrice').innerHTML = Math.floor(data.cbr_price).toLocaleString('ru-RU');
+                document.getElementById('silverPrice').innerHTML = '175';
+                document.getElementById('platinumPrice').innerHTML = '4 483';
+                document.getElementById('palladiumPrice').innerHTML = '3 196';
                 document.getElementById('updateDate').innerHTML = data.date || '26.05.2026';
             }
         } catch (error) { 
@@ -1818,7 +1939,8 @@
         
         if (currentMode === 'loan') {
             totalAmount = currentPrice * currentWeight;
-            resultLabelText = '💰 Выдадим на руки (займ)';
+            // УБРАЛИ ЗНАЧОК ДЕНЕГ
+            resultLabelText = 'Выдадим на руки (займ)';
             let dailyRateRub = (totalAmount * DAILY_RATE).toFixed(2);
             let totalInterestAmount = Math.floor(totalAmount * DAILY_RATE * currentDays);
             document.getElementById('dailyRate').innerHTML = `0.293% (${dailyRateRub} ₽)`;
@@ -1831,7 +1953,8 @@
             if (resultSide) resultSide.classList.remove('buyout-mode');
         } else {
             totalAmount = currentBuyoutPrice * currentWeight;
-            resultLabelText = '💰 Сумма выкупа';
+            // УБРАЛИ ЗНАЧОК ДЕНЕГ
+            resultLabelText = 'Сумма выкупа';
             if (tariffRow) tariffRow.style.display = 'none';
             if (dailyRateRow) dailyRateRow.style.display = 'none';
             if (interestRow) interestRow.style.display = 'none';
