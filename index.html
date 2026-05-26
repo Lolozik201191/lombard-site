@@ -169,10 +169,6 @@
             transform: translateY(-1px);
         }
 
-        .nav-link.about-link i {
-            display: none;
-        }
-
         .burger-btn {
             display: none;
             background: none;
@@ -378,6 +374,7 @@
             aspect-ratio: 16 / 9;
             border-radius: 24px;
             box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border: 1px solid #D4AF37;
         }
 
         .full-width-slider .slides-container {
@@ -425,167 +422,77 @@
             transform: scale(1.3);
         }
 
-        /* Блок курсов — с цветными иконками слитков */
+        /* Блок курсов компактный */
         .cbr-rates-card {
-            background: rgba(255,255,255,0.96);
-            border: 1px solid #D4AF37;
-            border-radius: 20px;
-            padding: 20px 28px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 12px 20px;
             margin-bottom: 24px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-            overflow-x: auto;
+            border: 1px solid #D4AF37;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
         }
 
         .rates-compact {
             width: 100%;
-            min-width: 780px;
         }
 
         .rates-header {
             display: flex;
-            flex-wrap: nowrap;
-            align-items: baseline;
-            gap: 30px;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .rates-title {
-            padding-right: 24px;
-            border-right: 2px solid #D4AF37;
-            flex-shrink: 0;
-            white-space: nowrap;
-        }
-
-        .rates-title-main {
-            font-size: 1.3rem;
+        .rates-title h3 {
+            font-size: 1.2rem;
             font-weight: 700;
             color: #1e2a3a;
-            line-height: 1.2;
-            white-space: nowrap;
+            margin: 0 0 4px 0;
         }
 
         .rates-date {
             font-size: 0.7rem;
             color: #5c6f87;
-            margin-top: 4px;
-            white-space: nowrap;
         }
 
         .rates-metals {
             display: flex;
-            flex-wrap: nowrap;
-            gap: 0;
-            flex: 1;
+            flex-wrap: wrap;
+            gap: 24px;
         }
 
         .metal-item {
             display: flex;
-            gap: 8px;
-            align-items: baseline;
-            flex-wrap: nowrap;
-            padding: 0 16px;
-            border-right: 2px solid #e2e8f0;
-            white-space: nowrap;
-        }
-
-        .metal-item:first-child {
-            padding-left: 0;
-        }
-
-        .metal-item:last-child {
-            border-right: none;
-            padding-right: 0;
-        }
-
-        .ingot-icon {
-            font-size: 1.1rem;
-            width: 22px;
-            text-align: center;
-        }
-
-        .ingot-gold {
-            color: #D4AF37;
-        }
-
-        .ingot-silver {
-            color: #a8b5c4;
-        }
-
-        .ingot-platinum {
-            color: #e5e8eb;
-            text-shadow: 0 0 2px rgba(229,232,235,0.5);
-        }
-
-        .ingot-palladium {
-            color: #b0bec5;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
         }
 
         .metal-label {
-            font-size: 1.15rem;
+            font-size: 0.7rem;
             color: #5c6f87;
-            font-weight: 600;
-            white-space: nowrap;
+            font-weight: 500;
         }
 
         .metal-value {
-            font-size: 1.35rem;
-            font-weight: 800;
+            font-size: 1rem;
+            font-weight: 700;
             color: #D4AF37;
             white-space: nowrap;
         }
 
-        @media (max-width: 900px) {
-            .rates-compact {
-                min-width: auto;
-                overflow-x: auto;
-            }
-            .rates-header {
-                min-width: 780px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .cbr-rates-card {
-                padding: 16px;
-                overflow-x: auto;
-            }
-            .rates-compact {
-                min-width: auto;
-            }
             .rates-header {
                 flex-direction: column;
-                gap: 16px;
-                min-width: auto;
-            }
-            .rates-title {
-                border-right: none;
-                padding-right: 0;
-                border-bottom: 2px solid #D4AF37;
-                padding-bottom: 12px;
-                width: 100%;
+                align-items: flex-start;
             }
             .rates-metals {
-                flex-wrap: wrap;
-                flex-direction: column;
-                gap: 12px;
-                width: 100%;
-            }
-            .metal-item {
-                border-right: none;
-                border-bottom: 1px solid #e2e8f0;
-                padding: 8px 0;
-                justify-content: space-between;
-            }
-            .metal-item:last-child {
-                border-bottom: none;
-            }
-            .metal-label {
-                font-size: 1rem;
+                gap: 16px;
             }
             .metal-value {
-                font-size: 1.1rem;
-            }
-            .ingot-icon {
-                font-size: 1rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -677,7 +584,7 @@
             width: 100%;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid #D4AF37;
             border-radius: 32px;
             padding: 28px;
             margin-top: 20px;
@@ -1020,6 +927,7 @@
             color: #5c6f87;
         }
 
+        /* Тарифы слайдер - бесконечная плавная карусель */
         .tariffs-slider-container {
             position: relative;
             overflow: hidden;
@@ -1174,7 +1082,7 @@
             color: #5c6f87;
             margin-top: 20px;
             padding-top: 16px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            border-top: 1px solid #eef2f6;
         }
 
         .about-stats-grid {
@@ -1569,7 +1477,7 @@
                 <li><a href="#services" class="nav-link"><i class="fas fa-gem"></i> Услуги</a></li>
                 <li><a href="#tariffs" class="nav-link"><i class="fas fa-tags"></i> Тарифы</a></li>
                 <li><a href="#offices-section" class="nav-link"><i class="fas fa-map-marker-alt"></i> Адреса</a></li>
-                <li><a href="#about" class="nav-link about-link">О компании</a></li>
+                <li><a href="#about" class="nav-link">О компании</a></li>
                 <li><a href="#contacts" class="nav-link"><i class="fas fa-phone-alt"></i> Контакты</a></li>
             </ul>
         </div>
@@ -1620,32 +1528,29 @@
                 <div class="rates-compact">
                     <div class="rates-header">
                         <div class="rates-title">
-                            <div class="rates-title-main">Курсы</div>
+                            <h3>Курсы драгметаллов</h3>
                             <div class="rates-date" id="updateDate">Загрузка...</div>
                         </div>
                         <div class="rates-metals">
                             <div class="metal-item">
-                                <i class="fas fa-gold ingot-icon ingot-gold"></i>
-                                <span class="metal-label">Золото</span>
-                                <span class="metal-value" id="goldPrice">— ₽</span>
+                                <div class="rate-icon gold"><i class="fas fa-coins"></i></div>
+                                <div class="rate-info"><span class="metal-name">Золото (999)</span><span class="metal-price" id="goldPrice">— ₽</span></div>
                             </div>
                             <div class="metal-item">
-                                <i class="fas fa-gem ingot-icon ingot-silver"></i>
-                                <span class="metal-label">Серебро</span>
-                                <span class="metal-value" id="silverPrice">— ₽</span>
+                                <div class="rate-icon silver"><i class="fas fa-ring"></i></div>
+                                <div class="rate-info"><span class="metal-name">Серебро (999)</span><span class="metal-price" id="silverPrice">— ₽</span></div>
                             </div>
                             <div class="metal-item">
-                                <i class="fas fa-coins ingot-icon ingot-platinum"></i>
-                                <span class="metal-label">Платина</span>
-                                <span class="metal-value" id="platinumPrice">— ₽</span>
+                                <div class="rate-icon platinum"><i class="fas fa-coins"></i></div>
+                                <div class="rate-info"><span class="metal-name">Платина (999)</span><span class="metal-price" id="platinumPrice">— ₽</span></div>
                             </div>
                             <div class="metal-item">
-                                <i class="fas fa-chart-line ingot-icon ingot-palladium"></i>
-                                <span class="metal-label">Палладий</span>
-                                <span class="metal-value" id="palladiumPrice">— ₽</span>
+                                <div class="rate-icon palladium"><i class="fas fa-coins"></i></div>
+                                <div class="rate-info"><span class="metal-name">Палладий (999)</span><span class="metal-price" id="palladiumPrice">— ₽</span></div>
                             </div>
                         </div>
                     </div>
+                    <div class="cbr-note"><i class="fas fa-building-columns"></i> Официальные данные Банка России</div>
                 </div>
             </div>
 
@@ -1662,17 +1567,17 @@
                 </div>
             </div>
             <div class="calculator-full-width">
-                <h3>Рассчитайте, сколько получите<br>за продажу золота</h3>
+                <h3>Рассчитайте, сколько получите</h3>
                 <div class="calc-main-grid">
                     <div class="calc-left">
                         <div class="calc-switch"><div class="calc-switch-btn active" data-mode="loan">Займ</div><div class="calc-switch-btn" data-mode="buyout">Выкуп</div></div>
                         <div class="params-row">
                             <div class="param-item">
-                                <label>Вес изделия (г)</label>
+                                <label>Вес изделия</label>
                                 <input type="number" id="weightInput" value="1" step="0.1" min="0.5" max="50" class="param-input">
                             </div>
                             <div class="param-item" id="daysParamItem">
-                                <label>Срок займа (дней)</label>
+                                <label>Срок займа</label>
                                 <input type="number" id="daysInput" value="30" step="1" min="7" max="365" class="param-input">
                             </div>
                         </div>
@@ -1686,10 +1591,7 @@
                     </div>
                     <div class="calc-right">
                         <div class="result-side" id="resultSide">
-                            <div class="result-amount-sunlight">
-                                <span class="result-label" id="resultLabel">Выдадим на руки (займ)</span>
-                                <span class="result-value" id="loanAmount">5 070 ₽</span>
-                            </div>
+                            <div class="result-amount-sunlight"><span class="result-label" id="resultLabel">💰 Выдадим на руки (займ)</span><span class="result-value" id="loanAmount">5 070 ₽</span></div>
                             <div class="result-info" id="resultInfo">
                                 <div class="info-row" id="tariffRow"><span>Тариф:</span><span id="tariffName">Оптимальный выбор</span></div>
                                 <div class="info-row" id="dailyRateRow"><span>Ставка в день:</span><span id="dailyRate">0.293% (14.86 ₽)</span></div>
@@ -1704,6 +1606,7 @@
         </div>
     </div>
 
+    <!-- Остальные секции (тарифы, услуги, о компании, FAQ, отделения, контакты) без изменений -->
     <section id="tariffs">
         <div class="container">
             <h2>Тарифы займа</h2>
@@ -1915,7 +1818,7 @@
         
         if (currentMode === 'loan') {
             totalAmount = currentPrice * currentWeight;
-            resultLabelText = 'Выдадим на руки (займ)';
+            resultLabelText = '💰 Выдадим на руки (займ)';
             let dailyRateRub = (totalAmount * DAILY_RATE).toFixed(2);
             let totalInterestAmount = Math.floor(totalAmount * DAILY_RATE * currentDays);
             document.getElementById('dailyRate').innerHTML = `0.293% (${dailyRateRub} ₽)`;
@@ -1928,7 +1831,7 @@
             if (resultSide) resultSide.classList.remove('buyout-mode');
         } else {
             totalAmount = currentBuyoutPrice * currentWeight;
-            resultLabelText = 'Сумма выкупа';
+            resultLabelText = '💰 Сумма выкупа';
             if (tariffRow) tariffRow.style.display = 'none';
             if (dailyRateRow) dailyRateRow.style.display = 'none';
             if (interestRow) interestRow.style.display = 'none';
