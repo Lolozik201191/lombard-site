@@ -425,7 +425,7 @@
             transform: scale(1.3);
         }
 
-        /* Блок курсов — увеличенные металлы и цены, разделители, без переноса */
+        /* Блок курсов — с цветными иконками слитков */
         .cbr-rates-card {
             background: rgba(255,255,255,0.96);
             border: 1px solid #D4AF37;
@@ -438,20 +438,21 @@
 
         .rates-compact {
             width: 100%;
+            min-width: 780px;
         }
 
         .rates-header {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             align-items: baseline;
-            min-width: max-content;
+            gap: 30px;
         }
 
         .rates-title {
             padding-right: 24px;
             border-right: 2px solid #D4AF37;
-            margin-right: 24px;
             flex-shrink: 0;
+            white-space: nowrap;
         }
 
         .rates-title-main {
@@ -459,12 +460,14 @@
             font-weight: 700;
             color: #1e2a3a;
             line-height: 1.2;
+            white-space: nowrap;
         }
 
         .rates-date {
             font-size: 0.7rem;
             color: #5c6f87;
             margin-top: 4px;
+            white-space: nowrap;
         }
 
         .rates-metals {
@@ -479,8 +482,9 @@
             gap: 8px;
             align-items: baseline;
             flex-wrap: nowrap;
-            padding: 0 12px;
+            padding: 0 16px;
             border-right: 2px solid #e2e8f0;
+            white-space: nowrap;
         }
 
         .metal-item:first-child {
@@ -492,32 +496,60 @@
             padding-right: 0;
         }
 
-        .metal-label {
+        .ingot-icon {
             font-size: 1.1rem;
+            width: 22px;
+            text-align: center;
+        }
+
+        .ingot-gold {
+            color: #D4AF37;
+        }
+
+        .ingot-silver {
+            color: #a8b5c4;
+        }
+
+        .ingot-platinum {
+            color: #e5e8eb;
+            text-shadow: 0 0 2px rgba(229,232,235,0.5);
+        }
+
+        .ingot-palladium {
+            color: #b0bec5;
+        }
+
+        .metal-label {
+            font-size: 1.15rem;
             color: #5c6f87;
             font-weight: 600;
             white-space: nowrap;
         }
 
         .metal-value {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 800;
             color: #D4AF37;
             white-space: nowrap;
         }
 
-        @media (max-width: 1024px) {
-            .cbr-rates-card {
+        @media (max-width: 900px) {
+            .rates-compact {
+                min-width: auto;
                 overflow-x: auto;
             }
             .rates-header {
-                min-width: 800px;
+                min-width: 780px;
             }
         }
 
         @media (max-width: 768px) {
             .cbr-rates-card {
                 padding: 16px;
+                overflow-x: auto;
+            }
+            .rates-compact {
+                min-width: auto;
             }
             .rates-header {
                 flex-direction: column;
@@ -527,7 +559,6 @@
             .rates-title {
                 border-right: none;
                 padding-right: 0;
-                margin-right: 0;
                 border-bottom: 2px solid #D4AF37;
                 padding-bottom: 12px;
                 width: 100%;
@@ -552,6 +583,9 @@
             }
             .metal-value {
                 font-size: 1.1rem;
+            }
+            .ingot-icon {
+                font-size: 1rem;
             }
         }
 
@@ -1591,18 +1625,22 @@
                         </div>
                         <div class="rates-metals">
                             <div class="metal-item">
+                                <i class="fas fa-gold ingot-icon ingot-gold"></i>
                                 <span class="metal-label">Золото</span>
                                 <span class="metal-value" id="goldPrice">— ₽</span>
                             </div>
                             <div class="metal-item">
+                                <i class="fas fa-gem ingot-icon ingot-silver"></i>
                                 <span class="metal-label">Серебро</span>
                                 <span class="metal-value" id="silverPrice">— ₽</span>
                             </div>
                             <div class="metal-item">
+                                <i class="fas fa-coins ingot-icon ingot-platinum"></i>
                                 <span class="metal-label">Платина</span>
                                 <span class="metal-value" id="platinumPrice">— ₽</span>
                             </div>
                             <div class="metal-item">
+                                <i class="fas fa-chart-line ingot-icon ingot-palladium"></i>
                                 <span class="metal-label">Палладий</span>
                                 <span class="metal-value" id="palladiumPrice">— ₽</span>
                             </div>
@@ -2098,4 +2136,4 @@
     setInterval(loadCBRRates, 3600000);
 </script>
 </body>
-    </html>
+</html>
